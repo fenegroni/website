@@ -3,103 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filippo Negroni — AI Agent Design &amp; Agentic Workflow Orchestration</title>
+<title>Filippo Negroni | AI Agent Design &amp; Agentic Workflow Orchestration</title>
 <meta name="description" content="I design and orchestrate AI-powered workflows and agent-based ways of working for organisations of every size.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Source+Sans+3:wght@400;600&amp;display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a href="#top" class="brand">fenegroni.com</a>
-    <nav class="nav">
-      <a href="#services">Services</a>
-      <a href="#background">Background</a>
-      <a href="#case-studies">Case Studies</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <a href="#top" class="brand">fenegroni.com</a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#services">Services</a>
+        <a href="#background">Background</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="double-rule"></div>
   </div>
 </header>
 
 <main>
 
   <section class="hero" id="top">
-    <div class="wrap">
-      <h1>AI Agent Design &amp; Agentic Workflow Orchestration</h1>
-      <p class="lede">I design and orchestrate AI-powered workflows and agent-based ways of working for organisations of every size. I run discovery workshops with business leaders, map the processes that matter, and translate what I find into agent blueprints, requirements, and success metrics that a team can build from. I stay as close to the technology as I do to the people who use it, so a strategy conversation with your leadership team stays grounded in what the agent can actually do.</p>
-      <p class="lede">My approach favours augmentation over full replacement, so people keep ownership of judgement calls while agents take on the repetitive load around them. A global function and a five-person charity both start the discovery process the same way. It begins with your process, not with a product.</p>
-      <a href="#contact" class="button">Get in Touch</a>
+    <div class="wrap grid">
+      <p class="kicker span-12">Filippo Negroni · Addlestone, Surrey</p>
+      <h1 class="span-10">AI Agent Design &amp; Agentic Workflow Orchestration</h1>
+      <p class="standfirst span-8">I design and orchestrate AI-powered workflows and agent-based ways of working for organisations of every size.</p>
+      <div class="rule span-12"></div>
+      <p class="body span-6">I run discovery workshops with business leaders, map the processes that matter, and translate what I find into agent blueprints, requirements, and success metrics that a team can build from. I stay as close to the technology as I do to the people who use it, so a strategy conversation with your leadership team stays grounded in what the agent can actually do.</p>
+      <p class="body span-6">My approach favours augmentation over full replacement, so people keep ownership of judgement calls while agents take on the repetitive load around them. A global function and a five-person charity both start the discovery process the same way. It begins with your process, not with a product.</p>
+      <div class="actions span-12">
+        <a href="#contact" class="button">Get in Touch</a>
+        <a href="#sprint" class="text-link">Or book the £250 Design Sprint</a>
+      </div>
     </div>
   </section>
 
   <section class="section" id="services">
     <div class="wrap">
-      <h2>Services</h2>
+      <h2 class="section-head">Services</h2>
 
-      <div class="service">
-        <h3>AI Agent Design &amp; Discovery Workshops</h3>
-        <p>I run workshops with business leaders to identify high-value opportunities for agentic AI, then own the work from there. That covers initial scope, conversation and workflow design, tooling, evaluation, and launch, followed by iteration once the agent is live. Each stage produces artifacts an engineering team can build from, including agent blueprints, requirements, and success metrics.</p>
+      <div class="sprint" id="sprint">
+        <div class="sprint-copy">
+          <p class="kicker">Fixed price</p>
+          <h3>AI Agent Design Sprint</h3>
+          <p>This is a half-day session that maps one named business process you specify in advance. You receive a written agent blueprint within three business days, covering workflow design, requirements, and success metrics. No discovery call is required.</p>
+        </div>
+        <div class="sprint-buy">
+          <p class="price">£250</p>
+          <p class="price-note">Payable directly online</p>
+          <!-- TODO: replace href with the Stripe payment link -->
+          <a href="mailto:hello@fenegroni.com?subject=AI%20Agent%20Design%20Sprint" class="button" id="sprint-buy">Book the Sprint</a>
+        </div>
       </div>
 
-      <div class="service service-highlight">
-        <span class="tag">Fixed price</span>
-        <h3>AI Agent Design Sprint</h3>
-        <p>This is a half-day session that maps one named business process you specify in advance. You receive a written agent blueprint within three business days, covering workflow design, requirements, and success metrics. No discovery call is required.</p>
-        <p class="price">£250, payable directly online</p>
-      </div>
-
-      <div class="service">
-        <h3>Team Building &amp; Training</h3>
-        <p>I run practical training and team-building sessions grounded in Scrum and Agile Pattern Languages, drawing on fifteen years of software delivery experience.</p>
-      </div>
-
-      <div class="service">
-        <h3>Executive Coaching</h3>
-        <p>I coach leaders through the operational and cultural shifts that agentic AI adoption brings to a team.</p>
+      <div class="service-grid">
+        <div class="service">
+          <h3>AI Agent Design &amp; Discovery Workshops</h3>
+          <p>I run workshops with business leaders to identify high-value opportunities for agentic AI, then own the work from there. That covers initial scope, conversation and workflow design, tooling, evaluation, and launch, followed by iteration once the agent is live. Each stage produces artifacts an engineering team can build from, including agent blueprints, requirements, and success metrics.</p>
+        </div>
+        <div class="service">
+          <h3>Team Building &amp; Training</h3>
+          <p>I run practical training and team-building sessions grounded in Scrum and Agile Pattern Languages, drawing on fifteen years of software delivery experience.</p>
+        </div>
+        <div class="service">
+          <h3>Executive Coaching</h3>
+          <p>I coach leaders through the operational and cultural shifts that agentic AI adoption brings to a team.</p>
+        </div>
       </div>
 
       <p class="rate">My starting rate is £500 per day, or £62.50 per hour, available remote or in person from Addlestone, Surrey.</p>
     </div>
   </section>
 
-  <section class="section alt" id="background">
+  <section class="section">
     <div class="wrap">
-      <h2>Background</h2>
-      <p>I bring fifteen years of software delivery experience across technical programme management and product delivery leadership. I served as Technical Programme Manager at bp from May 2022 to October 2025. Before that, I led delivery orchestration at Autino from 2020 to 2022, where I introduced pair programming as a practice the team designed for itself rather than one handed down from above. I started out as a software engineer at Jtrix, where the team worked with Extreme Programming practices in 2001. Since November 2025, I have coached a business owner through adopting Claude Cowork and building Claude Skills tailored to their own operations.</p>
+      <figure class="testimonial">
+        <p class="quote-mark" aria-hidden="true">“</p>
+        <blockquote>
+          <p>The advice Filippo shared was fantastic... rather than just telling me how to do it, he shared his framework and approach which was quite a revelation and a big change in the way I thought about AI and how to get the best results from it. From a standing start, within two weeks I had created a fully functional "2nd brain" or Virtual PA... If you are looking to get more out of AI and make it work for you, you should speak to Filippo.</p>
+        </blockquote>
+        <figcaption>Stephen McLeod · Account Executive, Anthesis Ltd · <a href="https://www.linkedin.com/in/filipponegroni/details/recommendations/">LinkedIn recommendation</a></figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="section" id="case-studies">
     <div class="wrap">
-      <h2>Case Studies</h2>
-
-      <div class="case-study">
-        <h3>Local authority data collation</h3>
-        <p>I built a Claude Skill paired with deterministic Python validation to collate stray dog returns from three UK local authorities into one canonical, auditable dataset. The pipeline found two genuine arithmetic errors inside the councils' own published figures, and I verified both against the original source PDFs. The design keeps extraction as agent judgement and validation as separate deterministic code, so each check can be trusted independently of the model.</p>
-      </div>
-
-      <div class="case-study">
-        <h3>Ongoing Claude Cowork adoption coaching</h3>
-        <p>Since November 2025, I have coached a small business owner through adopting Claude Cowork and building Claude Skills tailored to their operations. This engagement is still active, and it gives me direct, current evidence of what agentic AI adoption looks like inside a real business rather than a demo project.</p>
+      <h2 class="section-head">Case Studies</h2>
+      <div class="two-col">
+        <article>
+          <h3>Local authority data collation</h3>
+          <p>I built a Claude Skill paired with deterministic Python validation to collate stray dog returns from three UK local authorities into one canonical, auditable dataset. The pipeline found two genuine arithmetic errors inside the councils' own published figures, and I verified both against the original source PDFs. The design keeps extraction as agent judgement and validation as separate deterministic code, so each check can be trusted independently of the model.</p>
+        </article>
+        <article>
+          <h3>Ongoing Claude Cowork adoption coaching</h3>
+          <p>Since November 2025, I have coached a small business owner through adopting Claude Cowork and building Claude Skills tailored to their operations. This engagement is still active, and it gives me direct, current evidence of what agentic AI adoption looks like inside a real business rather than a demo project.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section alt" id="writing">
-    <div class="wrap">
-      <h2>Writing</h2>
-      <p>This site will carry articles as I publish them. The first covers presenting through narrative before slides rather than starting from slide design. Further pieces will argue that agent skills should state their reasoning rather than just their steps, and will ask where AI adoption fits into the next phase of human work. Each article grows out of work I do directly with clients rather than commentary written from the sidelines.</p>
+  <section class="section" id="background">
+    <div class="wrap grid">
+      <div class="double-rule span-12"></div>
+      <h2 class="span-4">Background</h2>
+      <p class="body span-8">I bring fifteen years of software delivery experience across technical programme management and product delivery leadership. I served as Technical Programme Manager at bp from May 2022 to October 2025. Before that, I led delivery orchestration at Autino from 2020 to 2022, where I introduced pair programming as a practice the team designed for itself rather than one handed down from above. I started out as a software engineer at Jtrix, where the team worked with Extreme Programming practices in 2001. Since November 2025, I have coached a business owner through adopting Claude Cowork and building Claude Skills tailored to their own operations.</p>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section" id="writing">
+    <div class="wrap grid">
+      <div class="double-rule span-12"></div>
+      <h2 class="span-4">Writing</h2>
+      <div class="articles span-8">
+        <a class="article" href="https://www.linkedin.com/pulse/give-your-best-practices-install-button-filippo-negroni-edfge/">
+          <span class="kicker">LinkedIn article</span>
+          <span class="article-title">Give your best practices an install button</span>
+          <span class="article-desc">Presenting through narrative before slides, rather than starting from slide design.</span>
+        </a>
+        <a class="article" href="https://www.linkedin.com/pulse/do-coding-agents-read-specs-filippo-negroni-aqzwe/">
+          <span class="kicker">LinkedIn article</span>
+          <span class="article-title">Do coding agents read specs?</span>
+          <span class="article-desc">Knowing the contract beats reading the code, told through my 2010 patch to git.</span>
+        </a>
+        <div class="article upcoming">
+          <span class="kicker muted">Coming next</span>
+          <span class="article-desc">Why agent skills should state their reasoning as well as their steps. Where AI adoption fits into the next phase of human work.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
     <div class="wrap">
       <h2>Get in Touch</h2>
       <p>If you lead a team inside a large organisation and want to explore what agentic AI could take off your plate, get in touch. If you run a small business or charity and want the same conversation at a smaller scale, the process starts the same way.</p>
-      <div class="contact-links">
-        <a href="mailto:hello@fenegroni.com" class="button">Email hello@fenegroni.com</a>
-        <a href="#" class="button button-secondary" id="linkedin-link">Connect on LinkedIn</a>
+      <div class="actions">
+        <a href="mailto:hello@fenegroni.com" class="button button-light">Email hello@fenegroni.com</a>
+        <a href="https://www.linkedin.com/in/filipponegroni/" class="button button-outline">Connect on LinkedIn</a>
       </div>
     </div>
   </section>
@@ -108,7 +156,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; <span id="year"></span> Filippo Negroni</p>
+    <p>&copy; <span id="year">2026</span> Filippo Negroni</p>
   </div>
 </footer>
 
