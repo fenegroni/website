@@ -243,6 +243,51 @@ img { max-width: 100%; }
   font-weight: 700;
 }
 
+.who {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  max-width: 600px;
+}
+
+.who-item {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.who-item strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--display);
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.proof {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 32px 0 64px;
+  border-top: 1px solid var(--line);
+}
+
+.proof-item { display: flex; flex-direction: column; gap: 4px; }
+
+.proof-item strong {
+  font-family: var(--display);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--moss);
+}
+
+.proof-item span { font-size: 16px; color: var(--ink-soft); max-width: 260px; }
+
 /* Sections */
 
 .section { padding-top: 96px; padding-bottom: 96px; }
@@ -276,6 +321,34 @@ img { max-width: 100%; }
 }
 
 .narrow { max-width: 720px; }
+
+.lead-text { font-size: 20px; color: var(--ink-soft); }
+
+/* How it works */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.steps .step { background: var(--surface); }
+
+/* About */
+
+.about-card {
+  padding: 36px;
+  border-radius: 24px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-card h3 { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
 
 .muted { color: var(--ink-soft); }
 
@@ -347,6 +420,9 @@ img { max-width: 100%; }
   background: var(--bg);
   font-weight: 700;
 }
+
+.offer-tint { background: var(--bg); }
+.offer-tint .step { background: var(--surface); }
 
 .offer-featured { background: var(--ink); color: #FFFFFF; min-height: 400px; }
 .offer-featured .offer-detail { color: var(--on-dark); }
@@ -587,6 +663,14 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .price { font-size: 32px; }
 
   .split > * { flex-basis: 100%; }
+
+  .lead-text { font-size: 18px; }
+  .proof { gap: 20px; padding: 24px 0 48px; }
+  .proof-item strong { font-size: 34px; }
+  .who { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 16px; }
+  .about-card { padding: 24px; border-radius: 20px; }
+  .about-card h3 { font-size: 24px; }
 
   .article { padding: 20px; border-radius: 16px; }
   .article-title { font-size: 20px; }
