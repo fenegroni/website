@@ -218,7 +218,7 @@ img { max-width: 100%; }
 
 .lede { max-width: 560px; font-size: 21px; color: var(--ink-soft); }
 
-.hero-photo { flex: 0 1 400px; position: relative; }
+.hero-photo { flex: 0 1 400px; max-width: 400px; position: relative; }
 
 .hero-photo img {
   display: block;
@@ -647,7 +647,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero .actions .btn { width: 100%; }
 
   .hero-photo { flex-basis: 100%; }
-  .hero-photo img { aspect-ratio: 1 / 1; object-position: center 30%; border-radius: 28px; }
+  .hero-photo img { border-radius: 28px; }
   .badge { left: 16px; right: 16px; bottom: 16px; max-width: none; font-size: 15px; }
 
   .section { padding-top: 56px; padding-bottom: 56px; }
