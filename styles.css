@@ -219,17 +219,6 @@ img { max-width: 100%; }
 
 .lede { max-width: 560px; font-size: 21px; color: var(--ink-soft); }
 
-.hero-photo { flex: 0 1 400px; max-width: 400px; position: relative; }
-
-.hero-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 32px;
-}
-
 .who {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -308,18 +297,35 @@ img { max-width: 100%; }
 
 /* About */
 
-.about-card {
-  padding: 36px;
-  border-radius: 24px;
-  background: var(--surface);
+.about {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 48px 72px;
 }
 
-.about-card h3 { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
+.about-copy {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-.band-white .about-card { background: var(--bg); }
+.about-copy .lead-text { margin-bottom: 16px; }
+.about-copy h3 { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
+.about-copy p { color: var(--ink-soft); }
+
+.about-photo { flex: 0 1 400px; max-width: 400px; }
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
 
 .muted { color: var(--ink-soft); }
 
@@ -420,29 +426,33 @@ img { max-width: 100%; }
   font-weight: 700;
 }
 
-/* Testimonial */
+/* Quote card */
 
-.testimonial {
-  max-width: 960px;
-  margin: 0 auto;
+.quote-card {
+  position: relative;
+  margin: -96px 0 0 -48px;
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--moss);
+  color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 14px;
 }
 
-.testimonial blockquote {
+.quote-card blockquote {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: -0.01em;
 }
 
-.testimonial figcaption { font-size: 17px; color: var(--on-moss); }
-.testimonial figcaption strong { color: #FFFFFF; }
-.testimonial figcaption a { color: #FFFFFF; }
-.testimonial figcaption a:hover { color: var(--marigold); }
+.quote-card figcaption { font-size: 15px; color: var(--on-moss); }
+.quote-card figcaption strong { color: #FFFFFF; }
+.quote-card figcaption a { color: #FFFFFF; }
+.quote-card figcaption a:hover { color: var(--marigold); }
+
 
 /* Case studies */
 
@@ -617,8 +627,10 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .lede { font-size: 18px; }
   .hero .actions .btn { width: 100%; }
 
-  .hero-photo { flex-basis: 100%; }
-  .hero-photo img { border-radius: 28px; }
+  .about-photo { flex-basis: 100%; }
+  .about-photo img { border-radius: 28px; }
+  .quote-card { margin: -64px 16px 0; padding: 24px; }
+  .quote-card blockquote { font-size: 18px; }
 
   .section { padding-top: 56px; padding-bottom: 56px; }
   .stack { gap: 24px; }
@@ -637,8 +649,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .lead-text { font-size: 18px; }
   .who { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; gap: 16px; }
-  .about-card { padding: 24px; border-radius: 20px; }
-  .about-card h3 { font-size: 24px; }
+  .about-copy h3 { font-size: 24px; }
 
   .article { padding: 20px; border-radius: 16px; }
   .article-title { font-size: 20px; }
