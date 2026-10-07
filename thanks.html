@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you | Filippo Negroni</title>
+<meta name="description" content="Thank you for your purchase.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2E6A4E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 33 H32.03"/><path d="M29.82 28 L34.24 38" stroke="#2E6A4E" stroke-width="9.2" stroke-linecap="butt"/><path d="M15.6 48.4 C17.9 47.4 19 44.8 19 41 V19 H22 C25 19 27 22 28.5 25 L36 42 C38 47 41 48.5 43 48 C44.5 47.5 45 46 45 44 V19"/></g></svg>
+      <span class="brand-text">
+        <span class="brand-name">Filippo Negroni</span>
+        <span class="brand-tagline">Your AI coach</span>
+      </span>
+    </a>
+    <a href="index.html#prices" class="btn btn-small btn-outline">Home</a>
+  </div>
+</header>
+
+<main class="wrap legal">
+<article class="legal-card">
+
+  <p class="kicker">Payment received</p>
+  <h1>Thank you</h1>
+  <p id="thanks-message">Thank you for your purchase. I will email you within 2 business days to arrange a time.</p>
+  <p>Stripe will email you a receipt. If you have any questions in the meantime, email me at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.</p>
+  <p><a href="index.html" class="btn btn-small btn-primary">Back to the homepage</a></p>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; 2026 Filippo Negroni</p>
+    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
+  </div>
+</footer>
+
+<script>
+  // Stripe redirects here with ?offer=... so each purchase gets its own message.
+  var messages = {
+    session: "Thank you for booking a coaching session. I will email you within 2 business days to arrange a time.",
+    workshop: "Thank you for booking an AI Agent Workshop. I will email you within 2 business days to arrange a date.",
+    bundle: "Thank you for buying the coaching bundle. Your four sessions are valid for 3 months. I will email you within 2 business days to arrange your first session.",
+    retainer: "Thank you. Your retainer is active. I will email you within 2 business days to set up your first session of the month."
+  };
+  var offer = new URLSearchParams(location.search).get("offer");
+  if (messages[offer]) document.getElementById("thanks-message").textContent = messages[offer];
+</script>
+
+</body>
+</html>

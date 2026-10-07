@@ -421,6 +421,8 @@ img { max-width: 100%; }
   padding: 20px 24px;
   border-radius: 16px;
   background: var(--bg);
+  font-family: var(--display);
+  font-size: 28px;
   font-weight: 700;
 }
 
