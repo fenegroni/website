@@ -188,7 +188,7 @@ img { max-width: 100%; }
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
   grid-template-areas: "copy photo" "about photo";
-  align-items: center;
+  align-items: end;
   gap: 0 64px;
   padding-top: 56px;
   padding-bottom: 96px;
@@ -342,6 +342,8 @@ img { max-width: 100%; }
   gap: 12px;
 }
 
+.cards-light .card { background: var(--surface); }
+
 .card h3 { font-size: 26px; font-weight: 700; line-height: 1.2; }
 .card p { color: var(--ink-soft); }
 
@@ -494,6 +496,8 @@ img { max-width: 100%; }
 
 .articles { display: flex; flex-direction: column; gap: 12px; }
 
+.writing { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
+
 .article {
   display: flex;
   justify-content: space-between;
@@ -522,8 +526,6 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 .article-desc { font-size: 16px; color: var(--ink-soft); }
 
 .article svg { flex-shrink: 0; }
-
-.article-upcoming { background: transparent; border: 2px dashed var(--line); }
 
 /* Contact */
 

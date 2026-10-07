@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing | Filippo Negroni</title>
+<meta name="description" content="Articles by Filippo Negroni about what he learns while putting AI to work.">
+<meta name="theme-color" content="#2E6A4E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 42 C14 47 17 49 20 49 C24 49 26 46 26 41 V19 H29 C32 19 34 22 35.5 25 L43 42 C45 47 48 48.5 50 48 C51.5 47.5 52 46 52 44 V19"/><path d="M26 33 H37"/></g></svg>
+      <span class="brand-text">
+        <span class="brand-name">Filippo Negroni</span>
+        <span class="brand-tagline">Your AI coach</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#prices">Prices</a>
+      <a href="index.html#teams">For teams</a>
+      <a href="writing.html" aria-current="page">Writing</a>
+      <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+    </nav>
+    <details class="menu">
+      <summary>
+        <span class="visually-hidden">Menu</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </summary>
+      <nav class="menu-panel" aria-label="Sections">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#prices">Prices</a>
+        <a href="index.html#teams">For teams</a>
+        <a href="writing.html" aria-current="page">Writing</a>
+        <a href="index.html#contact">Get in touch</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap section writing">
+  <div class="stack" style="gap: 12px">
+    <h1 class="section-title">Writing</h1>
+    <p class="muted">I write about what I learn while putting AI to work.</p>
+  </div>
+  <div class="articles">
+    <a class="article" href="https://www.linkedin.com/pulse/give-your-best-practices-install-button-filippo-negroni-edfge/">
+      <span class="article-text">
+        <span class="article-label">LinkedIn article</span>
+        <span class="article-title">Give your best practices an install button</span>
+        <span class="article-desc">Tell the story first, and then make the slides.</span>
+      </span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E6A4E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="article" href="https://www.linkedin.com/pulse/do-coding-agents-read-specs-filippo-negroni-aqzwe/">
+      <span class="article-text">
+        <span class="article-label">LinkedIn article</span>
+        <span class="article-title">Do coding agents read specs?</span>
+        <span class="article-desc">Knowing what a piece of software promises to do matters more than reading how it does it. I tell the story through my 2010 fix to Git.</span>
+      </span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E6A4E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year">2026</span> Filippo Negroni, sole trader, Addlestone, Surrey</p>
+    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.menu-panel a').forEach(function (link) {
+    link.addEventListener('click', function () { link.closest('details').open = false; });
+  });
+</script>
+
+</body>
+</html>
