@@ -498,7 +498,7 @@ img { max-width: 100%; }
 
 .articles { display: flex; flex-direction: column; gap: 12px; }
 
-.writing { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
+.media { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
 
 .article {
   display: flex;
