@@ -185,16 +185,18 @@ img { max-width: 100%; }
 /* Hero */
 
 .hero {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  grid-template-areas: "copy photo" "about photo";
   align-items: center;
-  gap: 64px;
+  gap: 0 64px;
   padding-top: 56px;
   padding-bottom: 96px;
 }
 
 .hero-copy {
-  flex: 1 1 520px;
+  grid-area: copy;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -295,29 +297,22 @@ img { max-width: 100%; }
 .steps .card { background: var(--surface); }
 .steps .step { background: var(--bg); }
 
-/* About */
+/* Hero about and photo */
 
-.about {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 48px 72px;
-}
-
-.about-copy {
-  flex: 1 1 480px;
+.hero-about {
+  grid-area: about;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.about-copy .lead-text { margin-bottom: 16px; }
-.about-copy h3 { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
-.about-copy p { color: var(--ink-soft); }
+.hero-about h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+.hero-about p { color: var(--ink-soft); }
 
-.about-photo { flex: 0 1 400px; max-width: 400px; }
+.hero-photo { grid-area: photo; }
 
-.about-photo img {
+.hero-photo img {
   display: block;
   width: 100%;
   height: auto;
@@ -606,6 +601,13 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
 /* Responsive */
 
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo" "about"; gap: 48px; }
+  .hero-photo { max-width: 400px; }
+  .hero-about { margin-top: 0; }
+  .quote-card { margin: -64px 16px 0; }
+}
+
 @media (max-width: 900px) {
   .nav { display: none; }
   .menu { display: block; }
@@ -627,8 +629,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .lede { font-size: 18px; }
   .hero .actions .btn { width: 100%; }
 
-  .about-photo { flex-basis: 100%; }
-  .about-photo img { border-radius: 28px; }
+  .hero-photo img { border-radius: 28px; }
   .quote-card { margin: -64px 16px 0; padding: 24px; }
   .quote-card blockquote { font-size: 18px; }
 
@@ -649,7 +650,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .lead-text { font-size: 18px; }
   .who { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; gap: 16px; }
-  .about-copy h3 { font-size: 24px; }
+  .hero-about h2 { font-size: 24px; }
 
   .article { padding: 20px; border-radius: 16px; }
   .article-title { font-size: 20px; }
