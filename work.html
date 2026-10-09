@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work | Filippo Negroni</title>
+<meta name="description" content="A portfolio of ADHD tools, Claude Skills, agents and MCP servers built by Filippo Negroni.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fenegroni.com/work.html">
+<meta property="og:title" content="Filippo Negroni: portfolio">
+<meta property="og:description" content="ADHD tools, Claude Skills, agents and MCP servers built by Filippo Negroni.">
+<meta property="og:image" content="https://fenegroni.com/images/headshot.jpg">
+<meta name="theme-color" content="#2E6A4E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .work-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 56px;
+  }
+  .work-hero h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .project {
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .band-white .project { background: var(--bg); }
+  .project h3 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .project p { color: var(--ink-soft); font-size: 17px; }
+  .project .more { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: 16px; }
+  .tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    background: var(--on-moss);
+    color: var(--moss-dark);
+  }
+  .tag-private { background: #F7E7C4; color: #6B4A0B; }
+  .tag-demo { background: var(--line); color: var(--ink); }
+
+  @media (max-width: 800px) {
+    .work-hero { padding-top: 24px; }
+  }
+  @media (max-width: 640px) {
+    .projects { grid-template-columns: 1fr; gap: 16px; }
+    .project { padding: 22px; border-radius: 20px; }
+    .project h3 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 33 H32.03"/><path d="M29.82 28 L34.24 38" stroke="#2E6A4E" stroke-width="9.2" stroke-linecap="butt"/><path d="M15.6 48.4 C17.9 47.4 19 44.8 19 41 V19 H22 C25 19 27 22 28.5 25 L36 42 C38 47 41 48.5 43 48 C44.5 47.5 45 46 45 44 V19"/></g></svg>
+      <span class="brand-text">
+        <span class="brand-name">Filippo Negroni</span>
+        <span class="brand-tagline">Your AI coach</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#prices">Prices</a>
+      <a href="index.html#teams">For teams</a>
+      <a href="media.html">Media</a>
+      <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+    </nav>
+    <details class="menu">
+      <summary>
+        <span class="visually-hidden">Menu</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </summary>
+      <nav class="menu-panel" aria-label="Sections">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#prices">Prices</a>
+        <a href="index.html#teams">For teams</a>
+        <a href="media.html">Media</a>
+        <a href="index.html#contact">Get in touch</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap work-hero">
+    <span class="pill">Portfolio</span>
+    <h1>What I build</h1>
+  </section>
+
+  <section class="wrap section stack" id="adhd">
+    <div class="section-head">
+      <h2 class="section-title">ADHD scaffolding</h2>
+      <p>Tools I built for my own ADHD and run daily.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <span class="tag">Public on GitHub</span>
+        <h3>adhd-assist</h3>
+        <p>A Claude skill that notices when someone is stuck and offers one small thing that might help. The person writes the rules while they feel well. The skill matches against those rules when they do not. It reads their own judgement back to them at the moment it is hardest to reach.</p>
+        <a class="more" href="https://github.com/fenegroni/adhd-assist">github.com/fenegroni/adhd-assist</a>
+      </article>
+      <article class="project">
+        <span class="tag tag-private">Private, in development</span>
+        <h3>Webcam monitor</h3>
+        <p>A local monitor that watches for signs of fatigue and drift through the webcam. It raises an alert that adhd-assist can act on. The footage stays on the machine, and the code stays small enough to audit.</p>
+      </article>
+      <article class="project">
+        <span class="tag tag-private">Private</span>
+        <h3>Pillars and pillar audit</h3>
+        <p>The habits a life rests on, such as sleep, medication and meals, live in plain files. A scheduled agent checks the calendar against them. It books missing sessions, flags what it cannot fix and writes a monthly summary of how each habit went.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="band-white">
+    <div class="wrap section stack">
+      <div class="section-head">
+        <h2 class="section-title">Agentic AI</h2>
+        <p>Skills, agents and MCP servers.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <span class="tag tag-private">Private</span>
+          <h3>Ways of Working skill</h3>
+          <p>A skill that reads a team's retrospective transcripts against the team's own pattern language and the organisational patterns in James Coplien's <em>A Scrum Book</em>. It indexes each pattern by the forces it resolves. It can then name the tension a team is feeling and suggest a pattern to try. I tested it against real retrospective transcripts.</p>
+        </article>
+        <article class="project">
+          <span class="tag tag-private">Private</span>
+          <h3>The Librarian</h3>
+          <p>A knowledge base that runs as an agentic system. Notes go in as they arrive. Agents file them, cross-reference them and keep them current, so the knowledge base grows without anyone tending it by hand.</p>
+        </article>
+        <article class="project">
+          <span class="tag tag-demo">Demo</span>
+          <h3>Multi-source data collator</h3>
+          <p>A skill plus deterministic Python checks that merges returns from many organisations into one auditable dataset. The agent extracts and the code validates. Every value keeps its source text. On six published council returns it found two arithmetic errors in the councils' own figures.</p>
+        </article>
+        <article class="project">
+          <span class="tag">Public on GitHub</span>
+          <h3>pattern-authoring</h3>
+          <p>A skill for writing other skills as Alexandrian patterns. Each rule states the forces it resolves and the conditions under which it stops applying. Five adversarial probes then hunt for defects that survive rereading.</p>
+          <a class="more" href="https://github.com/fenegroni/agentic-pattern-language">github.com/fenegroni/agentic-pattern-language</a>
+        </article>
+        <article class="project">
+          <span class="tag">Public on GitHub</span>
+          <h3>narrative-before-slides</h3>
+          <p>A skill that works out the story of a talk before any slide exists. I published the same brief run with and without the skill, with the raw outputs left untouched.</p>
+          <a class="more" href="https://github.com/fenegroni/narrative-before-slides">github.com/fenegroni/narrative-before-slides</a>
+        </article>
+        <article class="project">
+          <span class="tag">Public on GitHub</span>
+          <h3>Claude agentic workflows</h3>
+          <p>Worked examples of subagents and skills, each tested against the running system. They cover hard tool boundaries that the framework enforces, and a scout, writer and evaluator loop with bounded retries.</p>
+          <a class="more" href="https://github.com/fenegroni/claude-agentic-workflows">github.com/fenegroni/claude-agentic-workflows</a>
+        </article>
+        <article class="project">
+          <span class="tag">Public on GitHub</span>
+          <h3>MIDI sequencer with MCP</h3>
+          <p>A Rust loop recorder for a MIDI keyboard. It runs its own MCP server, so Claude can drive the transport, read back what I played and export it.</p>
+          <a class="more" href="https://github.com/fenegroni/midi-sequencer">github.com/fenegroni/midi-sequencer</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year">2026</span> Filippo Negroni</p>
+    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.menu-panel a').forEach(function (link) {
+    link.addEventListener('click', function () { link.closest('details').open = false; });
+  });
+</script>
+
+</body>
+</html>
