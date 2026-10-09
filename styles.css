@@ -135,7 +135,7 @@ img { max-width: 100%; }
   font-weight: 700;
 }
 
-.nav a { color: var(--ink); text-decoration: none; }
+.nav a { color: var(--ink); text-decoration: none; white-space: nowrap; }
 .nav a:hover { color: var(--moss); }
 .nav .btn { min-height: 44px; padding: 0 20px; color: #FFFFFF; }
 .nav .btn:hover { color: #FFFFFF; }
@@ -612,7 +612,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .quote-card { margin: -64px 16px 0; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .nav { display: none; }
   .menu { display: block; }
 }
