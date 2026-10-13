@@ -21,6 +21,13 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+:focus-visible { outline: 3px solid var(--marigold-dark); outline-offset: 3px; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -187,8 +194,8 @@ img { max-width: 100%; }
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
-  grid-template-areas: "copy photo" "about photo";
-  align-items: end;
+  grid-template-areas: "copy photo";
+  align-items: center;
   gap: 0 64px;
   padding-top: 56px;
   padding-bottom: 96px;
@@ -218,6 +225,8 @@ img { max-width: 100%; }
   line-height: 1.02;
   letter-spacing: -0.03em;
 }
+
+.hero-note { font-size: 16px; color: var(--muted); }
 
 .lede { max-width: 560px; font-family: var(--display); font-size: 30px; font-weight: 600; line-height: 1.2; color: var(--ink-soft); }
 
@@ -447,6 +456,9 @@ img { max-width: 100%; }
   line-height: 1.35;
 }
 
+.quote-wide { margin: 0; max-width: 820px; padding: 40px; }
+.quote-wide blockquote { font-size: 26px; }
+
 .quote-card figcaption { font-size: 15px; color: var(--on-moss); }
 .quote-card figcaption strong { color: #FFFFFF; }
 .quote-card figcaption a { color: #FFFFFF; }
@@ -551,6 +563,61 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
 .contact-copy p { font-size: 19px; }
 
+/* Intake form */
+
+.intake { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field span { font-weight: 700; color: var(--ink); }
+
+.field input, .field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field input:focus, .field textarea:focus { border-color: var(--moss); outline: none; }
+
+.intake .btn { align-self: flex-start; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.intake .btn:disabled { opacity: 0.6; cursor: default; }
+
+.trap { position: absolute; left: -9999px; }
+
+.form-status { min-height: 1.5em; }
+.form-done { font-size: 20px; font-weight: 700; color: var(--moss); }
+.legal .form-small { margin-top: 24px; font-size: 15px; }
+
+/* Sticky button on phones */
+
+.sticky-cta { display: none; }
+
+/* Temporary headline picker for the local preview */
+
+.headline-picker {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 30;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--ink);
+}
+
+.headline-picker button {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--marigold);
+  font: 700 13px var(--body);
+  cursor: pointer;
+}
+
 /* Footer */
 
 .site-footer { border-top: 1px solid var(--line); }
@@ -606,7 +673,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 /* Responsive */
 
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo" "about"; gap: 48px; }
+  .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo"; gap: 48px; }
   .hero-photo { max-width: 400px; }
   .hero-about { margin-top: 0; }
   .quote-card { margin: -64px 16px 0; }
@@ -636,6 +703,24 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero-photo img { border-radius: 28px; }
   .quote-card { margin: -64px 16px 0; padding: 24px; }
   .quote-card blockquote { font-size: 18px; }
+  .quote-wide { margin: 0; }
+  .quote-wide blockquote { font-size: 20px; }
+
+  .sticky-cta {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 20;
+    display: flex;
+    box-shadow: 0 8px 24px rgba(29, 43, 36, 0.25);
+    transform: translateY(140%);
+    transition: transform 0.2s ease;
+  }
+  .sticky-cta.is-shown { transform: none; }
+  .site-footer { padding-bottom: 88px; }
+  .headline-picker { bottom: 88px; }
+  .hero-photo { max-width: 280px; }
 
   .section { padding-top: 56px; padding-bottom: 56px; }
   .stack { gap: 24px; }

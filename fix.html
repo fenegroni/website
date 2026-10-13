@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's fix it, together | Filippo Negroni</title>
+<meta name="description" content="Tell me about the problem in three short questions. It is free, and I reply by email.">
+<meta name="theme-color" content="#2E6A4E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 33 H32.03"/><path d="M29.82 28 L34.24 38" stroke="#2E6A4E" stroke-width="9.2" stroke-linecap="butt"/><path d="M15.6 48.4 C17.9 47.4 19 44.8 19 41 V19 H22 C25 19 27 22 28.5 25 L36 42 C38 47 41 48.5 43 48 C44.5 47.5 45 46 45 44 V19"/></g></svg>
+      <span class="brand-text">
+        <span class="brand-name">Filippo Negroni</span>
+        <span class="brand-tagline">We fix the problem, not your ADHD</span>
+      </span>
+    </a>
+    <a href="index.html" class="btn btn-small btn-outline">Home</a>
+  </div>
+</header>
+
+<main class="wrap legal">
+<article class="legal-card">
+
+  <p class="kicker">Free, and no payment yet</p>
+  <h1>Let's fix it, together</h1>
+  <p>Answer three short questions. A few words are enough. I reply by email within 2 business days.</p>
+
+  <form class="intake" id="intake" action="/api/intake" method="post">
+    <label class="field">
+      <span>When and where does this keep happening?</span>
+      <textarea name="when_where" rows="3" required></textarea>
+    </label>
+    <label class="field">
+      <span>What do you want to happen, and what pulls you the other way?</span>
+      <textarea name="want_vs_pull" rows="3" required></textarea>
+    </label>
+    <label class="field">
+      <span>When those clash, which one usually wins?</span>
+      <textarea name="which_wins" rows="3" required></textarea>
+    </label>
+    <label class="field">
+      <span>Your name</span>
+      <input type="text" name="name" autocomplete="name" required>
+    </label>
+    <label class="field">
+      <span>Your email</span>
+      <input type="email" name="email" autocomplete="email" required>
+    </label>
+    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <button type="submit" class="btn btn-primary">Send my answers</button>
+    <p class="form-status" id="form-status" role="status"></p>
+  </form>
+
+  <p class="form-small">I use your answers only to reply to you. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; 2026 Filippo Negroni</p>
+    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+  var form = document.getElementById('intake');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var button = form.querySelector('button');
+    button.disabled = true;
+    status.textContent = 'Sending...';
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (response) {
+        if (!response.ok) throw new Error(response.status);
+        form.innerHTML = '<p class="form-done">Thank you. I have your answers, and I will reply by email within 2 business days.</p>';
+      })
+      .catch(function () {
+        button.disabled = false;
+        status.innerHTML = 'Your answers did not send. Please try again, or email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.';
+      });
+  });
+</script>
+
+</body>
+</html>
