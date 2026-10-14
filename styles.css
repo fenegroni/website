@@ -951,3 +951,14 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero-what li { font-size: 17px; }
   .hero-what li strong { font-size: 21px; }
 }
+
+/* Larger lead-ins now that the list has no heading */
+
+.hero-what { margin-top: 4px; }
+.hero-what li strong { font-size: 30px; }
+.hero-what li::before { top: 0.6em; }
+
+@media (max-width: 640px) {
+  .hero-what li strong { font-size: 23px; }
+  .hero-what li::before { top: 0.5em; }
+}
