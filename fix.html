@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get a free quote | Filippo Negroni</title>
-<meta name="description" content="Get a free quote. Tell me about the problem in three short questions, or just say hello. I reply by email.">
+<meta name="description" content="Get a free quote. Tell me what you would like help with, or just say hello. I reply by email.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -23,7 +23,6 @@
       <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 33 H32.03"/><path d="M29.82 28 L34.24 38" stroke="#2E6A4E" stroke-width="9.2" stroke-linecap="butt"/><path d="M15.6 48.4 C17.9 47.4 19 44.8 19 41 V19 H22 C25 19 27 22 28.5 25 L36 42 C38 47 41 48.5 43 48 C44.5 47.5 45 46 45 44 V19"/></g></svg>
       <span class="brand-text">
         <span class="brand-name">Filippo Negroni</span>
-        <span class="brand-tagline">We fix the problem, not your ADHD</span>
       </span>
     </a>
     <nav class="nav" aria-label="Sections">
@@ -48,24 +47,54 @@
 </header>
 
 
-<main class="wrap legal">
+<main class="wrap legal legal-wide">
 <article class="legal-card">
 
   <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
   <h1>Get a free quote</h1>
+  <p>Tell me what you would like help with. A few words are enough, and only your email is needed. I reply within 2 business days.</p>
+  <div class="email-help">
+    <span>Not sure what to say? Just email me.</span>
+    <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
+  </div>
 
-  <section id="how">
-    <h2>How it works</h2>
-    <ol class="steps">
+  <form class="intake" id="intake" action="/api/intake" method="post">
+    <label class="field">
+      <span>What would you like help with?</span>
+      <textarea name="help" rows="5"></textarea>
+    </label>
+    <div class="field-row">
+      <label class="field">
+        <span>Your email (needed so I can reply)</span>
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label class="field">
+        <span>Your name (optional)</span>
+        <input type="text" name="name" autocomplete="name">
+      </label>
+    </div>
+    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <button type="submit" class="btn btn-primary">Send my request</button>
+    <p class="form-status" id="form-status" role="status"></p>
+  </form>
+
+  <p class="form-small">I use what you send only to reply to you. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <section id="how" class="how">
+    <div class="how-head">
+      <h2>How it works</h2>
+      <button type="button" class="how-toggle" aria-controls="how-steps" aria-expanded="true">Hide details</button>
+    </div>
+    <ol class="steps" id="how-steps">
       <li class="card">
         <span class="step">1</span>
-        <h3>Answer three questions</h3>
-        <p>You answer three short questions below. This step is free.</p>
+        <h3>Ask for a quote</h3>
+        <p>You tell me what you would like help with. This step is free.</p>
       </li>
       <li class="card">
         <span class="step">2</span>
         <h3>Agree where to start</h3>
-        <p>We agree by email which problem to start from, how AI can help with it, and which size fits: £50, £100 or £200. The emails and the quote are free.</p>
+        <p>I reply by email with a few short questions. We agree which problem to start from, how AI can help with it, and which size fits: £50, £100 or £200. The emails and the quote are free.</p>
       </li>
       <li class="card">
         <span class="step">3</span>
@@ -79,41 +108,6 @@
       </li>
     </ol>
   </section>
-
-  <h2 id="questions">Your three questions</h2>
-  <p>Answer what you can, or just say hello. A few words are enough. Only your email is needed, and I reply within 2 business days.</p>
-  <div class="email-help">
-    <span>Not sure what to say? Just email me.</span>
-    <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
-  </div>
-
-  <form class="intake" id="intake" action="/api/intake" method="post">
-    <label class="field">
-      <span>When and where does this keep happening?</span>
-      <textarea name="when_where" rows="3"></textarea>
-    </label>
-    <label class="field">
-      <span>What do you want to happen, and what pulls you the other way?</span>
-      <textarea name="want_vs_pull" rows="3"></textarea>
-    </label>
-    <label class="field">
-      <span>When those clash, which one usually wins?</span>
-      <textarea name="which_wins" rows="3"></textarea>
-    </label>
-    <label class="field">
-      <span>Your name (optional)</span>
-      <input type="text" name="name" autocomplete="name">
-    </label>
-    <label class="field">
-      <span>Your email (needed so I can reply)</span>
-      <input type="email" name="email" autocomplete="email" required>
-    </label>
-    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    <button type="submit" class="btn btn-primary">Send my answers</button>
-    <p class="form-status" id="form-status" role="status"></p>
-  </form>
-
-  <p class="form-small">I use your answers only to reply to you. Read the <a href="privacy.html">Privacy Policy</a>.</p>
 
   <section id="prices">
     <h2>Prices</h2>
@@ -162,13 +156,24 @@
     fetch(form.action, { method: 'POST', body: new FormData(form) })
       .then(function (response) {
         if (!response.ok) throw new Error(response.status);
-        form.innerHTML = '<p class="form-done">Thank you. I have your answers, and I will reply by email within 2 business days.</p>';
+        form.innerHTML = '<p class="form-done">Thank you. I have your request, and I will reply by email within 2 business days.</p>';
       })
       .catch(function () {
         button.disabled = false;
-        status.innerHTML = 'Your answers did not send. Please try again, or email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.';
+        status.innerHTML = 'Your request did not send. Please try again, or email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.';
       });
   });
+
+  // On phones, How it works starts with the step titles only. The button shows the details.
+  var how = document.getElementById('how');
+  var toggle = how.querySelector('.how-toggle');
+  function setDetails(open) {
+    how.classList.toggle('is-collapsed', !open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? 'Hide details' : 'Show details';
+  }
+  toggle.addEventListener('click', function () { setDetails(how.classList.contains('is-collapsed')); });
+  if (window.matchMedia('(max-width: 640px)').matches) setDetails(false);
 </script>
 
 </body>

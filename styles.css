@@ -132,7 +132,6 @@ img { max-width: 100%; }
   white-space: nowrap;
 }
 
-.brand-tagline { font-size: 14px; color: var(--muted); }
 
 .nav {
   display: flex;
@@ -681,7 +680,6 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
   body { font-size: 17px; }
 
-  .brand-tagline { display: none; }
   .brand-name { font-size: 19px; }
   .brand svg { width: 36px; height: 36px; }
 
@@ -878,11 +876,6 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 @media (max-width: 640px) {
   .section-cta .btn { width: 100%; }
 }
-
-/* Cards and outcome on a white band */
-
-.band-white .cards-two .card .step { background: var(--surface); }
-.outcome-tint { background: var(--bg); }
 .legal .free-note { margin-bottom: 20px; color: var(--ink); }
 
 /* Large hero button */
@@ -939,4 +932,37 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 @media (max-width: 640px) {
   .legal .steps { grid-template-columns: 1fr; gap: 12px; }
   .legal .steps .card { padding: 20px; }
+}
+
+/* Wider quote page, so How it works fits on one row */
+
+.legal-wide { max-width: 1120px; }
+
+.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+
+.how-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 40px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+.legal .how-head h2 { margin: 0; padding: 0; border: 0; }
+
+.how-toggle {
+  display: none;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 700 16px var(--body);
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .legal-wide .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .field-row { grid-template-columns: 1fr; gap: 24px; }
+  .how-toggle { display: inline-flex; align-items: center; }
+  .how.is-collapsed .steps .card p { display: none; }
+  .how.is-collapsed .steps .card { flex-direction: row; align-items: center; gap: 12px; padding: 14px 16px; }
+  .how.is-collapsed .steps .card h3 { font-size: 19px; }
 }
