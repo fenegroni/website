@@ -769,6 +769,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 }
 
 .copy-btn:hover { background: var(--ink); color: #FFFFFF; }
+a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; vertical-align: middle; }
 
 .contact-panel .email-help { color: var(--ink); }
 .contact-panel .email-line a { color: var(--ink); }

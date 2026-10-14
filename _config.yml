@@ -1,0 +1,3 @@
+# GitHub Pages publishes the site from this folder. The Worker is not part of the site.
+exclude:
+  - worker

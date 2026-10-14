@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-14">
+<link rel="stylesheet" href="styles.css?v=2026-10-14b">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -52,18 +52,23 @@
 
   <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
   <h1>Get a free quote</h1>
-  <p>Tell me what you would like help with. A few words are enough. The button opens your email app with your message ready to send. I reply within 2 business days.</p>
+  <p>Tell me what you would like help with. A few words are enough. I reply by email within 2 business days.</p>
 
-  <form class="intake" id="intake" action="mailto:hello@fenegroni.com" method="post" enctype="text/plain">
+  <form class="intake" id="intake" action="/api/intake" method="post">
     <label class="field">
       <span>What would you like help with?</span>
-      <textarea name="help" id="help" rows="5"></textarea>
+      <textarea name="help" id="help" rows="5" maxlength="5000"></textarea>
+    </label>
+    <label class="field field-half">
+      <span>Your email, so I can reply</span>
+      <input type="email" name="email" id="email" autocomplete="email" maxlength="254" required>
     </label>
     <label class="field field-half">
       <span>Your name (optional)</span>
-      <input type="text" name="name" id="name" autocomplete="name">
+      <input type="text" name="name" id="name" autocomplete="name" maxlength="200">
     </label>
-    <button type="submit" class="btn btn-primary">Write my email</button>
+    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <button type="submit" class="btn btn-primary">Send my message</button>
     <div class="form-status" id="form-status" role="status"></div>
   </form>
 
@@ -141,8 +146,9 @@
 
 <script>
   var form = document.getElementById('intake');
-  var status = document.getElementById('form-status');
-  // Until the form has its own handler, the button opens the visitor's email app with the message filled in.
+  var formStatus = document.getElementById('form-status');
+  var button = form.querySelector('button[type="submit"]');
+
   function quoteMessage() {
     var help = document.getElementById('help').value.trim();
     var name = document.getElementById('name').value.trim();
@@ -151,13 +157,14 @@
     return body;
   }
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  // If the form cannot send, the visitor can still open their email app or copy the message.
+  function showFallback() {
     var body = quoteMessage();
-    location.href = 'mailto:hello@fenegroni.com?subject=' + encodeURIComponent('Free quote request') + '&body=' + encodeURIComponent(body);
-
-    status.innerHTML = '<p class="form-done">Your email app should open now with your message. Press send there, and I will reply within 2 business days.</p>' +
-      '<p>If nothing opened, copy your message and send it to hello@fenegroni.com.</p>';
+    formStatus.innerHTML = '<p><strong>Your message did not send.</strong> Please try again in a minute. You can also send it from your own email app.</p>';
+    var mail = document.createElement('a');
+    mail.className = 'copy-btn';
+    mail.href = 'mailto:hello@fenegroni.com?subject=' + encodeURIComponent('Free quote request') + '&body=' + encodeURIComponent(body);
+    mail.textContent = 'Open my email app';
     var copy = document.createElement('button');
     copy.type = 'button';
     copy.className = 'copy-btn';
@@ -168,7 +175,36 @@
         copy.textContent = 'Selected';
       });
     });
-    status.appendChild(copy);
+    formStatus.appendChild(mail);
+    formStatus.appendChild(document.createTextNode(' '));
+    formStatus.appendChild(copy);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    button.disabled = true;
+    formStatus.innerHTML = '<p>Sending your message...</p>';
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (response) {
+        return response.json().catch(function () { return {}; }).then(function (data) {
+          if (response.ok && data.ok) {
+            form.innerHTML = '<p class="form-done" role="status" tabindex="-1">Thank you. Your message is on its way to me, and I will reply by email within 2 business days.</p>';
+            form.querySelector('.form-done').focus();
+            return;
+          }
+          button.disabled = false;
+          if (data.error === 'email') {
+            formStatus.innerHTML = '<p><strong>Please check your email address.</strong> I need it to reply to you.</p>';
+            document.getElementById('email').focus();
+          } else {
+            showFallback();
+          }
+        });
+      })
+      .catch(function () {
+        button.disabled = false;
+        showFallback();
+      });
   });
 
   // On phones, How it works starts with the step titles only. The button shows the details.
