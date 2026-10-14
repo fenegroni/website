@@ -583,6 +583,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
 .field { display: flex; flex-direction: column; gap: 8px; }
 .field span { font-weight: 700; color: var(--ink); }
+.field .field-hint { margin-top: -6px; font-weight: 400; color: var(--muted); }
 
 .field input, .field textarea {
   width: 100%;

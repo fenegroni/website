@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-14b">
+<link rel="stylesheet" href="styles.css?v=2026-10-15">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -52,11 +52,12 @@
 
   <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
   <h1>Get a free quote</h1>
-  <p>Tell me what you would like help with. A few words are enough. I reply by email within 2 business days.</p>
+  <p>I reply by email within 2 business days.</p>
 
   <form class="intake" id="intake" action="/api/intake" method="post">
     <label class="field">
-      <span>What would you like help with?</span>
+      <span>What keeps getting in your way?</span>
+      <span class="field-hint">Or anything else you'd like help with. A few words are enough.</span>
       <textarea name="help" id="help" rows="5" maxlength="5000"></textarea>
     </label>
     <label class="field field-half">
