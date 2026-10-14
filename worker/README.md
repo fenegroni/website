@@ -48,11 +48,16 @@ You need Node.js 20 or later. Run every command from this `worker` folder.
 npx wrangler dev
 ```
 
-Wrangler runs the Worker at http://localhost:8787 and simulates the email binding, so nothing reaches a real inbox. Wrangler prints each simulated email in the terminal. Local tests need `http://localhost:8787` in `ALLOWED_ORIGINS`. Put it in a `.dev.vars` file so the live config stays strict:
+Wrangler runs the Worker at http://localhost:8787 and simulates the email binding, so nothing reaches a real inbox. Wrangler prints each simulated email in the terminal and saves its text under `.wrangler/tmp/email`. Local tests need a test inbox address in a `.dev.vars` file:
 
 ```
-ALLOWED_ORIGINS="https://fenegroni.com,http://localhost:8787"
 TO_ADDRESS="you@example.com"
+```
+
+Wrangler rewrites a localhost Origin to https://fenegroni.com, so test requests pass the origin check without any change to `ALLOWED_ORIGINS`. To test with curl, send that Origin yourself:
+
+```bash
+curl -H "Origin: https://fenegroni.com" -F "email=you@example.com" -F "help=Test" http://localhost:8787/api/intake
 ```
 
 ## If something goes wrong
