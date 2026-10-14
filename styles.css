@@ -922,3 +922,21 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero-cards .card h3 { font-size: 21px; }
   .section-head .section-intro { font-size: 19px; }
 }
+
+/* Outline buttons in the navigation keep dark text */
+
+.nav .btn-outline { color: var(--ink); }
+.nav .btn-outline:hover { color: #FFFFFF; }
+
+/* How it works on the quote page */
+
+.legal .steps { margin: 16px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.legal .steps .card { padding: 24px; background: var(--bg); gap: 8px; }
+.legal .steps .step { background: var(--surface); }
+.legal .steps .card h3 { font-size: 21px; }
+.legal .steps .card p { margin-bottom: 0; font-size: 16px; }
+
+@media (max-width: 640px) {
+  .legal .steps { grid-template-columns: 1fr; gap: 12px; }
+  .legal .steps .card { padding: 20px; }
+}

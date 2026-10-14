@@ -27,9 +27,7 @@
       </span>
     </a>
     <nav class="nav" aria-label="Sections">
-      <a href="#how">How it works</a>
-      <a href="work.html#ai">What AI can do</a>
-      <a href="fix.html#prices">Prices</a>
+      <a href="#examples">Examples</a>
       <a href="work.html">Portfolio</a>
       <a href="media.html">Media</a>
       <a href="fix.html" class="btn btn-primary">Get a free quote</a>
@@ -40,9 +38,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
       <nav class="menu-panel" aria-label="Sections">
-        <a href="#how">How it works</a>
-        <a href="work.html#ai">What AI can do</a>
-        <a href="fix.html#prices">Prices</a>
+        <a href="#examples">Examples</a>
         <a href="work.html">Portfolio</a>
         <a href="media.html">Media</a>
         <a href="fix.html">Get a free quote</a>
@@ -50,6 +46,7 @@
     </details>
   </div>
 </header>
+
 
 <main>
 
@@ -114,37 +111,7 @@
     </div>
   </section>
 
-  <section class="wrap section stack" id="how">
-    <h2 class="section-title">How it works</h2>
-    <ol class="steps">
-      <li class="card">
-        <span class="step">1</span>
-        <h3>Answer three questions</h3>
-        <p>You answer three short questions. This step is free.</p>
-      </li>
-      <li class="card">
-        <span class="step">2</span>
-        <h3>Agree where to start</h3>
-        <p>We agree by email which problem to start from, how AI can help with it, and which size fits: £50, £100 or £200. The emails and the quote are free.</p>
-      </li>
-      <li class="card">
-        <span class="step">3</span>
-        <h3>Fix it together</h3>
-        <p>On a video call with screen sharing, we find the right problem and fix it together. You build the solution alongside me, so you learn how to change it as you go. You keep what we build. It is the proof that the problem is fixed.</p>
-      </li>
-      <li class="card">
-        <span class="step">4</span>
-        <h3>It keeps working</h3>
-        <p>Your solution keeps working for as long as it does its job. It tells you when it may no longer fit, so you never have to keep checking it yourself. You can make small changes yourself, and you can come back when the problem itself has changed.</p>
-      </li>
-    </ol>
-    <div class="section-cta">
-      <a href="fix.html" class="btn btn-primary" id="how-cta">Get a free quote</a>
-      <p class="free-note"><span class="free-badge">Free</span> You pay nothing until we agree the price.</p>
-    </div>
-  </section>
-
-  <section class="wrap section" id="contact" style="padding-top: 0">
+  <section class="wrap section" id="contact">
     <div class="contact-panel">
       <div class="contact-copy">
         <h2 class="section-title">Not sure where to start?</h2>
@@ -180,7 +147,7 @@
       entries.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
       sticky.classList.toggle('is-shown', visible.size === 0);
     });
-    ['hero-cta', 'how-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
+    ['hero-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
   }
 
 </script>
