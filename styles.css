@@ -13,7 +13,7 @@
   --marigold-dark: #E5A42C;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --max-width: 1180px;
+  --max-width: 1280px;
   --gutter: 32px;
 }
 
@@ -193,7 +193,7 @@ img { max-width: 100%; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 400px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   grid-template-areas: "copy photo";
   align-items: center;
   gap: 0 64px;
@@ -908,3 +908,42 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 .band-white .cards-two .card .step { background: var(--surface); }
 .outcome-tint { background: var(--bg); }
 .legal .free-note { margin-bottom: 20px; color: var(--ink); }
+
+/* Large hero button */
+
+.btn-large { min-height: 72px; padding: 0 44px; font-size: 22px; }
+
+/* What we do, inside the hero */
+
+.hero-what { display: flex; flex-direction: column; gap: 14px; max-width: 620px; margin-top: 8px; }
+.hero-what h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
+.hero-what ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.hero-what li { position: relative; padding-left: 26px; color: var(--ink-soft); }
+.hero-what li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--marigold);
+}
+.hero-what strong { color: var(--ink); }
+
+/* Larger intro line for the examples */
+
+.section-head .section-intro { max-width: 560px; font-size: 22px; line-height: 1.45; color: var(--ink); }
+
+/* Prices on the quote page */
+
+.legal .prices { margin-top: 16px; gap: 16px; }
+.legal .price-card { padding: 24px; background: var(--bg); }
+.legal .price-card p { margin-bottom: 0; }
+.legal .price-card .price { color: var(--ink); }
+
+@media (max-width: 640px) {
+  .btn-large { min-height: 64px; padding: 0 24px; font-size: 20px; }
+  .hero-what h2 { font-size: 24px; }
+  .section-head .section-intro { font-size: 19px; }
+}
