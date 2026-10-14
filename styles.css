@@ -889,23 +889,19 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
 .btn-large { min-height: 72px; padding: 0 44px; font-size: 22px; }
 
-/* What we do, inside the hero */
+/* What we do, as white cards inside the hero */
 
-.hero-what { display: flex; flex-direction: column; gap: 14px; max-width: 620px; margin-top: 8px; }
-.hero-what h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
-.hero-what ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.hero-what li { position: relative; padding-left: 26px; color: var(--ink-soft); }
-.hero-what li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--marigold);
+.hero-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.hero-cards .card { padding: 22px 24px; gap: 6px; background: var(--surface); border-radius: 20px; }
+.hero-cards .card h3 { font-size: 24px; }
+.hero-cards .card p { font-size: 17px; }
+
+/* Keep Stephen's quote clear of the cards on wide screens */
+
+@media (min-width: 1001px) {
+  .hero { column-gap: 96px; }
+  .hero-photo .quote-card { margin-left: -24px; }
 }
-.hero-what strong { color: var(--ink); }
 
 /* Larger intro line for the examples */
 
@@ -919,86 +915,10 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 .legal .price-card .price { color: var(--ink); }
 
 @media (max-width: 640px) {
-  .btn-large { min-height: 64px; padding: 0 24px; font-size: 20px; }
-  .hero-what h2 { font-size: 24px; }
-  .section-head .section-intro { font-size: 19px; }
-}
-
-/* Larger What we do text in the hero */
-
-.hero-what h2 { font-size: 32px; }
-.hero-what { max-width: 680px; }
-.hero-what li { font-size: 21px; line-height: 1.5; padding-left: 28px; }
-.hero-what li::before { width: 14px; height: 14px; }
-
-@media (max-width: 640px) {
-  .hero-what h2 { font-size: 26px; }
-  .hero-what li { font-size: 19px; }
-}
-
-/* What we do: bold lead-in on its own line, description below */
-
-.hero-what ul { gap: 18px; }
-.hero-what li { font-size: 18px; line-height: 1.5; }
-.hero-what li strong { display: block; font-family: var(--display); font-size: 24px; font-weight: 700; line-height: 1.25; }
-.hero-what li span { display: block; margin-top: 2px; }
-.hero-what li::before { top: 0.45em; }
-
-@media (max-width: 640px) {
   .hero h1 { font-size: 34px; }
-  .hero-what h2 { font-size: 24px; }
-  .hero-what ul { gap: 14px; }
-  .hero-what li { font-size: 17px; }
-  .hero-what li strong { font-size: 21px; }
-}
-
-/* Larger lead-ins now that the list has no heading */
-
-.hero-what { margin-top: 4px; }
-.hero-what li strong { font-size: 30px; }
-.hero-what li::before { top: 0.6em; }
-
-@media (max-width: 640px) {
-  .hero-what li strong { font-size: 23px; }
-  .hero-what li::before { top: 0.5em; }
-}
-
-/* Hero version B: the What we do items as white cards */
-
-.hero-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.hero-cards[hidden], .hero-what[hidden] { display: none; }
-.hero-cards .card { padding: 22px 24px; gap: 6px; background: var(--surface); border-radius: 20px; }
-.hero-cards .card h3 { font-size: 24px; }
-.hero-cards .card p { font-size: 17px; }
-
-/* Temporary A/B switch for the local preview */
-
-.dev-toggle {
-  position: fixed;
-  left: 12px;
-  bottom: 12px;
-  z-index: 30;
-  display: flex;
-  gap: 6px;
-  padding: 6px;
-  border-radius: 12px;
-  background: var(--ink);
-}
-
-.dev-toggle button {
-  padding: 6px 10px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--on-dark);
-  font: 700 13px var(--body);
-  cursor: pointer;
-}
-
-.dev-toggle button[aria-pressed="true"] { background: var(--marigold); }
-
-@media (max-width: 640px) {
+  .btn-large { min-height: 64px; padding: 0 24px; font-size: 20px; }
   .hero-cards { grid-template-columns: 1fr; gap: 12px; }
   .hero-cards .card { padding: 18px 20px; }
   .hero-cards .card h3 { font-size: 21px; }
-  .dev-toggle { bottom: 88px; }
+  .section-head .section-intro { font-size: 19px; }
 }

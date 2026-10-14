@@ -56,16 +56,7 @@
   <section class="wrap hero" id="top">
     <div class="hero-copy">
       <h1 id="headline">AI that works with you, <span class="nowrap">and your ADHD.</span></h1>
-      <div class="hero-what" id="what">
-        <ul>
-          <li><strong>Built with you.</strong> <span>We build the solution together on a video call. You see it work, and you can change it yourself.</span></li>
-          <li><strong>Help at the moment you need it.</strong> <span>The AI steps in inside your day. It keeps running without your constant input.</span></li>
-          <li><strong>Your tools start to stick.</strong> <span>The AI works around your habits and the apps you already own. You do not learn a new system.</span></li>
-          <li><strong>Decisions stop freezing you.</strong> <span>The AI sorts the options and offers a next step. You stay in charge of every call.</span></li>
-        </ul>
-      </div>
-      <!-- Version B for the local comparison. Delete whichever version loses. -->
-      <div class="hero-cards" hidden>
+      <div class="hero-cards" id="what">
         <div class="card">
           <h3>Built with you.</h3>
           <p>We build the solution together on a video call. You see it work, and you can change it yourself.</p>
@@ -192,30 +183,6 @@
     ['hero-cta', 'how-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
   }
 
-  // Temporary A/B switch for the hero. It only appears in the local preview and is removed before going live.
-  if (location.hostname === 'localhost') {
-    var bullets = document.querySelector('.hero-what');
-    var cards = document.querySelector('.hero-cards');
-    var toggle = document.createElement('div');
-    toggle.className = 'dev-toggle';
-    function show(variant) {
-      bullets.hidden = variant === 'B';
-      cards.hidden = variant === 'A';
-      toggle.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.textContent.charAt(0) === variant); });
-      try { localStorage.setItem('hero-variant', variant); } catch (e) {}
-    }
-    ['A bullets', 'B cards'].forEach(function (label) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = label;
-      b.addEventListener('click', function () { show(label.charAt(0)); });
-      toggle.appendChild(b);
-    });
-    document.body.appendChild(toggle);
-    var saved = 'A';
-    try { saved = localStorage.getItem('hero-variant') || 'A'; } catch (e) {}
-    show(saved);
-  }
 </script>
 
 </body>
