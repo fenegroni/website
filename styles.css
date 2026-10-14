@@ -935,3 +935,19 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero-what h2 { font-size: 26px; }
   .hero-what li { font-size: 19px; }
 }
+
+/* What we do: bold lead-in on its own line, description below */
+
+.hero-what ul { gap: 18px; }
+.hero-what li { font-size: 18px; line-height: 1.5; }
+.hero-what li strong { display: block; font-family: var(--display); font-size: 24px; font-weight: 700; line-height: 1.25; }
+.hero-what li span { display: block; margin-top: 2px; }
+.hero-what li::before { top: 0.45em; }
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 34px; }
+  .hero-what h2 { font-size: 24px; }
+  .hero-what ul { gap: 14px; }
+  .hero-what li { font-size: 17px; }
+  .hero-what li strong { font-size: 21px; }
+}
