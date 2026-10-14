@@ -50,6 +50,12 @@ export default {
       'What would you like help with?\n' + (help || '(left blank)') + '\n\n' +
       'Press Reply to answer ' + (name || email) + ' directly.\n';
 
+    // TO_ADDRESS is a Wrangler secret, so the inbox address stays out of the public repo.
+    if (!env.TO_ADDRESS) {
+      console.error('TO_ADDRESS is not set');
+      return reply(502, { ok: false, error: 'send' });
+    }
+
     try {
       await env.EMAIL.send({
         from: { email: env.FROM_ADDRESS, name: 'fenegroni.com quote form' },
