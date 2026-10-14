@@ -62,10 +62,10 @@
       <div class="hero-what" id="what">
         <h2>What we do</h2>
         <ul>
-          <li><strong>Help at the moment you need it.</strong> We build help that works at the moment you need it, inside your day.</li>
-          <li><strong>Built with you.</strong> We build it with you, so you see how it works and check it there and then.</li>
-          <li><strong>The glue between you and your tools.</strong> If something is not sticking, we help it stick. If there are too many options, we help you pick the right next step.</li>
-          <li><strong>Pointers you act on.</strong> A coach can give you pointers. We act on them with you.</li>
+          <li><strong>Help at the moment you need it.</strong> The AI steps in inside your day. It keeps running without your constant input.</li>
+          <li><strong>Your tools start to stick.</strong> The AI works around your habits and the apps you already own. You do not learn a new system.</li>
+          <li><strong>Decisions stop freezing you.</strong> The AI sorts the options and offers a next step. You stay in charge of every call.</li>
+          <li><strong>Built with you.</strong> We build the solution together on a video call. You see it work, and you can change it yourself.</li>
         </ul>
       </div>
     </div>
@@ -172,26 +172,6 @@
       sticky.classList.toggle('is-shown', visible.size === 0);
     });
     ['hero-cta', 'how-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
-  }
-
-  // Temporary headline picker. It only appears in the local preview and is removed before going live.
-  if (location.hostname === 'localhost') {
-    var headlines = [
-      'AI that works with you, <span class="nowrap">and your ADHD.</span>',
-      'Let\'s remove <span class="nowrap">the friction.</span>',
-      'We work for you, <span class="nowrap">and your ADHD.</span>',
-      'We solve your problem, <span class="nowrap">together with you.</span>'
-    ];
-    var picker = document.createElement('div');
-    picker.className = 'headline-picker';
-    headlines.forEach(function (html, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = 'H' + (i + 1);
-      b.addEventListener('click', function () { document.getElementById('headline').innerHTML = html; });
-      picker.appendChild(b);
-    });
-    document.body.appendChild(picker);
   }
 </script>
 
