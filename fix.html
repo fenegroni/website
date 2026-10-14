@@ -52,31 +52,25 @@
 
   <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
   <h1>Get a free quote</h1>
-  <p>Tell me what you would like help with. A few words are enough, and only your email is needed. I reply within 2 business days.</p>
-  <div class="email-help">
-    <span>Not sure what to say? Just email me.</span>
-    <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
-  </div>
+  <p>Tell me what you would like help with. A few words are enough. The button opens your email app with your message ready to send. I reply within 2 business days.</p>
 
-  <form class="intake" id="intake" action="/api/intake" method="post">
+  <form class="intake" id="intake" action="mailto:hello@fenegroni.com" method="post" enctype="text/plain">
     <label class="field">
       <span>What would you like help with?</span>
-      <textarea name="help" rows="5"></textarea>
+      <textarea name="help" id="help" rows="5"></textarea>
     </label>
-    <div class="field-row">
-      <label class="field">
-        <span>Your email (needed so I can reply)</span>
-        <input type="email" name="email" autocomplete="email" required>
-      </label>
-      <label class="field">
-        <span>Your name (optional)</span>
-        <input type="text" name="name" autocomplete="name">
-      </label>
-    </div>
-    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    <button type="submit" class="btn btn-primary">Send my request</button>
-    <p class="form-status" id="form-status" role="status"></p>
+    <label class="field field-half">
+      <span>Your name (optional)</span>
+      <input type="text" name="name" id="name" autocomplete="name">
+    </label>
+    <button type="submit" class="btn btn-primary">Write my email</button>
+    <div class="form-status" id="form-status" role="status"></div>
   </form>
+
+  <div class="email-help">
+    <span>Prefer your own email? Write to me directly.</span>
+    <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
+  </div>
 
   <p class="form-small">I use what you send only to reply to you. Read the <a href="privacy.html">Privacy Policy</a>.</p>
 
@@ -148,20 +142,33 @@
 <script>
   var form = document.getElementById('intake');
   var status = document.getElementById('form-status');
+  // Until the form has its own handler, the button opens the visitor's email app with the message filled in.
+  function quoteMessage() {
+    var help = document.getElementById('help').value.trim();
+    var name = document.getElementById('name').value.trim();
+    var body = 'Hello Filippo,\n\n' + (help || 'I would like a free quote.') + '\n';
+    if (name) body += '\n' + name + '\n';
+    return body;
+  }
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    var button = form.querySelector('button');
-    button.disabled = true;
-    status.textContent = 'Sending...';
-    fetch(form.action, { method: 'POST', body: new FormData(form) })
-      .then(function (response) {
-        if (!response.ok) throw new Error(response.status);
-        form.innerHTML = '<p class="form-done">Thank you. I have your request, and I will reply by email within 2 business days.</p>';
-      })
-      .catch(function () {
-        button.disabled = false;
-        status.innerHTML = 'Your request did not send. Please try again, or email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.';
+    var body = quoteMessage();
+    location.href = 'mailto:hello@fenegroni.com?subject=' + encodeURIComponent('Free quote request') + '&body=' + encodeURIComponent(body);
+
+    status.innerHTML = '<p class="form-done">Your email app should open now with your message. Press send there, and I will reply within 2 business days.</p>' +
+      '<p>If nothing opened, copy your message and send it to hello@fenegroni.com.</p>';
+    var copy = document.createElement('button');
+    copy.type = 'button';
+    copy.className = 'copy-btn';
+    copy.textContent = 'Copy my message';
+    copy.addEventListener('click', function () {
+      copyText(body).then(function () { copy.textContent = 'Copied'; }, function () {
+        document.getElementById('help').select();
+        copy.textContent = 'Selected';
       });
+    });
+    status.appendChild(copy);
   });
 
   // On phones, How it works starts with the step titles only. The button shows the details.

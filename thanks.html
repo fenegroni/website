@@ -49,7 +49,7 @@
 
   <p class="kicker">Payment received</p>
   <h1>Thank you</h1>
-  <p id="thanks-message">Thank you for your purchase. I will email you within 2 business days to arrange a time.</p>
+  <p id="thanks-message">Thank you for your payment. I will email you within 2 business days to arrange our video call.</p>
   <p>Stripe will email you a receipt. If you have any questions in the meantime, email me at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.</p>
   <p><a href="index.html" class="btn btn-small btn-primary">Back to the homepage</a></p>
 
@@ -63,17 +63,16 @@
   </div>
   <div class="wrap footer-row">
     <p>&copy; 2026 Filippo Negroni</p>
-    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
+    <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
 
 <script>
-  // Stripe redirects here with ?offer=... so each purchase gets its own message.
+  // Stripe redirects here with ?offer=small, medium or complex, so each size gets its own message.
   var messages = {
-    session: "Thank you for booking a coaching session. I will email you within 2 business days to arrange a time.",
-    workshop: "Thank you for booking an AI Agent Workshop. I will email you within 2 business days to arrange a date.",
-    bundle: "Thank you for buying the coaching bundle. Your four sessions are valid for 3 months. I will email you within 2 business days to arrange your first session.",
-    retainer: "Thank you. Your retainer is active. I will email you within 2 business days to set up your first session of the month."
+    small: "Thank you for paying for a small fix. I will email you within 2 business days to arrange our video call.",
+    medium: "Thank you for paying for a medium fix. I will email you within 2 business days to arrange our video call.",
+    complex: "Thank you for paying for a complex fix. I will email you within 2 business days to arrange our video call. We will agree the date of the follow-up check-in during that call."
   };
   var offer = new URLSearchParams(location.search).get("offer");
   if (messages[offer]) document.getElementById("thanks-message").textContent = messages[offer];

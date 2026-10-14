@@ -938,7 +938,9 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 
 .legal-wide { max-width: 1120px; }
 
-.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.field-half { max-width: 50%; }
+.form-status p { margin-bottom: 8px; }
+.form-status .copy-btn { margin-top: 4px; }
 
 .how-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 40px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); }
 .legal .how-head h2 { margin: 0; padding: 0; border: 0; }
@@ -960,9 +962,14 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 }
 
 @media (max-width: 640px) {
-  .field-row { grid-template-columns: 1fr; gap: 24px; }
+  .field-half { max-width: none; }
   .how-toggle { display: inline-flex; align-items: center; }
   .how.is-collapsed .steps .card p { display: none; }
   .how.is-collapsed .steps .card { flex-direction: row; align-items: center; gap: 12px; padding: 14px 16px; }
   .how.is-collapsed .steps .card h3 { font-size: 19px; }
 }
+
+/* Link from the examples to the Portfolio */
+
+.see-all { align-self: flex-start; font-size: 19px; font-weight: 700; }
+.see-all::after { content: " \2192"; }
