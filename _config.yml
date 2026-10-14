@@ -1,3 +1,4 @@
-# GitHub Pages publishes the site from this folder. The Worker is not part of the site.
+# GitHub Pages publishes the site from this folder. The Worker and the notes for Claude are not part of the site.
 exclude:
   - worker
+  - CLAUDE.md
