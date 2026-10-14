@@ -873,3 +873,38 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .example-title { font-size: 20px; }
   .contact-actions, .contact-actions .btn { width: 100%; }
 }
+
+/* Free note beside the quote buttons */
+
+.free-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.free-badge {
+  flex-shrink: 0;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--marigold);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.section-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+
+@media (max-width: 640px) {
+  .section-cta .btn { width: 100%; }
+}
+
+/* Cards and outcome on a white band */
+
+.band-white .cards-two .card .step { background: var(--surface); }
+.outcome-tint { background: var(--bg); }
+.legal .free-note { margin-bottom: 20px; color: var(--ink); }
