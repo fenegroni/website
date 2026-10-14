@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Let's fix it, together | Filippo Negroni</title>
-<meta name="description" content="Tell me about the problem in three short questions. It is free, and I reply by email.">
+<meta name="description" content="Tell me about the problem in three short questions, or just say hello. It is free, and I reply by email.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
 </head>
 <body>
 
@@ -34,27 +35,27 @@
 
   <p class="kicker">Free, and no payment yet</p>
   <h1>Let's fix it, together</h1>
-  <p>Answer three short questions. A few words are enough. I reply by email within 2 business days.</p>
+  <p>Answer what you can, or just say hello. A few words are enough. Only your email is needed, and I reply within 2 business days.</p>
 
   <form class="intake" id="intake" action="/api/intake" method="post">
     <label class="field">
       <span>When and where does this keep happening?</span>
-      <textarea name="when_where" rows="3" required></textarea>
+      <textarea name="when_where" rows="3"></textarea>
     </label>
     <label class="field">
       <span>What do you want to happen, and what pulls you the other way?</span>
-      <textarea name="want_vs_pull" rows="3" required></textarea>
+      <textarea name="want_vs_pull" rows="3"></textarea>
     </label>
     <label class="field">
       <span>When those clash, which one usually wins?</span>
-      <textarea name="which_wins" rows="3" required></textarea>
+      <textarea name="which_wins" rows="3"></textarea>
     </label>
     <label class="field">
-      <span>Your name</span>
-      <input type="text" name="name" autocomplete="name" required>
+      <span>Your name (optional)</span>
+      <input type="text" name="name" autocomplete="name">
     </label>
     <label class="field">
-      <span>Your email</span>
+      <span>Your email (needed so I can reply)</span>
       <input type="email" name="email" autocomplete="email" required>
     </label>
     <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -68,6 +69,10 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-help">
+    <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
+    <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>
+  </div>
   <div class="wrap footer-row">
     <p>&copy; 2026 Filippo Negroni</p>
     <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a></p>

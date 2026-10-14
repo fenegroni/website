@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filippo Negroni | We fix the problem, not your ADHD</title>
-<meta name="description" content="Do you have ADHD and a problem that keeps coming back? Keep your pen and paper. We build the fix around how you already work, with AI where it helps. One problem solved for £150.">
+<meta name="description" content="Do you have ADHD and a problem that keeps coming back? Keep the tools you love, and we'll make them stick. We build the fix with you, with AI where it helps. Fixed prices from £50.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
 </head>
 <body>
 
@@ -28,6 +29,7 @@
     <nav class="nav" aria-label="Sections">
       <a href="#how">How it works</a>
       <a href="#ai">What AI can do</a>
+      <a href="#prices">Prices</a>
       <a href="work.html">Portfolio</a>
       <a href="media.html">Media</a>
       <a href="fix.html" class="btn btn-primary">Let's fix it</a>
@@ -40,6 +42,7 @@
       <nav class="menu-panel" aria-label="Sections">
         <a href="#how">How it works</a>
         <a href="#ai">What AI can do</a>
+        <a href="#prices">Prices</a>
         <a href="work.html">Portfolio</a>
         <a href="media.html">Media</a>
         <a href="fix.html">Let's fix it</a>
@@ -53,14 +56,39 @@
   <section class="wrap hero" id="top">
     <div class="hero-copy">
       <h1 id="headline">We fix the problem, <span class="nowrap">not your ADHD.</span></h1>
-      <p class="lede">Keep your pen and paper. We build the system around how you already work.</p>
+      <p class="lede" id="value-line">You don't have to choose. Keep the tools you love, and we'll make them stick.</p>
       <div class="actions">
         <a href="fix.html" class="btn btn-primary" id="hero-cta">Let's fix it, together.</a>
       </div>
-      <p class="hero-note">The first step is free. Finding the right problem and fixing it together costs £150.</p>
+      <div class="email-help">
+        <span>Not sure what to say? Just email me.</span>
+        <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
+      </div>
     </div>
     <div class="hero-photo">
       <img src="images/headshot.jpg" alt="Filippo Negroni" width="800" height="1200">
+    </div>
+  </section>
+
+  <section class="wrap section stack" id="what" style="padding-top: 0">
+    <h2 class="section-title">What we do</h2>
+    <div class="cards cards-light cards-two">
+      <div class="card">
+        <h3>Help at the moment you need it</h3>
+        <p>We build help that works at the moment you need it, inside your day.</p>
+      </div>
+      <div class="card">
+        <h3>Built with you</h3>
+        <p>We build it with you, so you see how it works and check it there and then.</p>
+      </div>
+      <div class="card">
+        <h3>The glue between you and your tools</h3>
+        <p>We build the glue between you and what you already have. If something is not sticking, we help it stick. If there are too many options, we help you pick the right next step.</p>
+      </div>
+      <div class="card">
+        <h3>Pointers you act on</h3>
+        <p>A coach can give you pointers. We act on them with you.</p>
+      </div>
     </div>
   </section>
 
@@ -75,17 +103,17 @@
       <li class="card">
         <span class="step">2</span>
         <h3>Agree where to start</h3>
-        <p>We agree by email which problem to start from and how AI can help. We also check that it fits in £150.</p>
+        <p>We agree by email which problem to start from, how AI can help with it, and which size fits: £50, £100 or £200.</p>
       </li>
       <li class="card">
         <span class="step">3</span>
         <h3>Fix it together</h3>
-        <p>On a video call with screen sharing, we find the right problem and fix it together. You build it alongside me, so you learn how to change it. You keep it as proof that the problem is fixed.</p>
+        <p>On a video call with screen sharing, we find the right problem and fix it together. You build the solution alongside me, so you learn how to change it as you go. You keep what we build. It is the proof that the problem is fixed.</p>
       </li>
       <li class="card">
         <span class="step">4</span>
         <h3>It keeps working</h3>
-        <p>Your fix works for as long as it does its job, and it tells you when it may no longer fit. You can make small changes yourself. Come back when the problem itself changes.</p>
+        <p>Your solution keeps working for as long as it does its job. It tells you when it may no longer fit, so you never have to keep checking it yourself. You can make small changes yourself, and you can come back when the problem itself has changed.</p>
       </li>
     </ol>
   </section>
@@ -94,20 +122,24 @@
     <div class="wrap section stack">
       <div class="section-head">
         <h2 class="section-title">What AI can do for you</h2>
-        <p>I build AI solutions, and AI can help with most problems. We decide together where it fits yours.</p>
+        <p>I build AI solutions, and AI can help with every problem we take on. We agree together where AI fits yours and how you use it.</p>
       </div>
-      <div class="cards">
+      <div class="cards cards-two">
         <div class="card">
           <h3>It fits your habits</h3>
-          <p>The AI works around what you already do. You do not have to learn a new system.</p>
+          <p>The AI works around your habits and the tools you already own. You do not have to learn a new system.</p>
         </div>
         <div class="card">
-          <h3>You decide how it helps</h3>
-          <p>We agree where AI fits the problem and how you use it. Nothing happens that you did not choose.</p>
+          <h3>It runs without you</h3>
+          <p>The solution runs without your constant input, so you do not spend your evenings keeping it going.</p>
         </div>
         <div class="card">
-          <h3>You do not look after it alone</h3>
-          <p>I build it to run without daily care. It tells you when something needs a change.</p>
+          <h3>You set how the agents work</h3>
+          <p>You decide how the agents work together. You do not have to manage them one by one.</p>
+        </div>
+        <div class="card">
+          <h3>Decisions stop freezing you</h3>
+          <p>The AI does the sorting, so decisions stop freezing you. You stay in charge of every call.</p>
         </div>
       </div>
     </div>
@@ -126,13 +158,13 @@
       </div>
       <div class="card">
         <span class="step">2</span>
-        <h3>It fits your pen and paper</h3>
-        <p>The solution fits around your pen, paper and photos. You do not have to learn a new system or keep one running.</p>
+        <h3>It fits how you already work</h3>
+        <p>The solution fits around how you already work, including the notes, photos and apps you already use. It removes friction instead of adding a new system.</p>
       </div>
       <div class="card">
         <span class="step">3</span>
         <h3>It checks itself</h3>
-        <p>The solution tells you when it stops fitting, so you do not have to watch it.</p>
+        <p>The solution checks itself and tells you when it stops fitting. The feedback stays visible, so you do not have to watch it.</p>
       </div>
       <div class="card">
         <span class="step">4</span>
@@ -141,6 +173,61 @@
       </div>
     </div>
     <p class="outcome">You leave able to adjust the solution yourself. Each improvement in AI keeps working for you after we finish.</p>
+  </section>
+
+  <section class="band-white" id="examples">
+    <div class="wrap section stack">
+      <div class="section-head">
+        <h2 class="section-title">Examples</h2>
+        <p>I built these for my own ADHD and use them. Each one removes friction from a part of my day.</p>
+      </div>
+      <div class="examples">
+        <a class="example-link" href="example-adhd-assist.html">
+          <span class="example-title">When I get stuck</span>
+          <span class="example-desc">My own advice comes back to me at the moment I cannot reach it.</span>
+        </a>
+        <a class="example-link" href="example-pillars.html">
+          <span class="example-title">When habits slip off the calendar</span>
+          <span class="example-desc">Sleep, medication and meals keep their place in a busy week.</span>
+        </a>
+        <a class="example-link" href="example-webcam-monitor.html">
+          <span class="example-title">When I drift without noticing</span>
+          <span class="example-desc">A quiet alert tells me when tiredness or drift sets in.</span>
+        </a>
+        <a class="example-link" href="example-presentation.html">
+          <span class="example-title">When slides swallow the story</span>
+          <span class="example-desc">The story of a talk comes first, and the slides follow.</span>
+        </a>
+        <a class="example-link" href="example-midi-sequencer.html">
+          <span class="example-title">When recording breaks the flow</span>
+          <span class="example-desc">I keep playing, and the AI handles the recording.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section stack" id="prices">
+    <div class="section-head">
+      <h2 class="section-title">Prices</h2>
+      <p>The first email exchange is free. I quote the size after it, and the price is fixed once we agree it.</p>
+    </div>
+    <div class="prices">
+      <div class="price-card">
+        <h3>Small</h3>
+        <p class="price">£50</p>
+        <p>About one to two hours of work.</p>
+      </div>
+      <div class="price-card">
+        <h3>Medium</h3>
+        <p class="price">£100</p>
+        <p>About half a day of work.</p>
+      </div>
+      <div class="price-card">
+        <h3>Complex</h3>
+        <p class="price">£200</p>
+        <p>A solution that needs a follow-up. We check in a few weeks after it starts running.</p>
+      </div>
+    </div>
   </section>
 
   <section class="wrap section" id="proof" style="padding-top: 0">
@@ -157,12 +244,15 @@
   <section class="wrap section" id="contact" style="padding-top: 0">
     <div class="contact-panel">
       <div class="contact-copy">
-        <h2 class="section-title">Got a problem that keeps coming back?</h2>
-        <p>Tell me about it in three short questions. It is free, and I reply by email.</p>
+        <h2 class="section-title">Not sure where to start?</h2>
+        <p>Answer three short questions, or just say hello. It is free, and I reply by email.</p>
       </div>
-      <div class="actions">
+      <div class="contact-actions">
         <a href="fix.html" class="btn btn-dark" id="end-cta">Let's fix it, together.</a>
-        <a href="mailto:hello@fenegroni.com" class="btn btn-outline">hello@fenegroni.com</a>
+        <div class="email-help">
+          <span>Not sure what to say? Just email me.</span>
+          <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
+        </div>
       </div>
     </div>
   </section>
@@ -172,6 +262,10 @@
 <a href="fix.html" class="btn btn-primary sticky-cta" id="sticky-cta">Let's fix it, together.</a>
 
 <footer class="site-footer">
+  <div class="wrap footer-help">
+    <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
+    <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>
+  </div>
   <div class="wrap footer-row">
     <p>&copy; <span id="year">2026</span> Filippo Negroni</p>
     <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
@@ -179,11 +273,6 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.querySelectorAll('.menu-panel a').forEach(function (link) {
-    link.addEventListener('click', function () { link.closest('details').open = false; });
-  });
-
   // Show the sticky button on phones only while no other "Let's fix it" button is on screen.
   var sticky = document.getElementById('sticky-cta');
   if ('IntersectionObserver' in window) {
@@ -196,20 +285,23 @@
     observer.observe(document.getElementById('end-cta'));
   }
 
-  // Temporary headline picker. It only appears in the local preview and is removed before going live.
+  // Temporary swap-out picker. It only appears in the local preview and is removed before going live.
   if (location.hostname === 'localhost') {
-    var headlines = [
-      'We fix the problem, <span class="nowrap">not your ADHD.</span>',
-      'We work for you, <span class="nowrap">and your ADHD.</span>',
-      'We solve your problem, <span class="nowrap">together with you.</span>'
+    var swaps = [
+      ['H1', 'headline', 'We fix the problem, <span class="nowrap">not your ADHD.</span>'],
+      ['H2', 'headline', 'Let\'s remove <span class="nowrap">the friction.</span>'],
+      ['H3', 'headline', 'We work for you, <span class="nowrap">and your ADHD.</span>'],
+      ['H4', 'headline', 'We solve your problem, <span class="nowrap">together with you.</span>'],
+      ['V1', 'value-line', 'You don\'t have to choose. Keep the tools you love, and we\'ll make them stick.'],
+      ['V2', 'value-line', 'Stop getting stuck. We build the bit that\'s missing between you and the tools you already use.']
     ];
     var picker = document.createElement('div');
     picker.className = 'headline-picker';
-    headlines.forEach(function (html, i) {
+    swaps.forEach(function (swap) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.textContent = 'Headline ' + (i + 1);
-      b.addEventListener('click', function () { document.getElementById('headline').innerHTML = html; });
+      b.textContent = swap[0];
+      b.addEventListener('click', function () { document.getElementById(swap[1]).innerHTML = swap[2]; });
       picker.appendChild(b);
     });
     document.body.appendChild(picker);

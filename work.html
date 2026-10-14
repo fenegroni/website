@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
 <style>
   .work-hero {
     display: flex;
@@ -49,6 +50,7 @@
   .project h3 { font-size: 24px; font-weight: 700; line-height: 1.2; }
   .project p { color: var(--ink-soft); font-size: 17px; }
   .project .more { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: 16px; }
+  .project .more + .more { margin-top: 0; padding-top: 0; }
   .tag {
     align-self: flex-start;
     padding: 4px 12px;
@@ -79,16 +81,16 @@
       <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2E6A4E"/><g fill="none" stroke="#F4F6F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 33 H32.03"/><path d="M29.82 28 L34.24 38" stroke="#2E6A4E" stroke-width="9.2" stroke-linecap="butt"/><path d="M15.6 48.4 C17.9 47.4 19 44.8 19 41 V19 H22 C25 19 27 22 28.5 25 L36 42 C38 47 41 48.5 43 48 C44.5 47.5 45 46 45 44 V19"/></g></svg>
       <span class="brand-text">
         <span class="brand-name">Filippo Negroni</span>
-        <span class="brand-tagline">Your AI coach</span>
+        <span class="brand-tagline">We fix the problem, not your ADHD</span>
       </span>
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="index.html#how">How it works</a>
+      <a href="index.html#ai">What AI can do</a>
       <a href="index.html#prices">Prices</a>
-      <a href="index.html#teams">For teams</a>
       <a href="work.html" aria-current="page">Portfolio</a>
       <a href="media.html">Media</a>
-      <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+      <a href="fix.html" class="btn btn-primary">Let's fix it</a>
     </nav>
     <details class="menu">
       <summary>
@@ -97,11 +99,11 @@
       </summary>
       <nav class="menu-panel" aria-label="Sections">
         <a href="index.html#how">How it works</a>
+        <a href="index.html#ai">What AI can do</a>
         <a href="index.html#prices">Prices</a>
-        <a href="index.html#teams">For teams</a>
         <a href="work.html" aria-current="page">Portfolio</a>
         <a href="media.html">Media</a>
-        <a href="index.html#contact">Get in touch</a>
+        <a href="fix.html">Let's fix it</a>
       </nav>
     </details>
   </div>
@@ -116,7 +118,7 @@
 
   <section class="wrap section stack" id="adhd">
     <div class="section-head">
-      <h2 class="section-title">ADHD scaffolding</h2>
+      <h2 class="section-title">ADHD tools</h2>
       <p>Tools I built for my own ADHD and run daily.</p>
     </div>
     <div class="projects">
@@ -124,17 +126,20 @@
         <span class="tag">Public on GitHub</span>
         <h3>adhd-assist</h3>
         <p>A Claude skill that notices when someone is stuck and offers one small thing that might help. The person writes the rules while they feel well. The skill matches against those rules when they do not. It reads their own judgement back to them at the moment it is hardest to reach.</p>
+        <a class="more" href="example-adhd-assist.html">Read the example</a>
         <a class="more" href="https://github.com/fenegroni/adhd-assist">github.com/fenegroni/adhd-assist</a>
       </article>
       <article class="project">
         <span class="tag tag-private">Private, in development</span>
         <h3>Webcam monitor</h3>
         <p>A local monitor that watches for signs of fatigue and drift through the webcam. It raises an alert that adhd-assist can act on. The footage stays on the machine, and the code stays small enough to audit.</p>
+        <a class="more" href="example-webcam-monitor.html">Read the example</a>
       </article>
       <article class="project">
         <span class="tag tag-private">Private</span>
         <h3>Pillars and pillar audit</h3>
         <p>The habits a life rests on, such as sleep, medication and meals, live in plain files. A scheduled agent checks the calendar against them. It books missing sessions, flags what it cannot fix and writes a monthly summary of how each habit went.</p>
+        <a class="more" href="example-pillars.html">Read the example</a>
       </article>
     </div>
   </section>
@@ -164,13 +169,14 @@
         <article class="project">
           <span class="tag">Public on GitHub</span>
           <h3>pattern-authoring</h3>
-          <p>A skill for writing other skills as Alexandrian patterns. Each rule states the forces it resolves and the conditions under which it stops applying. Five adversarial probes then hunt for defects that survive rereading.</p>
+          <p>A skill for writing other skills as Alexandrian patterns. Each rule states the forces it resolves and the conditions under which it stops applying. Six adversarial probes then hunt for defects that survive rereading.</p>
           <a class="more" href="https://github.com/fenegroni/agentic-pattern-language">github.com/fenegroni/agentic-pattern-language</a>
         </article>
         <article class="project">
           <span class="tag">Public on GitHub</span>
           <h3>narrative-before-slides</h3>
           <p>A skill that works out the story of a talk before any slide exists. I published the same brief run with and without the skill, with the raw outputs left untouched.</p>
+          <a class="more" href="example-presentation.html">Read the example</a>
           <a class="more" href="https://github.com/fenegroni/narrative-before-slides">github.com/fenegroni/narrative-before-slides</a>
         </article>
         <article class="project">
@@ -183,6 +189,7 @@
           <span class="tag">Public on GitHub</span>
           <h3>MIDI sequencer with MCP</h3>
           <p>A Rust loop recorder for a MIDI keyboard. It runs its own MCP server, so Claude can drive the transport, read back what I played and export it.</p>
+          <a class="more" href="example-midi-sequencer.html">Read the example</a>
           <a class="more" href="https://github.com/fenegroni/midi-sequencer">github.com/fenegroni/midi-sequencer</a>
         </article>
       </div>
@@ -192,18 +199,15 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-help">
+    <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
+    <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>
+  </div>
   <div class="wrap footer-row">
     <p>&copy; <span id="year">2026</span> Filippo Negroni</p>
     <p class="footer-links"><a href="terms.html">Terms of Sale</a><a href="privacy.html">Privacy Policy</a><a href="https://billing.stripe.com/p/login/6oU8wP9GiaL064r9Fs7kc00">Manage Subscription</a></p>
   </div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.querySelectorAll('.menu-panel a').forEach(function (link) {
-    link.addEventListener('click', function () { link.closest('details').open = false; });
-  });
-</script>
 
 </body>
 </html>
