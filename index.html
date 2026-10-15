@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-15">
+<link rel="stylesheet" href="styles.css?v=2026-10-15b">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -27,7 +27,7 @@
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#examples">Examples</a>
-      <a href="work.html">Portfolio</a>
+      <a href="work.html">Tools</a>
       <a href="media.html">Media</a>
       <a href="quote.html" class="btn btn-primary">Get a free quote</a>
     </nav>
@@ -38,7 +38,7 @@
       </summary>
       <nav class="menu-panel" aria-label="Sections">
         <a href="#examples">Examples</a>
-        <a href="work.html">Portfolio</a>
+        <a href="work.html">Tools</a>
         <a href="media.html">Media</a>
         <a href="quote.html">Get a free quote</a>
       </nav>
@@ -52,6 +52,7 @@
   <section class="wrap hero" id="top">
     <div class="hero-copy">
       <h1 id="headline">AI that works with you, <span class="nowrap">and your ADHD.</span></h1>
+      <button type="button" class="how-toggle cards-toggle" aria-controls="what" aria-expanded="true">Hide details</button>
       <div class="hero-cards" id="what">
         <div class="card">
           <h3>Built with you.</h3>
@@ -91,7 +92,7 @@
     <div class="wrap section stack">
       <div class="section-head">
         <h2 class="section-title">Examples</h2>
-        <p class="section-intro">I built these for my own ADHD and use them. Each one removes friction from a part of my day.</p>
+        <p class="section-intro">I built these to remove friction from a part of my day.</p>
       </div>
       <div class="examples">
         <a class="example-link" href="example-adhd-assist.html">
@@ -167,6 +168,17 @@
     });
     ['hero-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
   }
+
+  // On phones, the four cards start with their titles only. The button shows the details.
+  var cards = document.getElementById('what');
+  var cardsToggle = document.querySelector('.cards-toggle');
+  function setCards(open) {
+    cards.classList.toggle('is-collapsed', !open);
+    cardsToggle.setAttribute('aria-expanded', open);
+    cardsToggle.textContent = open ? 'Hide details' : 'Show details';
+  }
+  cardsToggle.addEventListener('click', function () { setCards(cards.classList.contains('is-collapsed')); });
+  if (window.matchMedia('(max-width: 640px)').matches) setCards(false);
 
 </script>
 

@@ -47,7 +47,7 @@ export default {
     var text = 'New quote request from fenegroni.com\n\n' +
       'Name: ' + (name || '(not given)') + '\n' +
       'Email: ' + email + '\n\n' +
-      'What keeps getting in your way?\n' + (help || '(left blank)') + '\n\n' +
+      'What could reduce friction in your life?\n' + (help || '(left blank)') + '\n\n' +
       'Press Reply to answer ' + (name || email) + ' directly.\n';
 
     // TO_ADDRESS is a Wrangler secret, so the inbox address stays out of the public repo.

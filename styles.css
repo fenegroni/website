@@ -692,7 +692,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .hero .actions .btn { width: 100%; }
 
   .hero-photo img { border-radius: 28px; }
-  .quote-card { margin: -64px 16px 0; padding: 24px; }
+  .quote-card { margin: -48px 0 0; padding: 24px; }
   .quote-card blockquote { font-size: 18px; }
   .quote-wide { margin: 0; }
   .quote-wide blockquote { font-size: 20px; }
@@ -710,7 +710,7 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   }
   .sticky-cta.is-shown { transform: none; }
   .site-footer { padding-bottom: 88px; }
-  .hero-photo { max-width: 280px; }
+  .hero-photo { max-width: none; }
 
   .section { padding-top: 56px; padding-bottom: 56px; }
   .stack { gap: 24px; }
@@ -914,7 +914,11 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
   .btn-large { min-height: 64px; padding: 0 24px; font-size: 20px; }
   .hero-cards { grid-template-columns: 1fr; gap: 12px; }
   .hero-cards .card { padding: 18px 20px; }
-  .hero-cards .card h3 { font-size: 21px; }
+  .hero-cards .card h3 { font-size: 23px; }
+  .hero-cards .card p { font-size: 19px; }
+  .cards-toggle { display: inline-flex; align-items: center; align-self: flex-start; }
+  .hero-cards.is-collapsed .card p { display: none; }
+  .hero-cards.is-collapsed .card { padding: 16px 20px; }
   .section-head .section-intro { font-size: 19px; }
 }
 
@@ -971,7 +975,7 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
   .how.is-collapsed .steps .card h3 { font-size: 19px; }
 }
 
-/* Link from the examples to the Portfolio */
+/* Link from the examples to the Tools page */
 
 .see-all { align-self: flex-start; font-size: 19px; font-weight: 700; }
 .see-all::after { content: " \2192"; }
