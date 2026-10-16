@@ -192,10 +192,8 @@ img { max-width: 100%; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  grid-template-areas: "copy photo";
-  align-items: center;
-  gap: 0 64px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "copy";
   padding-top: 56px;
   padding-bottom: 96px;
 }
@@ -319,9 +317,27 @@ img { max-width: 100%; }
 .hero-about p { color: var(--ink-soft); }
 .hero-story { color: var(--ink-soft); }
 
-.hero-photo { grid-area: photo; }
+/* Why Filippo, with the photo beside the cards */
 
-.hero-photo img {
+.filippo {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 24px 48px;
+  align-items: start;
+}
+
+.filippo .filippo-cards { grid-template-columns: 1fr; gap: 16px; }
+
+/* On wide screens the three cards fill the height of the photo */
+
+@media (min-width: 801px) {
+  .filippo { align-items: stretch; }
+  .filippo .filippo-cards { grid-template-rows: repeat(3, 1fr); }
+  .filippo .filippo-cards .card { padding: 24px 32px; justify-content: center; }
+  .filippo .filippo-photo { height: 100%; }
+}
+
+.filippo-photo {
   display: block;
   width: 100%;
   height: auto;
@@ -452,7 +468,7 @@ img { max-width: 100%; }
 
 .quote-card {
   position: relative;
-  margin: -96px 0 0 -48px;
+  margin: 0;
   padding: 28px;
   border-radius: 24px;
   background: var(--moss);
@@ -665,10 +681,12 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
 /* Responsive */
 
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo"; gap: 48px; }
-  .hero-photo { max-width: 400px; }
   .hero-about { margin-top: 0; }
-  .quote-card { margin: -64px 16px 0; }
+}
+
+@media (max-width: 800px) {
+  .filippo { grid-template-columns: minmax(0, 1fr); }
+  .filippo-photo { max-width: 400px; }
 }
 
 @media (max-width: 960px) {
@@ -691,8 +709,8 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   .lede { font-size: 24px; }
   .hero .actions .btn { width: 100%; }
 
-  .hero-photo img { border-radius: 28px; }
-  .quote-card { margin: -48px 0 0; padding: 24px; }
+  .filippo-photo { border-radius: 28px; }
+  .quote-card { padding: 24px; }
   .quote-card blockquote { font-size: 18px; }
   .quote-wide { margin: 0; }
   .quote-wide blockquote { font-size: 20px; }
@@ -710,7 +728,6 @@ a.article:hover { color: var(--ink); box-shadow: 0 0 0 2px var(--moss); }
   }
   .sticky-cta.is-shown { transform: none; }
   .site-footer { padding-bottom: 88px; }
-  .hero-photo { max-width: none; }
 
   .section { padding-top: 56px; padding-bottom: 56px; }
   .stack { gap: 24px; }
@@ -884,19 +901,39 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .btn-large { min-height: 72px; padding: 0 44px; font-size: 22px; }
 
-/* What we do, as white cards inside the hero */
+/* Tool cards inside the hero */
 
-.hero-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.hero-cards .card { padding: 22px 24px; gap: 6px; background: var(--surface); border-radius: 20px; }
-.hero-cards .card h3 { font-size: 24px; }
-.hero-cards .card p { font-size: 17px; }
+.tool-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-/* Keep Stephen's quote clear of the cards on wide screens */
-
-@media (min-width: 1001px) {
-  .hero { column-gap: 96px; }
-  .hero-photo .quote-card { margin-left: -24px; }
+@media (max-width: 1100px) {
+  .tool-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+.tool-cards .example-link { padding: 24px; background: var(--surface); }
+.tool-cards .example-title { font-size: 22px; }
+.tool-cards .example-desc { font-size: 17px; }
+.tool-cards .tool-yours { background: transparent; border: 2px dashed var(--moss); }
+
+.hero h1 { text-wrap: balance; }
+
+.hero-actions { align-items: center; gap: 16px 32px; }
+
+/* Why a personalised solution */
+
+.how-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.how-cards .why-quote { grid-column: 3; grid-row: 1 / span 2; justify-content: center; padding: 32px; }
+.how-cards .why-quote blockquote { font-size: 22px; }
+
+@media (max-width: 1000px) {
+  .how-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .how-cards .why-quote { grid-column: 1 / -1; grid-row: auto; }
+}
+
+@media (max-width: 640px) {
+  .how-cards { grid-template-columns: 1fr; }
+  .how-cards .why-quote { padding: 24px; }
+  .how-cards .why-quote blockquote { font-size: 18px; }
+}
+.more-title { margin-top: 32px; font-size: clamp(1.75rem, 3vw, 2.25rem); }
 
 /* Larger intro line for the examples */
 
@@ -912,13 +949,10 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 @media (max-width: 640px) {
   .hero h1 { font-size: 34px; }
   .btn-large { min-height: 64px; padding: 0 24px; font-size: 20px; }
-  .hero-cards { grid-template-columns: 1fr; gap: 12px; }
-  .hero-cards .card { padding: 18px 20px; }
-  .hero-cards .card h3 { font-size: 23px; }
-  .hero-cards .card p { font-size: 19px; }
-  .cards-toggle { display: inline-flex; align-items: center; align-self: flex-start; }
-  .hero-cards.is-collapsed .card p { display: none; }
-  .hero-cards.is-collapsed .card { padding: 16px 20px; }
+  .tool-cards { grid-template-columns: 1fr; gap: 12px; }
+  .tool-cards .example-link { padding: 16px 20px; }
+  .tool-cards .example-title { font-size: 22px; }
+  .tool-cards .example-desc { font-size: 18px; }
   .section-head .section-intro { font-size: 19px; }
 }
 
