@@ -1,0 +1,24 @@
+# Filippo Negroni
+
+> Filippo Negroni builds AI solutions for adults with ADHD. Each solution fits the tools the person already uses. The quote is free, and prices are fixed at £50, £100 or £200 depending on the size of the job.
+
+Every page on this site is plain HTML and needs no JavaScript to read.
+
+## Main pages
+
+- [Home](https://fenegroni.com/): The home page introduces the offer and shows example solutions.
+- [Solutions](https://fenegroni.com/work.html): This page lists the Claude Skills, MCP servers and coded tools Filippo has built.
+- [Get a free quote](https://fenegroni.com/quote.html): This page explains how the work goes, lists the prices and holds the quote form.
+- [Media](https://fenegroni.com/media.html): This page collects articles and media about what Filippo learns while putting AI to work.
+
+## Examples
+
+- [When I get stuck](https://fenegroni.com/example-adhd-assist.html): My own advice comes back to me at the moment I get stuck and cannot reach it.
+- [When habits slip off the calendar](https://fenegroni.com/example-pillars.html): Sleep, medication and meals keep their place on the calendar in a busy week.
+- [When my attention drifts or I am tired](https://fenegroni.com/example-webcam-monitor.html): A quiet alert tells me when my attention drifts or I am tired.
+- [When slides swallow the story](https://fenegroni.com/example-presentation.html): The story of a talk comes first, and the slides follow.
+- [When recording breaks the flow](https://fenegroni.com/example-midi-sequencer.html): I keep playing the keyboard, and the AI handles the recording.
+
+## Contact
+
+- [Email](mailto:hello@fenegroni.com): Questions go to hello@fenegroni.com.

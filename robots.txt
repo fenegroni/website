@@ -1,0 +1,5 @@
+# Search engines and AI assistants may read every public page.
+User-agent: *
+Allow: /
+
+Sitemap: https://fenegroni.com/sitemap.xml
