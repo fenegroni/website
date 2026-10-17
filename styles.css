@@ -1014,3 +1014,8 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .see-all { align-self: flex-start; font-size: 19px; font-weight: 700; }
 .see-all::after { content: " \2192"; }
+
+/* Home hero line under the headline */
+
+.hero .lede strong { color: var(--ink); font-weight: 700; }
+.tool-cards .tool-yours .example-title { letter-spacing: 0.02em; }
