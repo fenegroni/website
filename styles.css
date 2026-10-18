@@ -854,6 +854,25 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .price-card h3 { font-size: 24px; font-weight: 700; }
 .price-card p:not(.price) { color: var(--ink-soft); }
+.price-card .price-gbp { margin-top: -4px; font-size: 15px; }
+
+/* Currency menu above the prices */
+
+.currency { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 20px 0 24px; }
+.currency[hidden] { display: none; }
+.currency label { font-weight: 700; }
+
+.currency select {
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.currency select:focus { border-color: var(--moss); outline: none; }
 
 @media (max-width: 800px) {
   .prices { grid-template-columns: 1fr; gap: 16px; }

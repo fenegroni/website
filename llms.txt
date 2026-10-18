@@ -1,6 +1,6 @@
 # Filippo Negroni
 
-> Filippo Negroni builds AI solutions for adults with ADHD. Each solution fits the tools the person already uses. The quote is free, and prices are fixed at £50, £100 or £200 depending on the size of the job.
+> Filippo Negroni builds AI solutions for adults with ADHD. Each solution fits the tools the person already uses. He works by video call with English speakers in any country and any time zone. The quote is free, and prices are fixed at £50, £100 or £200 depending on the size of the job. The quote page shows an estimate of each price in other currencies.
 
 Every page on this site is plain HTML and needs no JavaScript to read.
 

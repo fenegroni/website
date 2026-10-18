@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get a free quote | Filippo Negroni</title>
-<meta name="description" content="Get a free quote. Tell me what you would like help with, or just say hello. I reply by email.">
+<meta name="description" content="Get a free quote. Tell me what you would like help with, or just say hello. I reply by email and work with clients in any country.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-17">
+<link rel="stylesheet" href="styles.css?v=2026-10-18">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -99,7 +99,7 @@
       <li class="card">
         <span class="step">3</span>
         <h3>I build the solution together with you</h3>
-        <p>We work on a video call with screen sharing. You learn how to change it as you go, and you keep what we build.</p>
+        <p>We work on a video call with screen sharing. I work with clients in any time zone, so we pick a time that suits you. You learn how to change it as you go, and you keep what we build.</p>
       </li>
       <li class="card">
         <span class="step">4</span>
@@ -112,23 +112,32 @@
   <section id="prices">
     <h2>Prices</h2>
     <p><strong>Your quote and first emails are free.</strong> Once we agree a size, the price is fixed.</p>
+    <div class="currency" id="currency" hidden>
+      <label for="currency-select">Show prices in</label>
+      <select id="currency-select"></select>
+    </div>
     <div class="prices">
       <div class="price-card">
         <h3>Small</h3>
-        <p class="price">£50</p>
+        <p class="price" data-gbp="50">£50</p>
+        <p class="price-gbp" hidden></p>
         <p>About one to two hours of work.</p>
       </div>
       <div class="price-card">
         <h3>Medium</h3>
-        <p class="price">£100</p>
+        <p class="price" data-gbp="100">£100</p>
+        <p class="price-gbp" hidden></p>
         <p>About half a day of work.</p>
       </div>
       <div class="price-card">
         <h3>Complex</h3>
-        <p class="price">£200</p>
+        <p class="price" data-gbp="200">£200</p>
+        <p class="price-gbp" hidden></p>
         <p>A solution that needs a follow-up. We check in a few weeks after it starts running.</p>
       </div>
     </div>
+    <p class="form-small" id="currency-note" hidden>Prices are fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
+    <p class="form-small">I am not a doctor or therapist. The solutions we build help with everyday friction. They do not diagnose or treat ADHD, and they do not replace medical care.</p>
   </section>
 
 </article>
@@ -218,6 +227,84 @@
   }
   toggle.addEventListener('click', function () { setDetails(how.classList.contains('is-collapsed')); });
   if (window.matchMedia('(max-width: 640px)').matches) setDetails(false);
+
+  // The currency menu turns the fixed prices in pounds into estimates in other currencies.
+  // It guesses a currency from the browser's region and stays hidden if the rates do not load.
+  var REGION_CURRENCY = {
+    EUR: 'AT BE BG HR CY EE FI FR DE GR IE IT LV LT LU MT NL PT SK SI ES AD MC SM VA ME XK',
+    USD: 'US PR EC SV PA ZW', GBP: 'GB IM JE GG', CAD: 'CA', AUD: 'AU', NZD: 'NZ',
+    INR: 'IN', PKR: 'PK', BDT: 'BD', LKR: 'LK', NPR: 'NP', ZAR: 'ZA', NGN: 'NG', KES: 'KE',
+    GHS: 'GH', UGX: 'UG', TZS: 'TZ', ZMW: 'ZM', RWF: 'RW', EGP: 'EG', MAD: 'MA', MUR: 'MU',
+    BWP: 'BW', NAD: 'NA', SGD: 'SG', MYR: 'MY', PHP: 'PH', HKD: 'HK', CNY: 'CN', TWD: 'TW',
+    JPY: 'JP', KRW: 'KR', THB: 'TH', VND: 'VN', IDR: 'ID', AED: 'AE', SAR: 'SA', QAR: 'QA',
+    KWD: 'KW', BHD: 'BH', OMR: 'OM', ILS: 'IL', JOD: 'JO', TRY: 'TR', CHF: 'CH LI',
+    NOK: 'NO', SEK: 'SE', DKK: 'DK', ISK: 'IS', PLN: 'PL', CZK: 'CZ', HUF: 'HU', RON: 'RO',
+    RSD: 'RS', UAH: 'UA', MXN: 'MX', BRL: 'BR', ARS: 'AR', CLP: 'CL', COP: 'CO', PEN: 'PE',
+    UYU: 'UY', JMD: 'JM', TTD: 'TT', BBD: 'BB', BSD: 'BS', FJD: 'FJ'
+  };
+  var COMMON_CURRENCIES = ['GBP', 'USD', 'EUR', 'CAD', 'AUD', 'NZD', 'INR', 'ZAR', 'SGD', 'CHF'];
+  var currencyNames = window.Intl && Intl.DisplayNames ? new Intl.DisplayNames(['en'], { type: 'currency' }) : null;
+
+  function currencyLabel(code) {
+    var name = currencyNames && currencyNames.of(code);
+    return name && name !== code ? name + ' (' + code + ')' : code;
+  }
+
+  function formatPrice(amount, code) {
+    try {
+      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: code, minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount);
+    } catch (e) {
+      return code + ' ' + Math.round(amount);
+    }
+  }
+
+  function guessCurrency(rates) {
+    var byRegion = {};
+    Object.keys(REGION_CURRENCY).forEach(function (code) {
+      REGION_CURRENCY[code].split(' ').forEach(function (region) { byRegion[region] = code; });
+    });
+    var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+    for (var i = 0; i < languages.length; i++) {
+      var match = /-([a-z]{2})\b/i.exec(languages[i] || '');
+      var code = match && byRegion[match[1].toUpperCase()];
+      if (code && rates[code]) return code;
+    }
+    return 'GBP';
+  }
+
+  function addOptions(select, label, codes) {
+    var group = document.createElement('optgroup');
+    group.label = label;
+    codes.forEach(function (code) { group.appendChild(new Option(currencyLabel(code), code)); });
+    select.appendChild(group);
+  }
+
+  function showPrices(code, rates) {
+    document.querySelectorAll('[data-gbp]').forEach(function (price) {
+      var gbp = Number(price.dataset.gbp);
+      var note = price.nextElementSibling;
+      price.textContent = formatPrice(gbp * rates[code], code);
+      note.textContent = 'Estimate. The fixed price is ' + formatPrice(gbp, 'GBP') + '.';
+      note.hidden = code === 'GBP';
+    });
+  }
+
+  fetch('/api/rates')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      if (!data.ok || !data.rates) return;
+      var rates = data.rates;
+      var select = document.getElementById('currency-select');
+      var all = Object.keys(rates).sort(function (a, b) { return currencyLabel(a).localeCompare(currencyLabel(b)); });
+      addOptions(select, 'Common', COMMON_CURRENCIES.filter(function (code) { return rates[code]; }));
+      addOptions(select, 'All currencies', all);
+      select.value = guessCurrency(rates);
+      select.addEventListener('change', function () { showPrices(select.value, rates); });
+      showPrices(select.value, rates);
+      document.getElementById('currency').hidden = false;
+      document.getElementById('currency-note').hidden = false;
+    })
+    .catch(function () {});
 </script>
 
 </body>

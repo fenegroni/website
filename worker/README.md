@@ -2,6 +2,8 @@
 
 This Cloudflare Worker receives the quote form on `quote.html` at `fenegroni.com/api/intake`. It emails each message to Filippo through Cloudflare Email Routing. The visitor's address goes in Reply-To, so pressing Reply answers the visitor.
 
+The Worker also answers `fenegroni.com/api/rates` with exchange rates from pounds to about 160 other currencies. The currency menu on `quote.html` uses them to show estimated prices. The rates come from the free ExchangeRate-API endpoint at open.er-api.com, and Cloudflare caches them for six hours. If the route fails, the page shows prices in pounds only.
+
 GitHub Pages does not publish this folder, because `_config.yml` excludes it.
 
 ## What it checks
@@ -58,6 +60,12 @@ Wrangler rewrites a localhost Origin to https://fenegroni.com, so test requests 
 
 ```bash
 curl -H "Origin: https://fenegroni.com" -F "email=you@example.com" -F "help=Test" http://localhost:8787/api/intake
+```
+
+To check the rates route, ask for it with curl. The answer lists each currency code with its rate from one pound.
+
+```bash
+curl http://localhost:8787/api/rates
 ```
 
 ## If something goes wrong

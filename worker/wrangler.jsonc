@@ -5,7 +5,8 @@
   "compatibility_date": "2026-10-01",
   "workers_dev": false,
   "routes": [
-    { "pattern": "fenegroni.com/api/intake", "zone_name": "fenegroni.com" }
+    { "pattern": "fenegroni.com/api/intake", "zone_name": "fenegroni.com" },
+    { "pattern": "fenegroni.com/api/rates", "zone_name": "fenegroni.com" }
   ],
   "vars": {
     "FROM_ADDRESS": "form@fenegroni.com",
