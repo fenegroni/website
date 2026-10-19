@@ -50,7 +50,7 @@
 <main class="wrap legal legal-wide">
 <article class="legal-card">
 
-  <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
+  <p class="free-note"><span class="free-badge">Free</span> Your first step costs nothing and commits you to nothing.</p>
   <h1>Get a free quote</h1>
   <p>I reply by email within 2 business days.</p>
 
@@ -89,17 +89,17 @@
       <li class="card">
         <span class="step">1</span>
         <h3>Ask for a quote</h3>
-        <p>You tell me what you would like help with. This step is free.</p>
+        <p>You tell me in a few words what keeps getting in your way. This step is free.</p>
       </li>
       <li class="card">
         <span class="step">2</span>
-        <h3>Agree where to start</h3>
-        <p>I email you a few short questions. We agree how AI can help you, which size fits, and how you would like to work. <a href="#prices">See prices</a>. The emails and the quote are free.</p>
+        <h3>Read my reply</h3>
+        <p>I reply in writing with what I think the problem is and how I could help. If you would like me to build it for you, I send a fixed quote with two options. <a href="#prices">See prices</a>. My reply and the quote are free.</p>
       </li>
       <li class="card">
         <span class="step">3</span>
         <h3>We build it your way</h3>
-        <p>You choose how we work. We can build it together on a video call, and I mentor you as we go. Or I can build it on my own and hand it over on a short call or with a written guide. I work with clients in any time zone, so we pick a time that suits you. You keep what we build.</p>
+        <p>You choose how we work. We can build it together on a video call, on your screen and with your own tools. Or I can build it for you and show you how it works on a short handover call. I work with clients in any time zone, so we pick a time that suits you. You keep what we build.</p>
       </li>
       <li class="card">
         <span class="step">4</span>
@@ -111,32 +111,36 @@
 
   <section id="prices">
     <h2>Prices</h2>
-    <p><strong>Your quote and first emails are free.</strong> Once we agree a size, the price is fixed.</p>
+    <p>You start with a free first step. Then you choose how we build your solution.</p>
     <div class="currency" id="currency" hidden>
       <label for="currency-select">Show prices in</label>
       <select id="currency-select"></select>
     </div>
     <div class="prices">
       <div class="price-card">
-        <h3>Small</h3>
-        <p class="price" data-gbp="50">£50</p>
-        <p class="price-gbp" hidden></p>
-        <p>About one to two hours of work.</p>
+        <h3>Free first step</h3>
+        <p class="price">Free</p>
+        <p>Tell me in a few words what keeps getting in your way. Use the form above or send me a plain email. I reply in writing with what I think the problem is and how I could help. This step costs nothing and commits you to nothing.</p>
       </div>
       <div class="price-card">
-        <h3>Medium</h3>
-        <p class="price" data-gbp="100">£100</p>
+        <h3>Build it together</h3>
+        <p class="price" data-gbp="50">£50<span> an hour</span></p>
         <p class="price-gbp" hidden></p>
-        <p>About half a day of work.</p>
+        <p>We meet on a video call, and you share your screen. We build the solution together on your screen, with your own tools. I promise to get you unstuck in that hour. A finished solution may take longer, so you can add a second hour.</p>
       </div>
       <div class="price-card">
-        <h3>Complex</h3>
-        <p class="price" data-gbp="200">£200</p>
-        <p class="price-gbp" hidden></p>
-        <p>A solution that needs a follow-up. We check in a few weeks after it starts running.</p>
+        <h3>Done for you</h3>
+        <p class="price">Fixed quote</p>
+        <p>After the free first step, I send you a fixed quote with two options. Each option says what you get and what it costs. You pay nothing until you choose. If the full solution is big, one option is always a smaller first piece. A short handover call shows you how to run it and adjust it.</p>
       </div>
     </div>
-    <p class="form-small" id="currency-note" hidden>Prices are fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
+    <p class="form-small" id="currency-note" hidden>The hourly price is fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
+    <ul class="price-notes">
+      <li><strong>How you pay.</strong> This page never charges you. When you choose an hour or an option, I email you a payment link for it.</li>
+      <li><strong>Running costs.</strong> My fee covers my time. Some solutions need subscriptions, API credits, a domain or better hardware. You pay for those directly, and your quote lists them.</li>
+      <li><strong>What you get with either option.</strong> I write or check every skill I give you, and I tell you where it came from. You are in charge afterwards. The solution keeps working until it flags that it may no longer fit. I have ADHD myself, and I build tools for it every day.</li>
+      <li><strong>An example of what an hour can do.</strong> In a trial session, a beginner with no coding experience got a working BeamNG game mod in about an hour. They also left with a reusable skill for making more mods. Every problem is different, so your hour may go another way.</li>
+    </ul>
     <p class="form-small">I am not a doctor or therapist. The solutions we build help with everyday friction. They do not diagnose or treat ADHD, and they do not replace medical care.</p>
   </section>
 
@@ -283,7 +287,7 @@
     document.querySelectorAll('[data-gbp]').forEach(function (price) {
       var gbp = Number(price.dataset.gbp);
       var note = price.nextElementSibling;
-      price.textContent = formatPrice(gbp * rates[code], code);
+      price.firstChild.nodeValue = formatPrice(gbp * rates[code], code);
       note.textContent = 'Estimate. The fixed price is ' + formatPrice(gbp, 'GBP') + '.';
       note.hidden = code === 'GBP';
     });
