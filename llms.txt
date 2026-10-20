@@ -1,6 +1,6 @@
 # Filippo Negroni
 
-> Filippo Negroni builds AI solutions for adults with ADHD. Each solution fits the tools the person already uses. He works by video call with English speakers in any country and any time zone. The first step is free. He replies in writing with what he thinks the problem is and how he could help. Clients can then build the solution with him on a video call for £50 an hour, or ask for a fixed quote with two options and have him build it for them. The quote page shows an estimate of the hourly price in other currencies.
+> Filippo Negroni builds AI solutions for adults with ADHD. Each solution fits the tools the person already uses. He works by video call with English speakers in any country and any time zone. Clients can start in two ways. They can build the solution with him on a video call for £50 an hour, which is his founding client rate for hours booked by 31 December 2026. They pay first, and the hour includes a short written recap and seven days of email questions. Or they can describe the problem for free and get a fixed quote with two options, and he builds the one they choose. The quote page shows an estimate of the hourly price in other currencies.
 
 Every page on this site is plain HTML and needs no JavaScript to read.
 
@@ -8,7 +8,7 @@ Every page on this site is plain HTML and needs no JavaScript to read.
 
 - [Home](https://fenegroni.com/): The home page introduces the offer and shows example solutions.
 - [Solutions](https://fenegroni.com/work.html): This page lists the Claude Skills, MCP servers and coded tools Filippo has built.
-- [Get a free quote](https://fenegroni.com/quote.html): This page explains how the work goes, lists the prices and holds the quote form.
+- [Get a free quote](https://fenegroni.com/quote.html): This page explains the two ways to start, holds the quote form and lists what clients should know before they pay.
 - [Media](https://fenegroni.com/media.html): This page collects articles and media about what Filippo learns while putting AI to work.
 
 ## Examples

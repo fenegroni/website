@@ -10,6 +10,7 @@ GitHub Pages does not publish this folder, because `_config.yml` excludes it.
 
 - It accepts only POST requests whose Origin is in `ALLOWED_ORIGINS`.
 - It needs a valid email address. The message and the name are optional.
+- It records the optional `newsletter` box. Each email has a line such as "Newsletter: yes (ticked on the quote form on 2026-10-20 14:03 UTC)" or "Newsletter: no", so the inbox keeps a dated record of consent.
 - It limits the message to 5,000 characters and the name to 200.
 - It drops any request that fills the hidden `website` field, which only bots see. The bot gets a normal success reply.
 - It logs the error code when a send fails. It never logs what the visitor wrote.
