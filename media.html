@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-20">
-<script src="site.js?v=2026-10-14" defer></script>
+<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
 
@@ -25,29 +25,36 @@
         <span class="brand-name">Filippo Negroni</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
       <a href="work.html">Solutions</a>
-      <a href="quote.html" class="btn btn-accent">Get a free quote</a>
+      <a href="media.html" aria-current="page">Media</a>
+      <a href="quote.html" class="btn btn-accent">How it works</a>
     </nav>
     <details class="menu">
       <summary>
         <span class="visually-hidden">Menu</span>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
-      <nav class="menu-panel" aria-label="Sections">
+      <nav class="menu-panel" aria-label="Pages">
+        <a href="index.html">Home</a>
         <a href="work.html">Solutions</a>
-        <a href="quote.html">Get a free quote</a>
+        <a href="media.html" aria-current="page">Media</a>
+        <a href="quote.html">How it works</a>
       </nav>
     </details>
   </div>
 </header>
 
 
-<main class="wrap section media">
-  <div class="stack" style="gap: 12px">
-    <h1 class="section-title">Media</h1>
+<main>
+
+  <section class="wrap work-hero">
+    <h1>Media</h1>
     <p class="muted">I write about what I learn while putting AI to work.</p>
-  </div>
+  </section>
+
+  <section class="wrap section">
   <div class="articles">
     <!-- Podcast goes here. Copy an article link below, set article-label to "Podcast" and point it at the show. -->
     <!-- Substack articles go here. Use one article link per post with article-label "Substack article". -->
@@ -68,9 +75,23 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E6A4E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-news">
+    <form class="news-form" action="/api/newsletter" method="post">
+      <label for="news-email" class="visually-hidden">Your email</label>
+      <div class="news-row">
+        <input type="email" name="email" id="news-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+        <button type="submit" class="btn btn-dark">Join the newsletter</button>
+      </div>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="form-status news-status" role="status"></div>
+    </form>
+  </div>
   <div class="wrap footer-help">
     <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
     <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>

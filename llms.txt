@@ -8,7 +8,7 @@ Every page on this site is plain HTML and needs no JavaScript to read.
 
 - [Home](https://fenegroni.com/): The home page introduces the offer and shows example solutions.
 - [Solutions](https://fenegroni.com/work.html): This page lists the Claude Skills, MCP servers and coded tools Filippo has built.
-- [Get a free quote](https://fenegroni.com/quote.html): This page explains the two ways to start, holds the quote form and lists what clients should know before they pay.
+- [How it works](https://fenegroni.com/quote.html): This page explains the two ways to start and their prices, holds the quote form and lists what clients should know before they pay.
 - [Media](https://fenegroni.com/media.html): This page collects articles and media about what Filippo learns while putting AI to work.
 
 ## Examples

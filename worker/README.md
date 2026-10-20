@@ -4,6 +4,8 @@ This Cloudflare Worker receives the quote form on `quote.html` at `fenegroni.com
 
 The Worker also answers `fenegroni.com/api/rates` with exchange rates from pounds to about 160 other currencies. The currency menu on `quote.html` uses them to show estimated prices. The rates come from the free ExchangeRate-API endpoint at open.er-api.com, and Cloudflare caches them for six hours. If the route fails, the page shows prices in pounds only.
 
+The Worker also receives the newsletter form in every page footer at `fenegroni.com/api/newsletter`. It emails Filippo the address with a dated consent line, such as "Consent: yes (joined with the footer form on 2026-10-20 14:03 UTC)". Filippo then adds the address to the updates list by hand. If the route fails, the form offers "Open my email app" instead.
+
 GitHub Pages does not publish this folder, because `_config.yml` excludes it.
 
 ## What it checks
@@ -31,7 +33,7 @@ You need Node.js 20 or later. Run every command from this `worker` folder.
    npx wrangler login
    ```
 
-3. Deploy the Worker. Wrangler also creates the route `fenegroni.com/api/intake`.
+3. Deploy the Worker. Wrangler also creates the routes `fenegroni.com/api/intake`, `fenegroni.com/api/rates` and `fenegroni.com/api/newsletter`.
 
    ```bash
    npx wrangler deploy
@@ -61,6 +63,12 @@ Wrangler rewrites a localhost Origin to https://fenegroni.com, so test requests 
 
 ```bash
 curl -H "Origin: https://fenegroni.com" -F "email=you@example.com" -F "help=Test" http://localhost:8787/api/intake
+```
+
+To test the newsletter route, send an email address with the same Origin:
+
+```bash
+curl -H "Origin: https://fenegroni.com" -F "email=you@example.com" http://localhost:8787/api/newsletter
 ```
 
 To check the rates route, ask for it with curl. The answer lists each currency code with its rate from one pound.

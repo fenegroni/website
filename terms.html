@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-20">
-<script src="site.js?v=2026-10-14" defer></script>
+<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
 
@@ -26,18 +26,22 @@
         <span class="brand-name">Filippo Negroni</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
       <a href="work.html">Solutions</a>
-      <a href="index.html" class="btn btn-outline">Home</a>
+      <a href="media.html">Media</a>
+      <a href="quote.html" class="btn btn-accent">How it works</a>
     </nav>
     <details class="menu">
       <summary>
         <span class="visually-hidden">Menu</span>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
-      <nav class="menu-panel" aria-label="Sections">
-        <a href="work.html">Solutions</a>
+      <nav class="menu-panel" aria-label="Pages">
         <a href="index.html">Home</a>
+        <a href="work.html">Solutions</a>
+        <a href="media.html">Media</a>
+        <a href="quote.html">How it works</a>
       </nav>
     </details>
   </div>
@@ -58,7 +62,7 @@
   <p>You can start in two ways.</p>
   <table>
     <tr><th>Service</th><th>Price</th><th>What you get</th></tr>
-    <tr><td>Build it together</td><td>£50 an hour</td><td>One hour on a video call, where we build the solution together on your screen, with your own tools. I promise to get you unstuck in that hour. A finished solution may take longer, and you can add a second hour. You also get a short written recap and seven days to email me questions.</td></tr>
+    <tr><td>Build it together</td><td>£50 an hour</td><td>One hour on a video call, where we work on your solution together. I promise to get you unstuck in that hour. A finished solution may take longer, and you can add a second hour. You also get a short written recap and seven days to email me questions.</td></tr>
     <tr><td>Done for you</td><td>Fixed quote</td><td>You tell me for free what gets in your way. I reply with a fixed quote and two options, and each option says what you get, what it costs and any software costs. One option is always a smaller first piece. I build the option you choose, and a short handover call shows you how to run it and change it.</td></tr>
   </table>
   <p>£50 an hour is a founding client rate. It applies to every hour booked and paid for by 31 December 2026. I will set new prices for 2027 and publish them on this site before they apply. An hour you have already paid for keeps the price you paid.</p>
@@ -74,7 +78,7 @@
   </ul>
 
   <h2>4. Booking and rescheduling</h2>
-  <p>I will contact you within 2 business days of your payment. For an hour together, I ask you a few short questions, and we agree one focus and a time for our video call. For a done-for-you option, we agree a time for the handover call. If I can't help with what you need, I refund you in full before we meet.</p>
+  <p>I will contact you within 2 business days of your payment. For an hour together, we agree the focus and a time for our video call. For a done-for-you option, we agree a time for the handover call. If I can't help with what you need, I refund you in full before we meet.</p>
   <p>You can move any call free of charge if you tell me at least 24 hours before it starts. If I need to move the call, I will offer you a new time, and you keep the full service.</p>
 
   <h2>5. What we build</h2>
@@ -117,6 +121,18 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-news">
+    <form class="news-form" action="/api/newsletter" method="post">
+      <label for="news-email" class="visually-hidden">Your email</label>
+      <div class="news-row">
+        <input type="email" name="email" id="news-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+        <button type="submit" class="btn btn-dark">Join the newsletter</button>
+      </div>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="form-status news-status" role="status"></div>
+    </form>
+  </div>
   <div class="wrap footer-help">
     <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
     <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>

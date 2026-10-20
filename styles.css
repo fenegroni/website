@@ -537,9 +537,20 @@ img { max-width: 100%; }
 
 /* Writing */
 
-.articles { display: flex; flex-direction: column; gap: 12px; }
+/* Page title on Solutions and Media */
 
-.media { max-width: 760px; display: flex; flex-direction: column; gap: 40px; }
+.work-hero { display: flex; flex-direction: column; gap: 20px; padding-top: 56px; }
+.work-hero h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; }
+
+@media (max-width: 800px) {
+  .work-hero { padding-top: 24px; }
+}
+
+.articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+
+@media (max-width: 640px) {
+  .articles { grid-template-columns: 1fr; gap: 16px; }
+}
 
 .article {
   display: flex;
@@ -806,6 +817,44 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .footer-help a { font-weight: 700; }
 
+/* Newsletter signup in every footer */
+
+.footer-news { padding-top: 32px; }
+.news-form { display: flex; flex-direction: column; gap: 10px; max-width: 560px; font-size: 16px; color: var(--ink-soft); }
+.news-form strong { color: var(--ink); }
+.news-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.news-row input {
+  flex: 1 1 220px;
+  padding: 12px 16px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.news-row input:focus { border-color: var(--moss); outline: none; }
+.news-row .btn { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.news-row .btn:disabled { opacity: 0.6; cursor: default; }
+.news-small { font-size: 15px; }
+.news-small a { font-weight: 700; }
+.news-status:empty { display: none; }
+
+/* On the How it works page the signup sits beside the £50 button. */
+.book-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 32px; }
+.book-row .news-form { flex: 1 1 320px; }
+.book-row .news-row .btn { width: auto; margin-top: 0; }
+
+/* The menu marks the current page with a pill. */
+/* Every link reserves the pill's border and padding, so marking one never moves the others. */
+.nav { gap: 2px; }
+.nav a:not(.btn) { padding: 6px 12px; border: 2px solid transparent; border-radius: 999px; }
+.nav .btn { margin-left: 12px; }
+.nav a[aria-current]:not(.btn) { border-color: var(--ink); }
+.nav .btn[aria-current] { box-shadow: inset 0 0 0 2px var(--ink); }
+.menu-panel a[aria-current] { font-weight: 800; box-shadow: inset 4px 0 0 var(--moss); }
+
 /* Examples */
 
 .examples {
@@ -886,35 +935,11 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
   .contact-actions, .contact-actions .btn { width: 100%; }
 }
 
-/* Free note beside the quote buttons */
-
-.free-note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.free-badge {
-  flex-shrink: 0;
-  padding: 3px 12px;
-  border-radius: 999px;
-  background: var(--marigold);
-  color: var(--ink);
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
 .section-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 
 @media (max-width: 640px) {
   .section-cta .btn { width: 100%; }
 }
-.legal .free-note { margin-bottom: 20px; color: var(--ink); }
 
 /* Large hero button */
 
@@ -1075,7 +1100,7 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .familiar h2 { font-size: 26px; font-weight: 800; line-height: 1.1; }
 .familiar ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .familiar li { padding: 12px 16px; border-radius: 12px; background: var(--bg); }
-.familiar p { font-size: 16px; color: var(--ink-soft); }
+.familiar p { font-size: 21px; line-height: 1.45; color: var(--ink-soft); }
 .familiar strong { color: var(--ink); }
 
 @media (max-width: 900px) {
@@ -1147,8 +1172,10 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .path-tag-warm { background: #F7E7C4; color: #6B4A0B; }
 .path-badge { background: var(--marigold); color: var(--ink); letter-spacing: 0; text-transform: none; }
 
-.path-fixed { font-family: var(--display); font-size: 30px; font-weight: 800; line-height: 1.1; }
-.path-fixed-sub { margin-top: 6px; font-size: 20px; color: var(--ink-soft); }
+/* The founding rate badge sits beside the price. */
+.price-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+
+.path-summary { font-size: 19px; color: var(--ink-soft); }
 
 .path-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
 .path-steps li { display: flex; align-items: flex-start; gap: 14px; }
@@ -1159,20 +1186,8 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .path .btn { margin-top: auto; }
 
-.assurances {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  padding: 24px 28px;
-  border-radius: 20px;
-  background: var(--bg);
-}
-
-.assurances p, .good-to-know p { font-size: 16px; color: var(--ink-soft); }
-.assurances strong, .good-to-know strong { display: block; font-size: 17px; color: var(--ink); }
-
-.paths-help { font-size: 16px; color: var(--ink-soft); }
-.paths-help a { font-weight: 700; }
+.good-to-know p { font-size: 16px; color: var(--ink-soft); }
+.good-to-know strong { display: block; font-size: 17px; color: var(--ink); }
 
 .btn-white { background: var(--surface); color: var(--ink); }
 .btn-white:hover { background: var(--ink); color: #FFFFFF; }
@@ -1180,15 +1195,13 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .contact-actions p { font-size: 16px; }
 
 @media (max-width: 800px) {
-  .paths, .assurances { grid-template-columns: minmax(0, 1fr); }
+  .paths { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 640px) {
   .path { padding: 24px; border-radius: 20px; }
   .path h3 { font-size: 26px; }
-  .path-fixed { font-size: 26px; }
   .path .btn { width: 100%; }
-  .assurances { padding: 20px; gap: 16px; }
 }
 
 /* What you could build */
@@ -1201,7 +1214,8 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .example-group > p { max-width: 64ch; font-size: 16px; color: var(--ink-soft); }
 .example-group .examples { margin-top: 4px; }
 
-.examples-white .example-link { background: var(--surface); }
+/* The choice cards sit on the page background, so they need a white fill. */
+.paths-raised .path { background: var(--surface); }
 
 .example-media {
   display: flex;
@@ -1220,18 +1234,23 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .example-media-cover { padding: 0; border: 1px solid var(--line); }
 .example-media-cover img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
 
-/* Quote page with the two ways, the form and Good to know */
+/* Payment options page: the two ways one after the other, then Good to know */
 
 .quote-page { display: flex; flex-direction: column; gap: 32px; }
-.quote-intro { max-width: 60ch; color: var(--ink-soft); }
+.quote-paths h1 { margin-bottom: 0; }
 
-.legal .paths-compact { margin-top: 20px; }
-.paths-compact .path { padding: 28px; gap: 16px; background: var(--surface); }
-.legal .path p { margin: 0; }
-.legal .path h2 { margin: 0; padding: 0; border: 0; font-size: 28px; font-weight: 800; line-height: 1.1; }
-.paths-compact .price { font-size: 32px; }
-.paths-compact .price-gbp { font-size: 15px; }
-.path-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.quote-page .path { background: var(--surface); }
+.legal .path p, .legal .path li { margin: 0; }
+.legal .path h2 { margin: 0; padding: 0; border: 0; font-size: 32px; font-weight: 800; line-height: 1.1; }
+.quote-page .path .price-gbp { font-size: 15px; }
+.quote-page .path-note { background: var(--bg); }
+.quote-page .path > .btn { align-self: flex-start; }
+
+.quote-form-block { padding-top: 24px; border-top: 1px solid var(--line); }
+.quote-form-block h3 { font-size: 26px; font-weight: 800; line-height: 1.1; }
+.quote-form-block h3 + p { margin-top: 6px; }
+.quote-form-block .intake { margin-top: 24px; }
+.quote-form-block > .email-help, .legal .quote-form-block > p:not(:first-of-type) { margin-top: 16px; }
 
 .legal .card-title { margin: 8px 0 4px; padding: 0; border: 0; font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.1; }
 
@@ -1245,5 +1264,3 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .legal .disclaimer { padding-top: 16px; border-top: 1px solid var(--line); }
 
 .quote-full { max-width: none; }
-.legal .paths-help { margin: 16px 0 0; }
-.paths-compact .path-row > div { text-align: right; }

@@ -17,22 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-20">
-<script src="site.js?v=2026-10-14" defer></script>
+<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<script src="site.js?v=2026-10-20" defer></script>
 <style>
-  .work-hero {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 56px;
-  }
-  .work-hero h1 {
-    font-size: clamp(2.5rem, 5.5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
-
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -63,9 +50,6 @@
   .tag-demo { background: var(--line); color: var(--ink); }
   .tag-kind { background: var(--bg); color: var(--ink); }
 
-  @media (max-width: 800px) {
-    .work-hero { padding-top: 24px; }
-  }
   @media (max-width: 640px) {
     .projects { grid-template-columns: 1fr; gap: 16px; }
     .project { padding: 22px; border-radius: 20px; }
@@ -83,18 +67,22 @@
         <span class="brand-name">Filippo Negroni</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="work.html" aria-current="page">Solutions</a>
       <a href="media.html">Media</a>
-      <a href="quote.html" class="btn btn-accent">Get a free quote</a>
+      <a href="quote.html" class="btn btn-accent">How it works</a>
     </nav>
     <details class="menu">
       <summary>
         <span class="visually-hidden">Menu</span>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
-      <nav class="menu-panel" aria-label="Sections">
+      <nav class="menu-panel" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="work.html" aria-current="page">Solutions</a>
         <a href="media.html">Media</a>
-        <a href="quote.html">Get a free quote</a>
+        <a href="quote.html">How it works</a>
       </nav>
     </details>
   </div>
@@ -176,6 +164,18 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-news">
+    <form class="news-form" action="/api/newsletter" method="post">
+      <label for="news-email" class="visually-hidden">Your email</label>
+      <div class="news-row">
+        <input type="email" name="email" id="news-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+        <button type="submit" class="btn btn-dark">Join the newsletter</button>
+      </div>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="form-status news-status" role="status"></div>
+    </form>
+  </div>
   <div class="wrap footer-help">
     <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
     <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>

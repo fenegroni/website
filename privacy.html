@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-20">
-<script src="site.js?v=2026-10-14" defer></script>
+<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
 
@@ -26,18 +26,22 @@
         <span class="brand-name">Filippo Negroni</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
       <a href="work.html">Solutions</a>
-      <a href="index.html" class="btn btn-outline">Home</a>
+      <a href="media.html">Media</a>
+      <a href="quote.html" class="btn btn-accent">How it works</a>
     </nav>
     <details class="menu">
       <summary>
         <span class="visually-hidden">Menu</span>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
-      <nav class="menu-panel" aria-label="Sections">
-        <a href="work.html">Solutions</a>
+      <nav class="menu-panel" aria-label="Pages">
         <a href="index.html">Home</a>
+        <a href="work.html">Solutions</a>
+        <a href="media.html">Media</a>
+        <a href="quote.html">How it works</a>
       </nav>
     </details>
   </div>
@@ -60,10 +64,10 @@
     <li>Your billing details, when you pay. Stripe collects these on its checkout page. I see your name, email, billing address and the last four digits of your card. I never see or store your full card number.</li>
     <li>Anything you choose to tell me in your quote request, in emails or during our video calls, such as the problem you would like help with.</li>
     <li>Information about your health, such as ADHD, if you choose to share it. UK law treats this as special category information, so I take extra care with it.</li>
-    <li>Whether you ticked the box for occasional updates on the quote form, and the date and time you sent it.</li>
+    <li>Whether you asked for occasional updates, by ticking the box on the quote form or by joining the newsletter on my site, and the date and time you did so.</li>
     <li>Your WhatsApp name, number and messages, if you choose to message me there.</li>
   </ul>
-  <p>When you send the quote form, your browser sends your message, your email address, your name, if you give it, and whether you ticked the updates box to Cloudflare. Cloudflare passes them to my inbox as an email, and I reply to the address you gave. My site has no analytics and no advertising trackers, and it sets no cookies.</p>
+  <p>When you send the quote form, your browser sends your message, your email address, your name, if you give it, and whether you ticked the updates box to Cloudflare. Cloudflare passes them to my inbox as an email, and I reply to the address you gave. When you join the newsletter, your browser sends your email address to Cloudflare in the same way. My site has no analytics and no advertising trackers, and it sets no cookies.</p>
   <p>The quote page can show prices in your currency. It guesses your currency from your browser's language settings, and that guess stays in your browser. To get exchange rates, the page asks my own server on fenegroni.com, and it sends nothing about you.</p>
 
   <h2>3. Why I use it</h2>
@@ -75,15 +79,15 @@
     <tr><td>To take payment, issue receipts and invoices, and handle refunds.</td><td>Performance of our contract.</td></tr>
     <tr><td>To keep accounting records for tax purposes.</td><td>Legal obligation.</td></tr>
     <tr><td>To reply to enquiries from people who have not bought anything, by email or on WhatsApp.</td><td>My legitimate interest in answering questions about my services.</td></tr>
-    <tr><td>To email you occasional updates and new examples, only if you ticked the box on the quote form.</td><td>Your consent. You can withdraw it at any time by using the unsubscribe link in any update or by emailing me.</td></tr>
+    <tr><td>To email you occasional updates and new examples, only if you ticked the box on the quote form or joined the newsletter.</td><td>Your consent. You can withdraw it at any time by using the unsubscribe link in any update or by emailing me.</td></tr>
   </table>
-  <p>I send updates only to people who ticked the box. I keep a record of when and how each person agreed, so I can show that they gave consent. I do not sell or share your information for marketing.</p>
+  <p>I send updates only to people who ticked the box or joined the newsletter. I keep a record of when and how each person agreed, so I can show that they gave consent. I do not sell or share your information for marketing.</p>
 
   <h2>4. Who else receives it</h2>
   <p>I use a small number of trusted providers to run my business. Each one handles your information under its own privacy policy.</p>
   <ul>
     <li><strong>Stripe</strong> processes payments, receipts and invoices.</li>
-    <li><strong>Cloudflare</strong> manages my domain, delivers this website to your browser, receives what you send through the quote form and passes it to my inbox, and forwards email sent to hello@fenegroni.com to my inbox. Like any web host, it sees visitors' IP addresses for security.</li>
+    <li><strong>Cloudflare</strong> manages my domain, delivers this website to your browser, receives what you send through the quote form and the newsletter form and passes it to my inbox, and forwards email sent to hello@fenegroni.com to my inbox. Like any web host, it sees visitors' IP addresses for security.</li>
     <li><strong>Google</strong> hosts my email through Gmail. The site also loads its fonts from Google Fonts, so your browser connects to Google's servers when you visit.</li>
     <li><strong>GitHub</strong> hosts this website. Like any web host, it records visitors' IP addresses in its server logs for security.</li>
     <li><strong>WhatsApp</strong>, run by Meta, carries your messages if you choose to message me there. Meta handles them under WhatsApp's own privacy policy.</li>
@@ -118,6 +122,18 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-news">
+    <form class="news-form" action="/api/newsletter" method="post">
+      <label for="news-email" class="visually-hidden">Your email</label>
+      <div class="news-row">
+        <input type="email" name="email" id="news-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+        <button type="submit" class="btn btn-dark">Join the newsletter</button>
+      </div>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="form-status news-status" role="status"></div>
+    </form>
+  </div>
   <div class="wrap footer-help">
     <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
     <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>

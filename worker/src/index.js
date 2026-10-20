@@ -1,7 +1,8 @@
 // Receives the quote form from fenegroni.com/quote.html and emails it to Filippo
 // through Cloudflare Email Routing. The visitor's address goes in Reply-To,
 // so pressing Reply in the inbox answers the visitor directly.
-// It also serves exchange rates at /api/rates, so the prices can show other currencies.
+// It also serves exchange rates at /api/rates, so the prices can show other currencies,
+// and receives the footer newsletter signup at /api/newsletter.
 
 const LIMITS = { help: 5000, name: 200, email: 254 };
 const EMAIL_PATTERN = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/;
@@ -41,7 +42,8 @@ async function rates(request) {
   }
 }
 
-async function intake(request, env) {
+// Returns the posted form, or a Response to send back when the request is not one to act on.
+async function readForm(request, env) {
   if (request.method !== 'POST') return reply(405, { ok: false, error: 'method' });
 
   // Browsers always send Origin on a form POST, so this blocks other sites from using the form.
@@ -58,12 +60,40 @@ async function intake(request, env) {
   // The website field is hidden from people. Bots fill it, so pretend it worked and send nothing.
   if (clean(form.get('website'))) return reply(200, { ok: true });
 
+  // TO_ADDRESS is a Wrangler secret, so the inbox address stays out of the public repo.
+  if (!env.TO_ADDRESS) {
+    console.error('TO_ADDRESS is not set');
+    return reply(502, { ok: false, error: 'send' });
+  }
+
+  return form;
+}
+
+async function send(env, message) {
+  try {
+    await env.EMAIL.send(Object.assign({ to: env.TO_ADDRESS }, message));
+  } catch (error) {
+    // Log the error code only. The message itself never goes to the logs.
+    console.error('send failed', error && error.code);
+    return reply(502, { ok: false, error: 'send' });
+  }
+  return reply(200, { ok: true });
+}
+
+function now() {
+  return new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+}
+
+async function intake(request, env) {
+  var form = await readForm(request, env);
+  if (form instanceof Response) return form;
+
   var help = clean(form.get('help'), true);
   var name = clean(form.get('name'));
   var email = clean(form.get('email'));
   // The updates box is unticked by default. The dated line in the email is the consent record.
   var newsletter = clean(form.get('newsletter')) === 'yes';
-  var sentAt = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+  var sentAt = now();
 
   if (!EMAIL_PATTERN.test(email) || email.length > LIMITS.email) return reply(400, { ok: false, error: 'email' });
   if (help.length > LIMITS.help || name.length > LIMITS.name) return reply(400, { ok: false, error: 'length' });
@@ -75,32 +105,38 @@ async function intake(request, env) {
     'What could reduce friction in your life?\n' + (help || '(left blank)') + '\n\n' +
     'Press Reply to answer ' + (name || email) + ' directly.\n';
 
-  // TO_ADDRESS is a Wrangler secret, so the inbox address stays out of the public repo.
-  if (!env.TO_ADDRESS) {
-    console.error('TO_ADDRESS is not set');
-    return reply(502, { ok: false, error: 'send' });
-  }
+  return send(env, {
+    from: { email: env.FROM_ADDRESS, name: 'fenegroni.com quote form' },
+    replyTo: name ? { email: email, name: name } : email,
+    subject: 'Quote request from ' + (name || email),
+    text: text,
+  });
+}
 
-  try {
-    await env.EMAIL.send({
-      from: { email: env.FROM_ADDRESS, name: 'fenegroni.com quote form' },
-      to: env.TO_ADDRESS,
-      replyTo: name ? { email: email, name: name } : email,
-      subject: 'Quote request from ' + (name || email),
-      text: text,
-    });
-  } catch (error) {
-    // Log the error code only. The message itself never goes to the logs.
-    console.error('send failed', error && error.code);
-    return reply(502, { ok: false, error: 'send' });
-  }
+// The footer signup on every page. The dated line in the email is the consent record.
+async function newsletter(request, env) {
+  var form = await readForm(request, env);
+  if (form instanceof Response) return form;
 
-  return reply(200, { ok: true });
+  var email = clean(form.get('email'));
+  if (!EMAIL_PATTERN.test(email) || email.length > LIMITS.email) return reply(400, { ok: false, error: 'email' });
+
+  return send(env, {
+    from: { email: env.FROM_ADDRESS, name: 'fenegroni.com newsletter' },
+    replyTo: email,
+    subject: 'Newsletter signup from ' + email,
+    text: 'New newsletter signup from fenegroni.com\n\n' +
+      'Email: ' + email + '\n' +
+      'Consent: yes (joined with the footer form on ' + now() + ')\n\n' +
+      'Add this address to the updates list.\n',
+  });
 }
 
 export default {
   async fetch(request, env) {
-    if (new URL(request.url).pathname === '/api/rates') return rates(request);
+    var path = new URL(request.url).pathname;
+    if (path === '/api/rates') return rates(request);
+    if (path === '/api/newsletter') return newsletter(request, env);
     return intake(request, env);
   },
 };

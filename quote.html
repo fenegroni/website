@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a free quote | Filippo Negroni</title>
-<meta name="description" content="Two ways to start. Build it with me on a video call for £50 an hour, or ask for a free fixed quote and I build it for you. I reply by email and work with clients in any country.">
+<title>How it works | Filippo Negroni</title>
+<meta name="description" content="Two ways to start. Build it with me on a one-hour video call for £50, or ask for a free fixed quote and I build it for you. I reply by email and work with clients in any country.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-20">
-<script src="site.js?v=2026-10-14" defer></script>
+<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
 
@@ -25,22 +25,22 @@
         <span class="brand-name">Filippo Negroni</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html">Home</a>
       <a href="work.html">Solutions</a>
-      <a href="#paths">How it works</a>
-      <a href="#details">Prices</a>
-      <a href="index.html" class="btn btn-outline">Home</a>
+      <a href="media.html">Media</a>
+      <a href="quote.html" class="btn btn-accent" aria-current="page">How it works</a>
     </nav>
     <details class="menu">
       <summary>
         <span class="visually-hidden">Menu</span>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
-      <nav class="menu-panel" aria-label="Sections">
-        <a href="work.html">Solutions</a>
-        <a href="#paths">How it works</a>
-        <a href="#details">Prices</a>
+      <nav class="menu-panel" aria-label="Pages">
         <a href="index.html">Home</a>
+        <a href="work.html">Solutions</a>
+        <a href="media.html">Media</a>
+        <a href="quote.html" aria-current="page">How it works</a>
       </nav>
     </details>
   </div>
@@ -50,48 +50,63 @@
 <main class="wrap legal legal-wide quote-page">
 
   <section id="paths" class="quote-paths">
-    <h1>Two ways to start</h1>
-    <p class="quote-intro">You don't need to understand AI or know what to build. Tell me what's getting in your way, and we'll find a practical starting point.</p>
-    <div class="paths paths-compact">
-      <article class="path path-featured">
-        <div class="path-tags">
-          <span class="path-tag">Stuck right now?</span>
-          <span class="path-tag path-badge">Founding client rate until 31 December</span>
-        </div>
-        <div class="path-row">
-          <h2>Build it together</h2>
-          <div>
-            <p class="price" data-gbp="50">£50<span> an hour</span></p>
-            <p class="price-gbp" hidden></p>
-          </div>
-        </div>
-        <p>You pay, and I email you a few short questions to agree one focus and a time. We build the solution on a video call, on your screen. Afterwards you get a short written recap and seven days to email me questions.</p>
-        <!-- Stripe payment link for one hour at £50. The same link is on index.html. -->
-        <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent">Book an hour for £50</a>
-      </article>
-      <article class="path">
-        <div class="path-tags">
-          <span class="path-tag path-tag-warm">Want it built for you?</span>
-        </div>
-        <div class="path-row">
-          <h2>Done for you</h2>
-          <p class="price">Fixed<span> quote</span></p>
-        </div>
-        <p>Tell me for free what gets in your way. I reply with a fixed quote and two options, including any software costs. You pay nothing until you choose, and a short call shows you how to run it.</p>
-        <a href="#quote-form" class="btn btn-dark">Get a free quote below</a>
-      </article>
-    </div>
-    <p class="paths-help">Not sure which way suits you? Write to me first at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>. It is free.</p>
+    <h1>Choose the option that suits you best</h1>
     <div class="currency" id="currency" hidden>
       <label for="currency-select">Show prices in</label>
       <select id="currency-select"></select>
     </div>
-    <p class="form-small" id="currency-note" hidden>The hourly price is fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
+    <p class="form-small" id="currency-note" hidden>You pay in pounds sterling (GBP). Other currencies are estimates at today's rate. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
   </section>
 
-  <article class="legal-card" id="quote-form">
-    <p class="free-note"><span class="free-badge">Free</span> Your first step costs nothing and commits you to nothing.</p>
-    <h2 class="card-title">Get a free quote</h2>
+  <article class="path path-featured" id="together">
+    <div class="path-tags">
+      <span class="path-tag">Stuck right now?</span>
+    </div>
+    <h2>Build it together</h2>
+    <div class="price-line">
+      <div>
+        <p class="price" data-gbp="50">£50<span> an hour</span></p>
+        <p class="price-gbp" hidden></p>
+      </div>
+      <span class="path-tag path-badge">Founding client rate until 31 December</span>
+    </div>
+    <ol class="path-steps">
+      <li><span class="step">1</span><span>You pay £50 for a one-hour video call.</span></li>
+      <li><span class="step">2</span><span>I contact you within 2 business days to book the call. We agree its focus together.</span></li>
+      <li><span class="step">3</span><span>We meet on the video call and work on your solution together.</span></li>
+    </ol>
+    <p class="path-note">I promise to get you unstuck in that hour. A finished solution may take longer, so you can add a second hour.</p>
+    <div class="book-row">
+      <!-- Stripe payment link for one hour at £50. -->
+      <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent">Book an hour for £50</a>
+      <form class="news-form" action="/api/newsletter" method="post">
+        <label for="news-book-email" class="visually-hidden">Your email</label>
+        <div class="news-row">
+          <input type="email" name="email" id="news-book-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+          <button type="submit" class="btn btn-dark">Join the newsletter</button>
+        </div>
+        <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time.</p>
+        <div class="form-status news-status" role="status"></div>
+      </form>
+    </div>
+  </article>
+
+  <article class="path" id="quote-form">
+    <div class="path-tags">
+      <span class="path-tag path-tag-warm">Want it built for you?</span>
+    </div>
+    <h2>Done for you</h2>
+    <p class="price">Fixed price<span> after a free quote</span></p>
+    <ol class="path-steps">
+      <li><span class="step">1</span><span>You tell me in a few words what gets in your way. This step is free.</span></li>
+      <li><span class="step">2</span><span>I reply with a fixed quote and two options. Each one says what you get, what it costs and any software costs.</span></li>
+      <li><span class="step">3</span><span>You choose one. I build it, and a short call shows you how to run it and change it.</span></li>
+    </ol>
+    <p class="path-note">You pay nothing until you choose. One option is always a smaller first piece that fits your budget.</p>
+
+    <div class="quote-form-block">
+    <h3>Get a free quote</h3>
     <p>I reply by email within 2 business days.</p>
 
     <form class="intake" id="intake" action="/api/intake" method="post">
@@ -106,10 +121,10 @@
       </label>
       <label class="check">
         <input type="checkbox" name="newsletter" id="newsletter" value="yes">
-        <span>Email me occasional updates and new examples. This is optional, and you can unsubscribe at any time.</span>
+        <span><strong>Join the newsletter.</strong> I email occasional updates and new examples.</span>
       </label>
       <label class="field field-half">
-        <span>Your name (optional)</span>
+        <span>Your name</span>
         <input type="text" name="name" id="name" autocomplete="name" maxlength="200">
       </label>
       <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -124,6 +139,7 @@
     <p class="whatsapp-line">Or message me on WhatsApp. Search for <strong>@fenegroni</strong> in the app.</p>
 
     <p class="form-small">I use what you send to reply to you. I send updates only if you tick the box. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
   </article>
 
   <section class="legal-card" id="details">
@@ -132,6 +148,7 @@
       <p><strong>Founding client rate</strong>£50 an hour is my launch rate for sessions booked by 31 December 2026. I will use client feedback to refine the service, and new prices start in 2027. Any ongoing work is agreed with you before you commit.</p>
       <p><strong>How you pay</strong>The quote form never charges you. The £50 button takes you to a secure payment page. For a done-for-you option, I email you a payment link once you choose.</p>
       <p><strong>After we finish</strong>Your hour includes a short written recap and seven days to email me questions. If something stops working later, email me. I tell you before any extra help costs money.</p>
+      <p><strong>You are in charge</strong>You own the solution and can change it yourself. Where it fits, the solution checks itself and tells you when it may no longer suit you.</p>
       <p><strong>Running costs</strong>My fee covers my time. Some solutions need subscriptions, API credits, a domain or better hardware. You pay for those directly, and I tell you before you book.</p>
       <p><strong>Skills you can trust</strong>A skill is a set of written instructions that teaches your AI one job. Skills from the internet can hide instructions you never asked for. I write or check every skill I give you, and I tell you where it came from.</p>
       <p><strong>Feedback, not a condition</strong>I will ask how the session went and whether you still use what we built. A testimonial is optional, and I publish one only with your permission.</p>
@@ -142,6 +159,18 @@
 </main>
 
 <footer class="site-footer">
+  <div class="wrap footer-news">
+    <form class="news-form" action="/api/newsletter" method="post">
+      <label for="news-email" class="visually-hidden">Your email</label>
+      <div class="news-row">
+        <input type="email" name="email" id="news-email" autocomplete="email" maxlength="254" required placeholder="Your email">
+        <button type="submit" class="btn btn-dark">Join the newsletter</button>
+      </div>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="news-small">I email occasional updates and new examples. You can unsubscribe at any time. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="form-status news-status" role="status"></div>
+    </form>
+  </div>
   <div class="wrap footer-help">
     <p>Questions? Email <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a></p>
     <button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button>
