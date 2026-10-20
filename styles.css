@@ -903,7 +903,6 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 
 .price-card h3 { font-size: 24px; font-weight: 700; }
 .price-card p:not(.price) { color: var(--ink-soft); }
-.price-card .price-gbp { margin-top: -4px; font-size: 15px; }
 
 /* Small currency menu beside the founding rate badge */
 
@@ -1157,6 +1156,8 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .path-head { display: flex; flex-direction: column; gap: 10px; }
 .path h3 { font-size: 32px; font-weight: 800; line-height: 1.1; }
 .path .price span { font-family: var(--body); font-weight: 400; color: var(--ink-soft); }
+/* The amount itself is a span so the currency menu can change it. It keeps the big price style. */
+.path .price .gbp { font: inherit; letter-spacing: inherit; color: inherit; }
 
 .path-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -1240,7 +1241,6 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .quote-page .path { background: var(--surface); }
 .legal .path p, .legal .path li { margin: 0; }
 .legal .path h2 { margin: 0; padding: 0; border: 0; font-size: 32px; font-weight: 800; line-height: 1.1; }
-.quote-page .path .price-gbp { font-size: 15px; }
 .quote-page .path-note { background: var(--bg); }
 .quote-page .path > .btn { align-self: flex-start; }
 
