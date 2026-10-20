@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>When slides swallow the story | Filippo Negroni</title>
-<meta name="description" content="The story of a talk comes first, and the slides follow.">
+<title>When AI slides skip the story | Filippo Negroni</title>
+<meta name="description" content="Story First is an AI skill that works out the story of a talk before any slides exist. I built it after a LinkedIn exchange about why AI has not made presentations better.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<link rel="stylesheet" href="styles.css?v=2026-10-21e">
 <script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
@@ -50,20 +50,27 @@
 <main class="wrap legal">
 <article class="legal-card">
 
-  <h1>When slides swallow the story</h1>
-  <p>When I open slide software first, I lose hours to layouts and fonts. By the end I have slides but no clear story.</p>
+  <h1>When AI slides skip the story</h1>
+  <p>Ask an AI for a presentation, and it usually sends back a full set of slides in one reply. It asks no questions about the story first.</p>
+
+  <h2>Why I built it</h2>
+  <p>Sumeet Gayathri Moghe wrote an article called Nail Your Narrative. It sets out the steps that good talks follow. You name one Big Idea, picture your audience and choose a story structure. Only then do you build the slides.</p>
+  <p>I commented that AI already knows these steps. Martin Fowler replied that he had not seen presentations get better with AI. He had a point. The AI knows the steps, but it uses them only when something makes it.</p>
+  <p>I have ADHD. A long, careful article is exactly the kind of thing I start, agree with and don't finish. A skill walks me through the same steps one at a time, and I can improve the result as I go.</p>
 
   <h2>What I built</h2>
-  <p>An AI skill works out the story of a talk with me before any slide exists. It takes me through the main point, the audience and the shape of the talk in a few short steps. Only then do we make the slides.</p>
+  <p>Story First is an AI skill. A skill is a set of written instructions that teaches your AI one job. This one takes the AI through five steps in order: one Big Idea, an audience persona, a story structure, the talk written out in plain sentences, and only then a plan for the slides.</p>
+  <p>I built it in Claude Code from my notes on Sumeet's article. It is a single file, and it credits the article and the books behind it.</p>
 
-  <h2>Why build it, when apps exist?</h2>
+  <h2>What happened when I tested it</h2>
+  <p>I gave the same brief to two new chats. The brief asked for a 10 to 15 minute talk on dog training, for teenagers with new dogs. Only one chat had the skill.</p>
   <ul>
-    <li>It is convenient. It runs inside the AI tool I already use, so I start from a conversation instead of a blank slide.</li>
-    <li>It removes friction. It keeps the layout options out of sight until the story is ready.</li>
-    <li>It was quick to get done, because it is one skill and not a new program.</li>
-    <li>It fits my way of working, because it moves fast through the steps I have already done.</li>
+    <li>Without the skill, the AI asked no questions. It made a 13-slide deck that covered a lot of ground. It would work well as a handout.</li>
+    <li>With the skill, the AI asked me to confirm the Big Idea first. The talk followed one story and taught three skills instead of five. It ended with one thing to try that week.</li>
+    <li>I also tested three other briefs. With the skill, every run followed every step. Without it, the runs kept skipping the Big Idea, the story structure or the written draft. The skill added about 30 seconds to each run.</li>
   </ul>
-  <p>I published the same brief run with and without the skill. The code and both results are public on <a href="https://github.com/fenegroni/narrative-before-slides">GitHub</a>.</p>
+  <p>Neither deck is wrong. The skill makes the AI stop and ask what this talk needs to do for this audience.</p>
+  <p>The skill is free on <a href="https://github.com/fenegroni/narrative-before-slides">GitHub</a>, and both decks are in my <a href="https://github.com/fenegroni/skill-examples">skill examples</a>. I tell the full story in my LinkedIn article, <a href="https://www.linkedin.com/pulse/give-your-best-practices-install-button-filippo-negroni-edfge/">Give your best practices an install button</a>.</p>
 
   <div class="example-cta">
     <h2>Got a problem like this?</h2>

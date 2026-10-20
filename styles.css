@@ -905,17 +905,19 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .price-card p:not(.price) { color: var(--ink-soft); }
 .price-card .price-gbp { margin-top: -4px; font-size: 15px; }
 
-/* Currency menu above the prices */
+/* Small currency menu beside the founding rate badge */
 
-.currency { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 20px 0 24px; }
+.currency { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; }
 .currency[hidden] { display: none; }
-.currency label { font-weight: 700; }
+.currency label { font-weight: 700; color: var(--ink-soft); }
 
 .currency select {
-  max-width: 100%;
-  padding: 10px 14px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 220px;
+  padding: 4px 10px;
   border: 2px solid var(--line);
-  border-radius: 14px;
+  border-radius: 999px;
   background: var(--bg);
   color: var(--ink);
   font: inherit;
@@ -1204,14 +1206,10 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
   .path .btn { width: 100%; }
 }
 
-/* What you could build */
-
-.section-intro-block { display: flex; flex-direction: column; gap: 8px; }
-.section-intro-block p { max-width: 60ch; color: var(--ink-soft); }
+/* Home page examples */
 
 .example-group { display: flex; flex-direction: column; gap: 12px; }
 .example-group h3 { font-size: 22px; font-weight: 700; }
-.example-group > p { max-width: 64ch; font-size: 16px; color: var(--ink-soft); }
 .example-group .examples { margin-top: 4px; }
 
 /* The choice cards sit on the page background, so they need a white fill. */

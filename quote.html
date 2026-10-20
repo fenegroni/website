@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-21b">
+<link rel="stylesheet" href="styles.css?v=2026-10-21e">
 <script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
@@ -51,11 +51,6 @@
 
   <section id="paths" class="quote-paths">
     <h1>Choose the option that suits you best</h1>
-    <div class="currency" id="currency" hidden>
-      <label for="currency-select">Show prices in</label>
-      <select id="currency-select"></select>
-    </div>
-    <p class="form-small" id="currency-note" hidden>You pay in pounds sterling (GBP). Other currencies are estimates at today's rate. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
   </section>
 
   <article class="path path-featured" id="together">
@@ -69,16 +64,21 @@
         <p class="price-gbp" hidden></p>
       </div>
       <span class="path-tag path-badge">Founding client rate until 31 December</span>
+      <div class="currency" id="currency" hidden>
+        <label for="currency-select">Show prices in</label>
+        <select id="currency-select"></select>
+      </div>
     </div>
+    <p class="form-small" id="currency-note" hidden>You pay in pounds sterling (GBP). Other currencies are estimates at today's rate. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
     <ol class="path-steps">
-      <li><span class="step">1</span><span>You pay £50 for a one-hour video call.</span></li>
+      <li><span class="step">1</span><span>You pay <span class="gbp" data-gbp="50">£50</span> for a one-hour video call.</span></li>
       <li><span class="step">2</span><span>I contact you within 2 business days to book the call. We agree its focus together.</span></li>
       <li><span class="step">3</span><span>We meet on the video call and work on your solution together.</span></li>
     </ol>
     <p class="path-note">I promise to get you unstuck in that hour. A finished solution may take longer, so you can add a second hour.</p>
     <div class="book-row">
       <!-- Stripe payment link for one hour at £50. -->
-      <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent">Book an hour for £50</a>
+      <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent"><span>Book an hour for <span class="gbp" data-gbp="50">£50</span></span></a>
       <form class="news-form" action="/api/newsletter" method="post">
         <label for="news-book-email" class="visually-hidden">Your email</label>
         <div class="news-row">
@@ -145,8 +145,8 @@
   <section class="legal-card" id="details">
     <h2 class="card-title">Good to know</h2>
     <div class="good-to-know">
-      <p><strong>Founding client rate</strong>£50 an hour is my launch rate for sessions booked by 31 December 2026. I will use client feedback to refine the service, and new prices start in 2027. Any ongoing work is agreed with you before you commit.</p>
-      <p><strong>How you pay</strong>The quote form never charges you. The £50 button takes you to a secure payment page. For a done-for-you option, I email you a payment link once you choose.</p>
+      <p><strong>Founding client rate</strong>My launch rate is <span class="gbp" data-gbp="50">£50</span> an hour for sessions booked by 31 December 2026. I will use client feedback to refine the service, and new prices start in 2027. Any ongoing work is agreed with you before you commit.</p>
+      <p><strong>How you pay</strong>The quote form never charges you. The <span class="gbp" data-gbp="50">£50</span> button takes you to a secure payment page. For a done-for-you option, I email you a payment link once you choose.</p>
       <p><strong>After we finish</strong>Your hour includes a short written recap and seven days to email me questions. If something stops working later, email me. I tell you before any extra help costs money.</p>
       <p><strong>You are in charge</strong>You own the solution and can change it yourself. Where it fits, the solution checks itself and tells you when it may no longer suit you.</p>
       <p><strong>Running costs</strong>My fee covers my time. Some solutions need subscriptions, API credits, a domain or better hardware. You pay for those directly, and I tell you before you book.</p>
@@ -296,13 +296,17 @@
     select.appendChild(group);
   }
 
+  // The headline price shows a note under it. Prices inside sentences and buttons just change their amount.
   function showPrices(code, rates) {
-    document.querySelectorAll('[data-gbp]').forEach(function (price) {
+    document.querySelectorAll('.price[data-gbp]').forEach(function (price) {
       var gbp = Number(price.dataset.gbp);
       var note = price.nextElementSibling;
       price.firstChild.nodeValue = formatPrice(gbp * rates[code], code);
       note.textContent = 'Estimate. The fixed price is ' + formatPrice(gbp, 'GBP') + '.';
       note.hidden = code === 'GBP';
+    });
+    document.querySelectorAll('.gbp[data-gbp]').forEach(function (price) {
+      price.textContent = formatPrice(Number(price.dataset.gbp) * rates[code], code);
     });
   }
 
