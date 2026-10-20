@@ -61,13 +61,17 @@ async function intake(request, env) {
   var help = clean(form.get('help'), true);
   var name = clean(form.get('name'));
   var email = clean(form.get('email'));
+  // The updates box is unticked by default. The dated line in the email is the consent record.
+  var newsletter = clean(form.get('newsletter')) === 'yes';
+  var sentAt = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
 
   if (!EMAIL_PATTERN.test(email) || email.length > LIMITS.email) return reply(400, { ok: false, error: 'email' });
   if (help.length > LIMITS.help || name.length > LIMITS.name) return reply(400, { ok: false, error: 'length' });
 
   var text = 'New quote request from fenegroni.com\n\n' +
     'Name: ' + (name || '(not given)') + '\n' +
-    'Email: ' + email + '\n\n' +
+    'Email: ' + email + '\n' +
+    'Newsletter: ' + (newsletter ? 'yes (ticked on the quote form on ' + sentAt + ')' : 'no') + '\n\n' +
     'What could reduce friction in your life?\n' + (help || '(left blank)') + '\n\n' +
     'Press Reply to answer ' + (name || email) + ' directly.\n';
 

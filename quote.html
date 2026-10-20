@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get a free quote | Filippo Negroni</title>
-<meta name="description" content="Get a free quote. Tell me what you would like help with, or just say hello. I reply by email and work with clients in any country.">
+<meta name="description" content="Two ways to start. Build it with me on a video call for £50 an hour, or ask for a free fixed quote and I build it for you. I reply by email and work with clients in any country.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-18">
+<link rel="stylesheet" href="styles.css?v=2026-10-20">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -27,8 +27,8 @@
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="work.html">Solutions</a>
-      <a href="#how">How it works</a>
-      <a href="#prices">Prices</a>
+      <a href="#paths">How it works</a>
+      <a href="#details">Prices</a>
       <a href="index.html" class="btn btn-outline">Home</a>
     </nav>
     <details class="menu">
@@ -38,8 +38,8 @@
       </summary>
       <nav class="menu-panel" aria-label="Sections">
         <a href="work.html">Solutions</a>
-        <a href="#how">How it works</a>
-        <a href="#prices">Prices</a>
+        <a href="#paths">How it works</a>
+        <a href="#details">Prices</a>
         <a href="index.html">Home</a>
       </nav>
     </details>
@@ -47,100 +47,98 @@
 </header>
 
 
-<main class="wrap legal legal-wide">
-<article class="legal-card">
+<main class="wrap legal legal-wide quote-page">
 
-  <p class="free-note"><span class="free-badge">Free</span> Your quote costs nothing, and you pay nothing until we agree the price.</p>
-  <h1>Get a free quote</h1>
-  <p>I reply by email within 2 business days.</p>
-
-  <form class="intake" id="intake" action="/api/intake" method="post">
-    <label class="field">
-      <span>What could reduce friction in your life?</span>
-      <span class="field-hint">Or anything else you'd like help with. A few words are enough.</span>
-      <textarea name="help" id="help" rows="5" maxlength="5000"></textarea>
-    </label>
-    <label class="field field-half">
-      <span>Your email, so I can reply</span>
-      <input type="email" name="email" id="email" autocomplete="email" maxlength="254" required>
-    </label>
-    <label class="field field-half">
-      <span>Your name (optional)</span>
-      <input type="text" name="name" id="name" autocomplete="name" maxlength="200">
-    </label>
-    <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    <button type="submit" class="btn btn-primary">Request quote</button>
-    <div class="form-status" id="form-status" role="status"></div>
-  </form>
-
-  <div class="email-help">
-    <span>Prefer your own email? Write to me directly.</span>
-    <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
-  </div>
-
-  <p class="form-small">I use what you send only to reply to you. Read the <a href="privacy.html">Privacy Policy</a>.</p>
-
-  <section id="how" class="how">
-    <div class="how-head">
-      <h2>How it works</h2>
-      <button type="button" class="how-toggle" aria-controls="how-steps" aria-expanded="true">Hide details</button>
+  <section id="paths" class="quote-paths">
+    <h1>Two ways to start</h1>
+    <p class="quote-intro">You don't need to understand AI or know what to build. Tell me what's getting in your way, and we'll find a practical starting point.</p>
+    <div class="paths paths-compact">
+      <article class="path path-featured">
+        <div class="path-tags">
+          <span class="path-tag">Stuck right now?</span>
+          <span class="path-tag path-badge">Founding client rate until 31 December</span>
+        </div>
+        <div class="path-row">
+          <h2>Build it together</h2>
+          <div>
+            <p class="price" data-gbp="50">£50<span> an hour</span></p>
+            <p class="price-gbp" hidden></p>
+          </div>
+        </div>
+        <p>You pay, and I email you a few short questions to agree one focus and a time. We build the solution on a video call, on your screen. Afterwards you get a short written recap and seven days to email me questions.</p>
+        <!-- Stripe payment link for one hour at £50. The same link is on index.html. -->
+        <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent">Book an hour for £50</a>
+      </article>
+      <article class="path">
+        <div class="path-tags">
+          <span class="path-tag path-tag-warm">Want it built for you?</span>
+        </div>
+        <div class="path-row">
+          <h2>Done for you</h2>
+          <p class="price">Fixed<span> quote</span></p>
+        </div>
+        <p>Tell me for free what gets in your way. I reply with a fixed quote and two options, including any software costs. You pay nothing until you choose, and a short call shows you how to run it.</p>
+        <a href="#quote-form" class="btn btn-dark">Get a free quote below</a>
+      </article>
     </div>
-    <ol class="steps" id="how-steps">
-      <li class="card">
-        <span class="step">1</span>
-        <h3>Ask for a quote</h3>
-        <p>You tell me what you would like help with. This step is free.</p>
-      </li>
-      <li class="card">
-        <span class="step">2</span>
-        <h3>Agree where to start</h3>
-        <p>I email you a few short questions. We agree how AI can help you, which size fits, and how you would like to work. <a href="#prices">See prices</a>. The emails and the quote are free.</p>
-      </li>
-      <li class="card">
-        <span class="step">3</span>
-        <h3>We build it your way</h3>
-        <p>You choose how we work. We can build it together on a video call, and I mentor you as we go. Or I can build it on my own and hand it over on a short call or with a written guide. I work with clients in any time zone, so we pick a time that suits you. You keep what we build.</p>
-      </li>
-      <li class="card">
-        <span class="step">4</span>
-        <h3>It keeps working</h3>
-        <p>Your solution keeps working for as long as it does its job. It tells you when it no longer fits and it is time for a follow-up. You can still make small changes yourself.</p>
-      </li>
-    </ol>
-  </section>
-
-  <section id="prices">
-    <h2>Prices</h2>
-    <p><strong>Your quote and first emails are free.</strong> Once we agree a size, the price is fixed.</p>
+    <p class="paths-help">Not sure which way suits you? Write to me first at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>. It is free.</p>
     <div class="currency" id="currency" hidden>
       <label for="currency-select">Show prices in</label>
       <select id="currency-select"></select>
     </div>
-    <div class="prices">
-      <div class="price-card">
-        <h3>Small</h3>
-        <p class="price" data-gbp="50">£50</p>
-        <p class="price-gbp" hidden></p>
-        <p>About one to two hours of work.</p>
-      </div>
-      <div class="price-card">
-        <h3>Medium</h3>
-        <p class="price" data-gbp="100">£100</p>
-        <p class="price-gbp" hidden></p>
-        <p>About half a day of work.</p>
-      </div>
-      <div class="price-card">
-        <h3>Complex</h3>
-        <p class="price" data-gbp="200">£200</p>
-        <p class="price-gbp" hidden></p>
-        <p>A solution that needs a follow-up. We check in a few weeks after it starts running.</p>
-      </div>
-    </div>
-    <p class="form-small" id="currency-note" hidden>Prices are fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
-    <p class="form-small">I am not a doctor or therapist. The solutions we build help with everyday friction. They do not diagnose or treat ADHD, and they do not replace medical care.</p>
+    <p class="form-small" id="currency-note" hidden>The hourly price is fixed in pounds sterling (GBP). Other currencies show an estimate at today's rate, and the final amount depends on the rate when you pay. <a href="https://www.exchangerate-api.com">Rates by Exchange Rate API</a>.</p>
   </section>
 
-</article>
+  <article class="legal-card" id="quote-form">
+    <p class="free-note"><span class="free-badge">Free</span> Your first step costs nothing and commits you to nothing.</p>
+    <h2 class="card-title">Get a free quote</h2>
+    <p>I reply by email within 2 business days.</p>
+
+    <form class="intake" id="intake" action="/api/intake" method="post">
+      <label class="field">
+        <span>What could reduce friction in your life?</span>
+        <span class="field-hint">For example: "My notes are everywhere" or "I make plans but don't act on them". A few words are enough.</span>
+        <textarea name="help" id="help" rows="5" maxlength="5000"></textarea>
+      </label>
+      <label class="field field-half">
+        <span>Your email, so I can reply</span>
+        <input type="email" name="email" id="email" autocomplete="email" maxlength="254" required>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="newsletter" id="newsletter" value="yes">
+        <span>Email me occasional updates and new examples. This is optional, and you can unsubscribe at any time.</span>
+      </label>
+      <label class="field field-half">
+        <span>Your name (optional)</span>
+        <input type="text" name="name" id="name" autocomplete="name" maxlength="200">
+      </label>
+      <label class="trap" aria-hidden="true">Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <button type="submit" class="btn btn-primary">Request quote</button>
+      <div class="form-status" id="form-status" role="status"></div>
+    </form>
+
+    <div class="email-help">
+      <span>Prefer to write directly?</span>
+      <span class="email-line"><a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a><button type="button" class="copy-btn" data-copy="hello@fenegroni.com">Copy</button></span>
+    </div>
+    <p class="whatsapp-line">Or message me on WhatsApp. Search for <strong>@fenegroni</strong> in the app.</p>
+
+    <p class="form-small">I use what you send to reply to you. I send updates only if you tick the box. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+  </article>
+
+  <section class="legal-card" id="details">
+    <h2 class="card-title">Good to know</h2>
+    <div class="good-to-know">
+      <p><strong>Founding client rate</strong>£50 an hour is my launch rate for sessions booked by 31 December 2026. I will use client feedback to refine the service, and new prices start in 2027. Any ongoing work is agreed with you before you commit.</p>
+      <p><strong>How you pay</strong>The quote form never charges you. The £50 button takes you to a secure payment page. For a done-for-you option, I email you a payment link once you choose.</p>
+      <p><strong>After we finish</strong>Your hour includes a short written recap and seven days to email me questions. If something stops working later, email me. I tell you before any extra help costs money.</p>
+      <p><strong>Running costs</strong>My fee covers my time. Some solutions need subscriptions, API credits, a domain or better hardware. You pay for those directly, and I tell you before you book.</p>
+      <p><strong>Skills you can trust</strong>A skill is a set of written instructions that teaches your AI one job. Skills from the internet can hide instructions you never asked for. I write or check every skill I give you, and I tell you where it came from.</p>
+      <p><strong>Feedback, not a condition</strong>I will ask how the session went and whether you still use what we built. A testimonial is optional, and I publish one only with your permission.</p>
+    </div>
+    <p class="form-small disclaimer">I am not a doctor or therapist. The solutions we build help with everyday friction. They do not diagnose or treat ADHD, and they do not replace medical care.</p>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -163,6 +161,7 @@
     var help = document.getElementById('help').value.trim();
     var name = document.getElementById('name').value.trim();
     var body = 'Hello Filippo,\n\n' + (help || 'I would like a free quote.') + '\n';
+    if (document.getElementById('newsletter').checked) body += '\nPlease email me occasional updates and new examples.\n';
     if (name) body += '\n' + name + '\n';
     return body;
   }
@@ -216,17 +215,6 @@
         showFallback();
       });
   });
-
-  // On phones, How it works starts with the step titles only. The button shows the details.
-  var how = document.getElementById('how');
-  var toggle = how.querySelector('.how-toggle');
-  function setDetails(open) {
-    how.classList.toggle('is-collapsed', !open);
-    toggle.setAttribute('aria-expanded', open);
-    toggle.textContent = open ? 'Hide details' : 'Show details';
-  }
-  toggle.addEventListener('click', function () { setDetails(how.classList.contains('is-collapsed')); });
-  if (window.matchMedia('(max-width: 640px)').matches) setDetails(false);
 
   // The currency menu turns the fixed prices in pounds into estimates in other currencies.
   // It guesses a currency from the browser's region and stays hidden if the rates do not load.
@@ -283,7 +271,7 @@
     document.querySelectorAll('[data-gbp]').forEach(function (price) {
       var gbp = Number(price.dataset.gbp);
       var note = price.nextElementSibling;
-      price.textContent = formatPrice(gbp * rates[code], code);
+      price.firstChild.nodeValue = formatPrice(gbp * rates[code], code);
       note.textContent = 'Estimate. The fixed price is ' + formatPrice(gbp, 'GBP') + '.';
       note.hidden = code === 'GBP';
     });

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filippo Negroni | Solutions tailored to you, and your ADHD</title>
-<meta name="description" content="AI solutions tailored to you, and your ADHD. Each solution fits the tools you already use, and I work by video call with clients in any country. Your quote is free, and prices are fixed from £50.">
+<meta name="description" content="AI solutions tailored to you, and your ADHD. You can start in two ways. Build it with me on a video call for £50 an hour, my founding client rate until 31 December 2026, or ask for a free fixed quote and I build it for you. I work with clients in any country.">
 <meta name="theme-color" content="#2E6A4E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-18">
+<link rel="stylesheet" href="styles.css?v=2026-10-20">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -26,6 +26,7 @@
       </span>
     </a>
     <nav class="nav" aria-label="Sections">
+      <a href="#how">How it works</a>
       <a href="work.html">Solutions</a>
       <a href="media.html">Media</a>
       <a href="quote.html" class="btn btn-accent">Get a free quote</a>
@@ -36,6 +37,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2B24" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </summary>
       <nav class="menu-panel" aria-label="Sections">
+        <a href="#how">How it works</a>
         <a href="work.html">Solutions</a>
         <a href="media.html">Media</a>
         <a href="quote.html">Get a free quote</a>
@@ -47,14 +49,103 @@
 
 <main>
 
-  <section class="wrap hero" id="top">
+  <section class="wrap hero hero-split" id="top">
     <div class="hero-copy">
       <h1 id="headline">Solutions tailored to you,<br> <span class="nowrap">and your ADHD.</span></h1>
-      <p class="lede">What could reduce friction in your life? <strong>Tell me, and we will build it together.</strong></p>
-      <div class="actions hero-actions">
-        <a href="quote.html" class="btn btn-accent btn-large" id="hero-cta">Get a free quote</a>
+      <p class="lede">Together, we can reduce friction in your life.</p>
+    </div>
+    <div class="familiar">
+      <h2>Sound familiar?</h2>
+      <ul>
+        <li>"My notes and ideas are everywhere, and I can't find what I need."</li>
+        <li>"I make plans but struggle to turn them into action."</li>
+        <li>"Keeping on top of everyday tasks takes too much energy."</li>
+      </ul>
+      <p><strong>You don't need to understand AI or know what to build.</strong> Tell me what's getting in your way, and we'll find a practical starting point.</p>
+    </div>
+  </section>
+
+  <!-- The intro video is not recorded yet. Remove "hidden" once video/intro.mp4, its captions and the transcript exist. -->
+  <section class="wrap meet" id="meet" hidden>
+    <div class="meet-panel">
+      <div class="meet-video">
+        <video controls preload="none" width="1280" height="720">
+          <source src="video/intro.mp4" type="video/mp4">
+          <track kind="captions" src="video/intro.vtt" srclang="en" label="English" default>
+        </video>
       </div>
-      <div class="examples tool-cards" id="examples">
+      <div class="meet-copy">
+        <h2>Meet Filippo</h2>
+        <p>I have ADHD, and I build my own tools for it every day. In this short video I explain what I fix and how we can start.</p>
+        <details class="transcript" id="transcript">
+          <summary>Read the transcript</summary>
+          <p>The transcript goes here.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-white" id="how">
+    <div class="wrap section stack">
+      <h2 class="section-title">Choose what suits you best</h2>
+      <div class="paths">
+        <article class="path path-featured">
+          <div class="path-head">
+            <div class="path-tags">
+              <span class="path-tag">Stuck right now?</span>
+              <span class="path-tag path-badge">Founding client rate until 31 December</span>
+            </div>
+            <h3>Build it together</h3>
+            <p class="price">£50<span> an hour</span></p>
+          </div>
+          <ol class="path-steps">
+            <li><span class="step">1</span><span>You pay £50 for an hour.</span></li>
+            <li><span class="step">2</span><span>I email you a few short questions. We agree one focus and a time, as soon as we both can.</span></li>
+            <li><span class="step">3</span><span>We meet on a video call. We build the solution on your screen, with your own tools.</span></li>
+            <li><span class="step">4</span><span>You get a short written recap. You can email me questions for seven days.</span></li>
+          </ol>
+          <p class="path-note">I promise to get you unstuck in that hour. A finished solution may take longer, so you can add a second hour.</p>
+          <!-- Stripe payment link for one hour at £50. The same link is on quote.html. -->
+          <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-accent" id="path-book-cta">Book an hour for £50</a>
+        </article>
+        <article class="path">
+          <div class="path-head">
+            <div class="path-tags">
+              <span class="path-tag path-tag-warm">Want it built for you?</span>
+            </div>
+            <h3>Done for you</h3>
+            <div>
+              <p class="path-fixed">Price agreed upfront</p>
+              <p class="path-fixed-sub">Fixed quote, after a free email</p>
+            </div>
+          </div>
+          <ol class="path-steps">
+            <li><span class="step">1</span><span>You tell me in a few words what gets in your way. This step is free.</span></li>
+            <li><span class="step">2</span><span>I reply with a fixed quote and two options. Each one says what you get, what it costs and any software costs.</span></li>
+            <li><span class="step">3</span><span>You choose one. I build it, and a short call shows you how to run it and change it.</span></li>
+          </ol>
+          <p class="path-note">You pay nothing until you choose. One option is always a smaller first piece that fits your budget.</p>
+          <a href="quote.html" class="btn btn-dark" id="path-quote-cta">Get a free quote</a>
+        </article>
+      </div>
+      <div class="assurances">
+        <p><strong>Skills you can trust</strong>A skill is a set of written instructions that teaches your AI one job. Skills from the internet can hide instructions you never asked for. I write or check every skill I give you.</p>
+        <p><strong>You are in charge</strong>You own the solution and can change it yourself. Where it fits, the solution checks itself and tells you when it may no longer suit you.</p>
+        <p><strong>Running costs</strong>My fee covers my time. Any subscriptions or credits your solution needs, you pay directly. I tell you before you book.</p>
+      </div>
+      <p class="paths-help">Not sure which way suits you? Write to me first at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>. It is free.</p>
+    </div>
+  </section>
+
+  <section class="wrap section stack" id="examples">
+    <div class="section-intro-block">
+      <h2 class="section-title">What you could build</h2>
+      <p>Every problem is different. These examples show what a solution can look like.</p>
+    </div>
+    <div class="example-group">
+      <h3>Everyday friction</h3>
+      <p>I built these for my own ADHD. From scratch they took longer than an hour. I can reuse parts of them, so a simple version of yours may take one or two hours.</p>
+      <div class="examples examples-white">
         <a class="example-link" href="example-adhd-assist.html">
           <span class="example-tag">Example</span>
           <span class="example-title">Get Unstuck</span>
@@ -65,13 +156,37 @@
           <span class="example-title">Habit Keeper</span>
           <span class="example-desc">When a week gets busy, it keeps sleep, meds and meals on my calendar.</span>
         </a>
-        <a class="example-link tool-yours" href="quote.html" aria-label="Your solution here. Let's build it together.">
-          <span class="example-title">&lt;YOUR SOLUTION HERE&gt;</span>
-          <span class="example-desc">Let's build it together.</span>
+        <a class="example-link" href="example-webcam-monitor.html">
+          <span class="example-tag">Example</span>
+          <span class="example-title">Webcam Monitor</span>
+          <span class="example-desc">When my attention drifts or I get tired, it raises an alert my other tools can act on.</span>
         </a>
       </div>
-      <a class="see-all" href="work.html">More solutions</a>
     </div>
+    <div class="example-group">
+      <h3>What an hour can do</h3>
+      <div class="examples examples-white">
+        <a class="example-link" href="https://github.com/fenegroni/beamng-dual-speedo">
+          <span class="example-media example-media-dark"><img src="images/dual-speedo.png" width="250" height="100" alt="Two speedometers side by side, showing speed and gear for player 1 and player 2"></span>
+          <span class="example-tag">Trial session</span>
+          <span class="example-title">BeamNG Dual Speedo</span>
+          <span class="example-desc">A beginner with no coding experience built this game mod in about an hour. It shows two speedometers side by side, so two players can drive at once.</span>
+        </a>
+        <a class="example-link" href="example-presentation.html">
+          <span class="example-media"><img src="images/story-first-stack.png" width="685" height="430" alt="A stack of slides from a talk on dog training, built after Story First found the story"></span>
+          <span class="example-tag">Example</span>
+          <span class="example-title">Story First</span>
+          <span class="example-desc">Before I open any slides, it helps me find the story of my talk.</span>
+        </a>
+        <a class="example-link" href="example-midi-sequencer.html">
+          <span class="example-media example-media-cover"><img src="images/midi-sequencer.png" width="882" height="395" alt="The MIDI Sequencer window, playing an eight-bar loop with record, metronome and export controls"></span>
+          <span class="example-tag">Example</span>
+          <span class="example-title">MIDI Sequencer</span>
+          <span class="example-desc">A mod for Claude Code with its own MCP server, so I can make music without leaving Claude.</span>
+        </a>
+      </div>
+    </div>
+    <a class="see-all" href="work.html">More solutions</a>
   </section>
 
   <section class="band-white" id="why">
@@ -90,35 +205,15 @@
           <h3>Help at the right time.</h3>
           <p>The AI steps in inside your day. It keeps running without your constant input.</p>
         </div>
-        <div class="card">
-          <h3>Tailored to you, by you.</h3>
-          <p>We build it together on a video call, and I mentor you as we go. If you prefer, I build it on my own and show you how it works. Either way, you can change it yourself.</p>
-        </div>
-        <figure class="quote-card why-quote">
-          <svg width="40" height="32" viewBox="0 0 56 44" aria-hidden="true"><path d="M0 44 V26 C0 12 8 2 22 0 V9 C14 11 11 16 11 22 H22 V44 Z M34 44 V26 C34 12 42 2 56 0 V9 C48 11 45 16 45 22 H56 V44 Z" fill="#F2B544"/></svg>
-          <blockquote>
-            <p>From a standing start, within two weeks I had created a fully functional "2nd brain". If you are looking to get more out of AI and make it work for you, you should speak to Filippo.</p>
-          </blockquote>
-          <figcaption><strong>Stephen M.</strong>, Account Executive · <a href="https://www.linkedin.com/in/filipponegroni/details/recommendations/">LinkedIn recommendation</a></figcaption>
-        </figure>
       </div>
+      <figure class="quote-card quote-wide quote-full">
+        <svg width="40" height="32" viewBox="0 0 56 44" aria-hidden="true"><path d="M0 44 V26 C0 12 8 2 22 0 V9 C14 11 11 16 11 22 H22 V44 Z M34 44 V26 C34 12 42 2 56 0 V9 C48 11 45 16 45 22 H56 V44 Z" fill="#F2B544"/></svg>
+        <blockquote>
+          <p>From a standing start, within two weeks I had created a fully functional "2nd brain". If you are looking to get more out of AI and make it work for you, you should speak to Filippo.</p>
+        </blockquote>
+        <figcaption><strong>Stephen M.</strong>, Account Executive · <a href="https://www.linkedin.com/in/filipponegroni/details/recommendations/">LinkedIn recommendation</a></figcaption>
+      </figure>
       <!-- Second testimonial goes here, in her own words, once she gives permission. -->
-      <h2 class="section-title more-title">More solutions I built</h2>
-      <div class="examples">
-        <a class="example-link" href="example-presentation.html">
-          <span class="example-title">Story First</span>
-          <span class="example-desc">Before I open any slides, it helps me find the story of my talk.</span>
-        </a>
-        <a class="example-link" href="example-midi-sequencer.html">
-          <span class="example-title">Loop Recorder</span>
-          <span class="example-desc">When I play my keyboard, it records on request, so my hands stay on the keys.</span>
-        </a>
-        <a class="example-link" href="work.html#librarian">
-          <span class="example-title">The Librarian</span>
-          <span class="example-desc">My notes file themselves, so my second brain stays current.</span>
-        </a>
-      </div>
-      <a class="see-all" href="work.html">More solutions</a>
     </div>
   </section>
 
@@ -147,10 +242,14 @@
     <div class="contact-panel">
       <div class="contact-copy">
         <h2 class="section-title">Not sure where to start?</h2>
-        <p>Ask for a quote and tell me as much or as little as you like. It is free, and I reply by email.</p>
+        <p>Tell me as much or as little as you like. The first email is free, and I reply within 2 business days.</p>
       </div>
-      <div class="actions">
-        <a href="quote.html" class="btn btn-dark" id="end-cta">Get a free quote</a>
+      <div class="contact-actions">
+        <div class="actions">
+          <a href="quote.html" class="btn btn-dark" id="end-cta">Get a free quote</a>
+          <a href="https://buy.stripe.com/6oU9ATg4GdXc8cz7xk7kc08" class="btn btn-white" id="end-book-cta">Book an hour for £50</a>
+        </div>
+        <p>Or message me on WhatsApp. Search for <strong>@fenegroni</strong> in the app.</p>
       </div>
     </div>
   </section>
@@ -171,7 +270,7 @@
 </footer>
 
 <script>
-  // Show the sticky button on phones only while no other "Get a free quote" button is on screen.
+  // Show the sticky button on phones only while no other quote or booking button is on screen.
   var sticky = document.getElementById('sticky-cta');
   if ('IntersectionObserver' in window) {
     var visible = new Set();
@@ -179,7 +278,7 @@
       entries.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
       sticky.classList.toggle('is-shown', visible.size === 0);
     });
-    ['hero-cta', 'end-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
+    ['path-book-cta', 'path-quote-cta', 'end-cta', 'end-book-cta'].forEach(function (id) { observer.observe(document.getElementById(id)); });
   }
 </script>
 

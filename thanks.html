@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-18">
+<link rel="stylesheet" href="styles.css?v=2026-10-20">
 <script src="site.js?v=2026-10-14" defer></script>
 </head>
 <body>
@@ -49,7 +49,7 @@
 
   <p class="kicker">Payment received</p>
   <h1>Thank you</h1>
-  <p id="thanks-message">Thank you for your payment. I will email you within 2 business days to arrange our video call.</p>
+  <p id="thanks-message">Thank you for your payment. I will contact you within 2 business days to arrange our call.</p>
   <p>Stripe will email you a receipt. If you have any questions in the meantime, email me at <a href="mailto:hello@fenegroni.com">hello@fenegroni.com</a>.</p>
   <p><a href="index.html" class="btn btn-small btn-primary">Back to the homepage</a></p>
 
@@ -68,11 +68,10 @@
 </footer>
 
 <script>
-  // Stripe redirects here with ?offer=small, medium or complex, so each size gets its own message.
+  // Stripe redirects here with ?offer=hour or ?offer=quote, so each way to start gets its own message.
   var messages = {
-    small: "Thank you for paying for a small fix. I will email you within 2 business days to arrange our video call.",
-    medium: "Thank you for paying for a medium fix. I will email you within 2 business days to arrange our video call.",
-    complex: "Thank you for paying for a complex fix. I will email you within 2 business days to arrange our video call. We will agree the date of the follow-up check-in during that call."
+    hour: "Thank you for booking an hour. I will contact you within 2 business days with a few short questions, and we will agree one focus and a time for our video call.",
+    quote: "Thank you for choosing your option. I will contact you within 2 business days to confirm the plan, and we will agree a time for the handover call."
   };
   var offer = new URLSearchParams(location.search).get("offer");
   if (messages[offer]) document.getElementById("thanks-message").textContent = messages[offer];
