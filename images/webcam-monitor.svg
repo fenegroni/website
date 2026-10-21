@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 176" width="240" height="176">
+  <!-- Webcam Monitor: a webcam that raises an alert -->
+  <path d="M90 130 L72 156 H148 L130 130" fill="#1D2B24"/>
+  <circle cx="110" cy="80" r="56" fill="#2E6A4E"/>
+  <circle cx="110" cy="80" r="34" fill="#1D2B24"/>
+  <circle cx="110" cy="80" r="18" fill="#E3EEE7"/>
+  <circle cx="102" cy="72" r="6" fill="#FFFFFF"/>
+  <path d="M176 44 a40 40 0 0 1 0 56 M190 30 a60 60 0 0 1 0 84" fill="none" stroke="#F2B544" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="200" cy="140" r="20" fill="#F2B544"/>
+  <path d="M200 129 v12" stroke="#1D2B24" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="200" cy="150" r="3.5" fill="#1D2B24"/>
+</svg>

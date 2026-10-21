@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-21f">
+<link rel="stylesheet" href="styles.css?v=2026-10-21i">
 <script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
@@ -85,59 +85,10 @@
     </div>
   </section>
 
-  <section class="band-white" id="examples">
-    <div class="wrap section stack">
-      <h2 class="section-title">What a solution could look like</h2>
-      <div class="example-group">
-        <h3>Everyday friction</h3>
-        <div class="examples">
-          <a class="example-link" href="example-adhd-assist.html">
-            <span class="example-tag">Example</span>
-            <span class="example-title">Get Unstuck</span>
-            <span class="example-desc">When I get stuck, it removes friction and brings me my own advice.</span>
-          </a>
-          <a class="example-link" href="example-pillars.html">
-            <span class="example-tag">Example</span>
-            <span class="example-title">Habit Keeper</span>
-            <span class="example-desc">When a week gets busy, it keeps sleep, meds and meals on my calendar.</span>
-          </a>
-          <a class="example-link" href="example-webcam-monitor.html">
-            <span class="example-tag">Example</span>
-            <span class="example-title">Webcam Monitor</span>
-            <span class="example-desc">When my attention drifts or I get tired, it raises an alert my other tools can act on.</span>
-          </a>
-        </div>
-      </div>
-      <div class="example-group">
-        <h3>What an hour can do</h3>
-        <div class="examples">
-          <a class="example-link" href="https://github.com/fenegroni/beamng-dual-speedo">
-            <span class="example-media example-media-dark"><img src="images/dual-speedo.png" width="250" height="100" alt="Two speedometers side by side, showing speed and gear for player 1 and player 2"></span>
-            <span class="example-tag">Trial session</span>
-            <span class="example-title">BeamNG Dual Speedo</span>
-            <span class="example-desc">A beginner with no coding experience built this game mod in about an hour. It shows two speedometers side by side, so two players can drive at once.</span>
-          </a>
-          <a class="example-link" href="example-presentation.html">
-            <span class="example-media"><img src="images/story-first-stack.png" width="685" height="430" alt="A stack of slides from a talk on dog training, built after Story First found the story"></span>
-            <span class="example-tag">Example</span>
-            <span class="example-title">Story First</span>
-            <span class="example-desc">Before I open any slides, it helps me find the story of my talk.</span>
-          </a>
-          <a class="example-link" href="example-midi-sequencer.html">
-            <span class="example-media example-media-cover"><img src="images/midi-sequencer.png" width="882" height="395" alt="The MIDI Sequencer window, playing an eight-bar loop with record, metronome and export controls"></span>
-            <span class="example-tag">Example</span>
-            <span class="example-title">MIDI Sequencer</span>
-            <span class="example-desc">A mod for Claude Code with its own MCP server, so I can make music without leaving Claude.</span>
-          </a>
-        </div>
-      </div>
-      <a class="see-all" href="work.html">More solutions</a>
-    </div>
-  </section>
-
   <section class="wrap section stack" id="how">
     <h2 class="section-title">Choose what suits you best</h2>
-    <div class="paths paths-raised">
+    <!-- The grid fills column by column: each option card sits above its examples. -->
+    <div class="paths paths-raised paths-split">
       <article class="path path-featured">
         <div class="path-head">
           <div class="path-tags">
@@ -148,6 +99,26 @@
         <p class="path-summary">Book one hour on a video call at my founding client rate. We work on your solution together.</p>
         <a href="quote.html#together" class="btn btn-accent" id="path-book-cta">See how to book</a>
       </article>
+      <div class="example-group">
+        <h3>What an hour can do</h3>
+        <div class="examples">
+          <a class="example-link" href="https://github.com/fenegroni/beamng-dual-speedo">
+            <span class="example-media example-media-dark"><img src="images/dual-speedo.png" width="250" height="100" alt="Two speedometers side by side, showing speed and gear for player 1 and player 2"></span>
+            <span class="example-title">BeamNG Dual Speedo</span>
+            <span class="example-desc">A beginner with no coding experience built this game mod in about an hour.</span>
+          </a>
+          <a class="example-link" href="example-presentation.html">
+            <span class="example-media"><img src="images/story-first-stack.png" width="685" height="430" alt="A stack of slides from a talk on dog training, built after Story First found the story"></span>
+            <span class="example-title">Story First</span>
+            <span class="example-desc">Before I open any slides, it helps me find the story of my talk.</span>
+          </a>
+          <a class="example-link" href="example-midi-sequencer.html">
+            <span class="example-media example-media-cover"><img src="images/midi-sequencer.png" width="882" height="395" alt="The MIDI Sequencer window, playing an eight-bar loop with record, metronome and export controls"></span>
+            <span class="example-title">MIDI Sequencer</span>
+            <span class="example-desc">A mod for Claude Code with its own MCP server, so I can make music without leaving Claude.</span>
+          </a>
+        </div>
+      </div>
       <article class="path">
         <div class="path-head">
           <div class="path-tags">
@@ -158,7 +129,28 @@
         <p class="path-summary">Get a free quote. I build the solution for you, at a fixed price we agree upfront.</p>
         <a href="quote.html#quote-form" class="btn btn-dark" id="path-quote-cta">Get a free quote</a>
       </article>
+      <div class="example-group">
+        <h3>Everyday friction</h3>
+        <div class="examples">
+          <a class="example-link" href="example-adhd-assist.html">
+            <span class="example-media"><img src="images/get-unstuck.svg" width="240" height="176" alt="A chat bubble with a lightbulb, offering one small idea"></span>
+            <span class="example-title">Get Unstuck</span>
+            <span class="example-desc">When I get stuck, it removes friction and brings me my own advice.</span>
+          </a>
+          <a class="example-link" href="example-pillars.html">
+            <span class="example-media"><img src="images/habit-keeper.svg" width="240" height="176" alt="A week on a calendar, with sleep, meds and meals blocked in each day"></span>
+            <span class="example-title">Habit Keeper</span>
+            <span class="example-desc">When a week gets busy, it keeps sleep, meds and meals on my calendar.</span>
+          </a>
+          <a class="example-link" href="example-webcam-monitor.html">
+            <span class="example-media"><img src="images/webcam-monitor.svg" width="240" height="176" alt="A webcam sending out an alert"></span>
+            <span class="example-title">Webcam Monitor</span>
+            <span class="example-desc">When my attention drifts or I get tired, it raises an alert my other tools can act on.</span>
+          </a>
+        </div>
+      </div>
     </div>
+    <a class="see-all" href="work.html">More solutions</a>
   </section>
 
   <section class="band-white" id="why">

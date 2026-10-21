@@ -1214,7 +1214,33 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
 .example-group .examples { margin-top: 4px; }
 
 /* The choice cards sit on the page background, so they need a white fill. */
-.paths-raised .path { background: var(--surface); }
+.paths-raised .path, .paths-raised .example-link { background: var(--surface); }
+
+/* Home page choice: each option card sits above its examples, with a line between the two columns. */
+/* Each column holds 5 items: the option card, a small heading and three examples. The groups use
+   display: contents, so all of them share the outer grid's rows. The three 1fr rows make all six
+   example cards as tall as the tallest one, so the two columns line up. */
+.paths-split { position: relative; grid-auto-flow: column; grid-template-rows: auto auto repeat(3, 1fr); gap: 16px 64px; }
+.paths-split::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px solid var(--line); }
+.paths-split .example-group, .paths-split .examples { display: contents; }
+.paths-split .example-group h3 { margin-top: 16px; }
+
+/* In the choice columns each example shows a small picture to the left of its text. */
+.paths-split .example-link { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-content: center; gap: 4px 20px; min-height: 136px; }
+.paths-split .example-link > * { grid-column: 2; }
+.paths-split .example-media { grid-column: 1; grid-row: 1 / span 2; height: 88px; margin: 0; }
+
+@media (max-width: 640px) {
+  .paths-split .example-link { grid-template-columns: 88px minmax(0, 1fr); gap: 4px 14px; }
+  .paths-split .example-media { height: 64px; }
+  .paths-split .example-media:not(.example-media-cover) { padding: 4px; }
+}
+
+@media (max-width: 800px) {
+  .paths-split { grid-auto-flow: row; grid-template-rows: none; gap: 16px; }
+  .paths-split::before { display: none; }
+  .paths-split > .path:not(.path-featured) { margin-top: 32px; }
+}
 
 .example-media {
   display: flex;

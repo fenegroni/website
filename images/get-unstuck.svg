@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 176" width="240" height="176">
+  <!-- Get Unstuck: a chat bubble that offers an idea -->
+  <path d="M40 30 H170 a16 16 0 0 1 16 16 V104 a16 16 0 0 1 -16 16 H96 L68 142 V120 H40 a16 16 0 0 1 -16 -16 V46 a16 16 0 0 1 16 -16 Z" fill="#FFFFFF" stroke="#2E6A4E" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="105" cy="66" r="20" fill="#F2B544"/>
+  <path d="M95 84 h20 v8 a4 4 0 0 1 -4 4 h-12 a4 4 0 0 1 -4 -4 Z" fill="#1D2B24"/>
+  <path d="M105 32 v-10 M75 44 l-8 -6 M135 44 l8 -6" stroke="#F2B544" stroke-width="5" stroke-linecap="round"/>
+  <rect x="150" y="112" width="70" height="38" rx="14" fill="#2E6A4E"/>
+  <circle cx="170" cy="131" r="4" fill="#FFFFFF"/>
+  <circle cx="185" cy="131" r="4" fill="#FFFFFF"/>
+  <circle cx="200" cy="131" r="4" fill="#FFFFFF"/>
+</svg>
