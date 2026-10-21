@@ -1240,7 +1240,34 @@ a.copy-btn { display: inline-flex; align-items: center; text-decoration: none; v
   .paths-split { grid-auto-flow: row; grid-template-rows: none; gap: 16px; }
   .paths-split::before { display: none; }
   .paths-split > .path:not(.path-featured) { margin-top: 32px; }
+
+  /* On phones the examples fold behind a button, so both option cards come one after the other. */
+  .examples-toggle:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 20px;
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+  .examples-toggle::after { content: "\25BE"; font-size: 18px; }
+  .examples-toggle[aria-expanded="true"]::after { content: "\25B4"; }
+  .has-toggle h3 { display: none; }
+  .paths-split .is-folded .example-link { display: none; }
 }
+
+/* On wider screens the examples always show, so the toggle stays out of the grid. */
+.examples-toggle { display: none; }
 
 .example-media {
   display: flex;

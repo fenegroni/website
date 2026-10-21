@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600..800&amp;display=swap">
-<link rel="stylesheet" href="styles.css?v=2026-10-21i">
+<link rel="stylesheet" href="styles.css?v=2026-10-21j">
 <script src="site.js?v=2026-10-20" defer></script>
 </head>
 <body>
@@ -101,7 +101,8 @@
       </article>
       <div class="example-group">
         <h3>What an hour can do</h3>
-        <div class="examples">
+        <button type="button" class="examples-toggle" aria-expanded="false" aria-controls="examples-hour" hidden>Show examples of what an hour can do</button>
+        <div class="examples" id="examples-hour">
           <a class="example-link" href="https://github.com/fenegroni/beamng-dual-speedo">
             <span class="example-media example-media-dark"><img src="images/dual-speedo.png" width="250" height="100" alt="Two speedometers side by side, showing speed and gear for player 1 and player 2"></span>
             <span class="example-title">BeamNG Dual Speedo</span>
@@ -131,7 +132,8 @@
       </article>
       <div class="example-group">
         <h3>Everyday friction</h3>
-        <div class="examples">
+        <button type="button" class="examples-toggle" aria-expanded="false" aria-controls="examples-friction" hidden>Show examples of everyday friction</button>
+        <div class="examples" id="examples-friction">
           <a class="example-link" href="example-adhd-assist.html">
             <span class="example-media"><img src="images/get-unstuck.svg" width="240" height="176" alt="A chat bubble with a lightbulb, offering one small idea"></span>
             <span class="example-title">Get Unstuck</span>
@@ -245,6 +247,20 @@
 </footer>
 
 <script>
+  // On phones each set of examples starts folded, so both option cards come first. Without
+  // JavaScript the buttons stay hidden and the examples stay open.
+  document.querySelectorAll('.examples-toggle').forEach(function (button) {
+    var group = button.closest('.example-group');
+    var label = button.textContent;
+    group.classList.add('has-toggle', 'is-folded');
+    button.hidden = false;
+    button.addEventListener('click', function () {
+      var open = group.classList.toggle('is-folded') === false;
+      button.setAttribute('aria-expanded', open);
+      button.textContent = open ? label.replace('Show', 'Hide') : label;
+    });
+  });
+
   // Show the sticky button on phones only while no other way-to-start button is on screen.
   var sticky = document.getElementById('sticky-cta');
   if ('IntersectionObserver' in window) {
