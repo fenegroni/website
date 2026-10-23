@@ -26,7 +26,7 @@ This repo is the website for fenegroni.com. It is plain static HTML, CSS and Jav
 ## Forms and the Worker
 
 - The quote form on `quote.html` posts `help`, `email`, `name`, the `newsletter` box and the honeypot `website` to `/api/intake`.
-- Every footer and the £50 option have a newsletter form. It posts `email` and the honeypot `website` to `/api/newsletter`.
+- Every footer has a newsletter form. It posts `email` and the honeypot `website` to `/api/newsletter`.
 - A Cloudflare Worker in `worker/` handles `/api/intake`, `/api/newsletter` and `/api/rates`. It emails each form through Cloudflare Email Routing, with Reply-To set to the visitor. `worker/README.md` has the deploy and test steps.
 - The inbox address is the Wrangler secret `TO_ADDRESS`. Never write it into a file in this public repo.
 - A change to `worker/src/index.js` or `worker/wrangler.jsonc` goes live only after `npx wrangler deploy` from `worker/`.
